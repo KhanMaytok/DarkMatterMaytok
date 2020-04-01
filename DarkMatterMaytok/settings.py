@@ -15,7 +15,6 @@ import dj_database_url
 import django_heroku
 from decouple import config
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'payments.apps.PaymentsConfig',
     'rest_framework',
 ]
 
@@ -119,7 +119,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
@@ -127,5 +126,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated'
     ]
 }
+
+CULQI_PUBLIC_KEY = config('CULQI_PUBLIC_KEY', default='I+1PL;2>^^ITSZ}_g.N;vZ-w|zMNm$S6H2~^-MCt#')
+CULQI_PRIVATE_KEY = config('CULQI_PRIVATE_KEY', default='I+1PL;2>^O*L^c}_g.N;vZ-w|zMNm$S6H2~^-MCt#')
 
 django_heroku.settings(locals())
