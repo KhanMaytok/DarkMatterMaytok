@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'payments.apps.PaymentsConfig',
+    'core.apps.CoreConfig',
+    'blog.apps.BlogConfig',
     'rest_framework',
 ]
 
@@ -129,5 +131,7 @@ REST_FRAMEWORK = {
 
 CULQI_PUBLIC_KEY = config('CULQI_PUBLIC_KEY', default='I+1PL;2>^^ITSZ}_g.N;vZ-w|zMNm$S6H2~^-MCt#')
 CULQI_PRIVATE_KEY = config('CULQI_PRIVATE_KEY', default='I+1PL;2>^O*L^c}_g.N;vZ-w|zMNm$S6H2~^-MCt#')
+
+AUTH_USER_MODEL = 'core.User'
 
 django_heroku.settings(locals())
