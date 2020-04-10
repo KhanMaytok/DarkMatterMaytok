@@ -12,4 +12,4 @@ gunicorn==20.0.4
 python-decouple==3.3
 jsonschema
 requests
-
+django-mptt==0.11.0

@@ -3,7 +3,7 @@ from uuid import uuid4
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-
+from mptt.models import MPTTModel, TreeForeignKey
 from core.models import BaseModel
 
 
@@ -12,8 +12,9 @@ class Post(BaseModel):
     uuid = models.UUIDField(default=uuid4)
 
 
-class Comment(BaseModel):
+class Comment(BaseModel, MPTTModel):
     body = models.TextField()
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
