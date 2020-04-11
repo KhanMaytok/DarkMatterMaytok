@@ -47,11 +47,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'mptt',
     'drf_yasg',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -148,5 +150,7 @@ EMAIL_HOST = config('EMAIL_HOST', default='EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', default=123, cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='EMAIL_HOST_PASSWORD')
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 django_heroku.settings(locals())
