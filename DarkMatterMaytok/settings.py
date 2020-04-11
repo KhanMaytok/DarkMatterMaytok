@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'rest_framework',
     'mptt',
+    'drf-yasg',
 ]
 
 MIDDLEWARE = [
