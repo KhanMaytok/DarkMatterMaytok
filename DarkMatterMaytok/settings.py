@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django_comments_xtd',
+    'django_comments',
     'payments.apps.PaymentsConfig',
     'core.apps.CoreConfig',
     'blog.apps.BlogConfig',
@@ -134,5 +137,10 @@ CULQI_PUBLIC_KEY = config('CULQI_PUBLIC_KEY', default='I+1PL;2>^^ITSZ}_g.N;vZ-w|
 CULQI_PRIVATE_KEY = config('CULQI_PRIVATE_KEY', default='I+1PL;2>^O*L^c}_g.N;vZ-w|zMNm$S6H2~^-MCt#')
 
 AUTH_USER_MODEL = 'core.User'
+
+COMMENTS_APP = 'django_comments_xtd'
+COMMENTS_XTD_MAX_THREAD_LEVEL = 1
+COMMENTS_XTD_CONFIRM_EMAIL = True
+
 
 django_heroku.settings(locals())
