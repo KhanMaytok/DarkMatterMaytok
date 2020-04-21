@@ -9,12 +9,16 @@
 
 <body class="loading ajax-loading" data-site-url="https://made.jekyllthemes.io" data-page-url="/">
 
+
 <header class="header--main">
 
     <div class="wrap grid__2-col">
+
+
         <a href="/" class="header__title cc-active">
-            El Universo Maytok
+            Made
         </a>
+
 
         <div class="menu__toggle js-menu-toggle">
             <div class="menu__toggle__icon"><span></span></div>
@@ -23,18 +27,24 @@
         <nav class="header__menu">
             <div class="menu__wrap">
                 <ul class="menu__list">
+
+                    <li class="menu__list__item">
+                        <a href="/" class="menu__list__item__link button--text cc-active">Projects</a>
+                    </li>
+
                     <li class="menu__list__item">
                         <a href="/blog/" class="menu__list__item__link button--text">Blog</a>
                     </li>
 
                     <li class="menu__cta">
-                        <a href="#" class="menu__cta__link button--text contact-trigger js-contact cc-active">Envía un cuervo</a>
+                        <a href="#" class="menu__cta__link button--text contact-trigger js-contact cc-active">Get In
+                            Touch</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <a href="#" class="header__cta button--fill contact-trigger js-contact cc-active">Get In Touch</a>
+        <a href="#" class="header__cta button--fill contact-trigger js-contact cc-active">Envía un cuervo</a>
     </div>
 
 </header>
@@ -82,34 +92,34 @@
                 <div class="contact__wrap">
                     <header class="contact__header">
                         <h2 class="title">Get In Touch</h2>
-                        <p class="subtitle--light">Prefer using email? Say hi at <a
-                                href="mailto: hello@jekyllthemes.io">hello@jekyllthemes.io</a>
+                        <p class="subtitle--light">¿Prefieres algo más directo? Háblanos a <a
+                                href="mailto: hola@maytok.com">hola@maytok.com</a>
                         </p>
                     </header>
 
                     <form method="POST" action="https://formspree.io/xqkdrzoq" class="contact__form">
                         <div class="input-group">
                             <label for="name">Tu nombre</label>
-                            <input type="text" name="name" id="name" placeholder="¿Cómo debería llamarte?"/>
+                            <input type="text" name="name" id="name" placeholder="¿Cómo deberíamos llamarte?"/>
                         </div>
 
                         <div class="input-group">
-                            <label for="email">Tu Email</label>
-                            <input type="email" name="_replyto" id="email" placeholder="¿Cuál es tu email?"/>
+                            <label for="email">Tu email</label>
+                            <input type="email" name="email" id="_replyto" placeholder="¿Cuál es tu email?"/>
                         </div>
 
                         <div class="input-group">
-                            <label for="message">Tu Mensaje</label>
-                            <textarea name="message" id="message" placeholder="¿Qué quieres decirme?"
+                            <label for="message">Tu mensaje</label>
+                            <textarea name="message" id="message" placeholder="¿Qué nos quieres decir?"
                                       rows="4"></textarea>
                         </div>
 
                         <input type="hidden" name="_next" value="/thanks"/>
-                        <input type="hidden" name="_subject" value="Envíame un cuervo"/>
+                        <input type="hidden" name="_subject" value="Contact form submission"/>
                         <input type="text" name="_gotcha" style="display: none;" class="contact-form__gotcha" val=""/>
 
                         <div class="input-submit">
-                            <input type="submit" class="button--fill" value="Get in Touch"/>
+                            <input type="submit" class="button--fill" value="Enviar"/>
                         </div>
                     </form>
                 </div>
