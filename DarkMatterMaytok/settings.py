@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'payments.apps.PaymentsConfig',
     'core.apps.CoreConfig',
     'blog.apps.BlogConfig',
+    'books.apps.BooksConfig',
     'rest_framework',
     'mptt',
     'drf_yasg',
