@@ -9,18 +9,8 @@ from core.models import BaseModel
 
 class Post(BaseModel):
     title = models.CharField(max_length=255)
-    uuid = models.UUIDField(default=uuid4, unique=True)
+    excerpt = models.TextField(null=True)
+    body = models.TextField(null=True)
 
     def __str__(self):
         return self.title
-
-
-class Comment(BaseModel, MPTTModel):
-    body = models.TextField()
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey('content_type', 'object_id')
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
-
-    def __str__(self):
-        return self.body

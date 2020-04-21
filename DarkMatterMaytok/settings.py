@@ -155,4 +155,8 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "assets"),
+]
+
 django_heroku.settings(locals())
