@@ -1,9 +1,5 @@
-from uuid import uuid4
-
-from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from mptt.models import MPTTModel, TreeForeignKey
 from core.models import BaseModel
 
 
