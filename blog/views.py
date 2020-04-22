@@ -2,10 +2,12 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 
 from blog.models import Post
+from books.models import Book
 
 
 def home(request):
-    return render(request, 'blog/home.html')
+    books = Book.objects.all().values('id', 'cover')
+    return render(request, 'blog/home.html', {'books': books})
 
 
 def blog(request, page=1):
