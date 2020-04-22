@@ -36,6 +36,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('payments/', include('payments.urls')),
     path('', include('blog.urls')),
+    path('', include('books.urls')),
     path('comments/', include('django_comments_xtd.urls')),
 
     path('swagger.json', schema_view.without_ui(cache_timeout=0), name='schema-json'),
