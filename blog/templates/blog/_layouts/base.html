@@ -46,7 +46,7 @@
                             </h3>
                             <div class="project__images owl-carousel" style="--accent: #4C60E6">
                                 {% for book in books %}
-                                    <a href="{% url 'book_show' pk=book.id %}">
+                                    <a href="{% url 'book_show' pk=book.id slug=None %}">
                                         <img src="{{ book.cover }}" alt="" class="project__image"/>
                                     </a>
                                 {% endfor %}
