@@ -1,408 +1,219 @@
 {% load static %}
 <!DOCTYPE html>
 <html class="no-js" lang="es">
-
 <head>
     <title>{% block title %}El Universo Maytok{% endblock %}</title>
     {% include 'blog/_includes/head.html' %}
 </head>
 
-<body class="loading ajax-loading" data-site-url="https://made.jekyllthemes.io" data-page-url="/">
-
-
+<body class="loading ajax-loading" data-site-url="https://www.maytok.com" data-page-url="{{ request.path }}">
 <header class="header--main">
-
-    <div class="wrap grid__2-col">
-
-
-        <a href="/" class="header__title cc-active">
-            El MaytokVerso
-        </a>
-
-
-        <div class="menu__toggle js-menu-toggle">
-            <div class="menu__toggle__icon"><span></span></div>
-        </div>
-
-        <nav class="header__menu">
-            <div class="menu__wrap">
-                <ul class="menu__list">
-
-                    <li class="menu__list__item">
-                        <a href="/" class="menu__list__item__link button--text cc-active">Inicio</a>
-                    </li>
-
-                    <li class="menu__list__item">
-                        <a href="/blog/" class="menu__list__item__link button--text">Blog</a>
-                    </li>
-
-                    <li class="menu__cta">
-                        <a href="#" class="menu__cta__link button--text contact-trigger js-contact cc-active">Envía un cuervo</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <a href="#" class="header__cta button--fill contact-trigger js-contact cc-active">Envía un cuervo</a>
-    </div>
-
+    {% include 'blog/_includes/header.html' %}
 </header>
 
-
-<div class="loader">
-    <svg width="120" height="30" viewbox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="15" cy="15" r="15"/>
-        <animate attributename="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcmode="linear"
-                 repeatcount="indefinite">
-            <animate attributename="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1"
-                     calcmode="linear" repeatcount="indefinite">
-
-                <circle cx="60" cy="15" r="9" fill-opacity="0.3"/>
-                <animate attributename="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcmode="linear"
-                         repeatcount="indefinite">
-                    <animate attributename="fill-opacity" from="0.5" to="0.5" begin="0s" dur="0.8s" values=".5;1;.5"
-                             calcmode="linear" repeatcount="indefinite">
-
-                        <circle cx="105" cy="15" r="15"/>
-                        <animate attributename="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15"
-                                 calcmode="linear" repeatcount="indefinite">
-                            <animate attributename="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1"
-                                     calcmode="linear" repeatcount="indefinite">
-
-                            </animate>
-                        </animate>
-                    </animate>
-                </animate>
-            </animate>
-        </animate>
-    </svg>
-</div>
+{% include 'blog/_includes/loader.html' %}
 
 <div class="page-loader"></div>
 
-
 <div class="page">
-    <div class="page__content" data-page-title="Made – For designers and web developers">
+    {% block content %}
+        <div class="page__content" data-page-title="El Universo Maytok">
 
-        <section class="contact">
-            <button class="button--close-modal"></button>
+            {% include 'blog/_includes/contact.html' %}
 
-            <div class="wrap">
-                <div class="contact__wrap">
-                    <header class="contact__header">
-                        <h2 class="title">Get In Touch</h2>
-                        <p class="subtitle--light">¿Prefieres algo más directo? Háblanos a <a
-                                href="mailto: hola@maytok.com">hola@maytok.com</a>
+            <div class="page-home">
+                <img src="{% static 'blog/svg/background-hero.svg' %}" class="hero__background" draggable="false"/>
+                <section class="hero">
+                    <div class="wrap grid">
+                        <div class="title">
+                            <p class="subtitle">Bienvenido a </p>
+                            <h1>la Telaraña</h1>
+                        </div>
+                        <p class="intro subtitle--light">
+                            Show off your best work with this beautiful, minimal and customizable portfolio theme.
+                            <a href="#" class="hero__cta button--fill contact-trigger js-contact cc-active">Get In
+                                Touch</a>
                         </p>
-                    </header>
+                    </div>
+                </section>
 
-                    <form method="POST" action="https://formspree.io/xqkdrzoq" class="contact__form">
-                        <div class="input-group">
-                            <label for="name">Tu nombre</label>
-                            <input type="text" name="name" id="name" placeholder="¿Cómo deberíamos llamarte?"/>
+                <section class="listing">
+                    <div class="wrap">
+                        <article class="project__preview">
+                            <h3 class="project__title">
+                                <a href="/project/mobile-app" style="--accent: #4C60E6">Los libros</a>
+                            </h3>
+                            <div class="project__images owl-carousel" style="--accent: #4C60E6">
+                                <a href="/project/mobile-app"><img
+                                        src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/de3b0097fcb1638eb297c1220776c510.jpg"
+                                        alt="" class="project__image"
+                                        data-cms-original-src="/images/projects/project-2-1.jpg"/></a>
+
+                                <a href="/project/mobile-app"><img
+                                        src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/4ebc7d937c1f5320b4cb2a73ed44c999.jpg"
+                                        alt="" class="project__image"
+                                        data-cms-original-src="/images/projects/project-2-2.jpg"/></a>
+
+                                <a href="/project/mobile-app"><img
+                                        src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/5bced32c395cc3d84f8253eda8ffe320.jpg"
+                                        alt="" class="project__image"
+                                        data-cms-original-src="/images/projects/project-2-3.jpg"/></a>
+
+                                <a href="/project/mobile-app"><img
+                                        src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/888b2550bd53547b559dae906f354e13.jpg"
+                                        alt="" class="project__image"
+                                        data-cms-original-src="/images/projects/project-2-4.jpg"/></a>
+                            </div>
+
+                            <div class="project__content grid" style="border-color: #4C60E6">
+                                <p class="project__subtitle subtitle--light">High-fidelity mobile app designs for a
+                                    super
+                                    awesome social media company.</p>
+                                <p class="project__description --small">
+                                    This is a demo post that shows what you can do inside portfolio and blog posts.
+                                    We’ve
+                                    included everything you need to create engaging posts and case studies to show off
+                                    your
+                                    work in a beautiful way.
+                                    <a href="/project/mobile-app" class="project__link button--text --right"
+                                       style="color: #4C60E6; --color-var: #4C60E6">View Case Study</a>
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                {% comment %}
+
+                <section class="about">
+
+                    <div class="wrap grid">
+
+                        <div class="about__image">
+                            <img src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/14f5fd9294272910cc2d607439f07189.jpg"
+                                 alt="" data-cms-original-src="/images/profile.jpg"/>
+
+                            <ul class="socials">
+
+
+                                <li class="socials__item">
+                                    <a href="https://www.facebook.com/jekyllthemes/" target="_blank"
+                                       class="socials__item__link" title="Facebook">
+                                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+
+                                <li class="socials__item">
+                                    <a href="https://twitter.com/jekyllthemesio" target="_blank"
+                                       class="socials__item__link"
+                                       title="Twitter">
+                                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+
+                                <li class="socials__item">
+                                    <a href="http://instagram.com" target="_blank" class="socials__item__link"
+                                       title="Instagram">
+                                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+
+                                <li class="socials__item">
+                                    <a href="https://medium.com/" target="_blank" class="socials__item__link"
+                                       title="Medium">
+                                        <i class="fab fa-medium" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+
+                                <li class="socials__item">
+                                    <a href="https://github.com/" target="_blank" class="socials__item__link"
+                                       title="Github">
+                                        <i class="fab fa-github" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+
+                            </ul>
                         </div>
 
-                        <div class="input-group">
-                            <label for="email">Tu email</label>
-                            <input type="email" name="email" id="_replyto" placeholder="¿Cuál es tu email?"/>
+                        <div class="about__content">
+                            <h2 class="title">Hey, I’m Jonathan, nice to meet you!</h2>
+                            <p class="subtitle subtitle--light">I’m a designer and a developer with over 12 years of
+                                experience under my belt.
+                            </p>
+
+                            <p>My skills include product design, interactive design, aesthetic art direction,
+                                prototyping,
+                                mobile design,
+                                branding, front-end development and team leadership. I’m interested in clean aesthetics,
+                                minimalism, unusual
+                                typography, photography and simplistic UX solutions.</p>
+                            <p>I’d love to learn about your company and see how I can help, feel free to send me an
+                                email!</p>
+
+                            <a href="#" class="cta button--fill contact-trigger js-contact cc-active">Get in Touch</a>
+                        </div>
+                    </div>
+                </section>
+
+                {% endcomment %}
+
+                <section class="recent-posts">
+                    <div class="wrap grid">
+                        <header class="recent-posts__header">
+                            <h4>Lo más reciente</h4>
+                            <a href="/blog" class="action button--text--accent --right">Todos los posts</a>
+                        </header>
+
+                        <div class="recent-posts__list grid">
+
+                            <article class="post__card">
+                                <a href="/blog/shipping-container-art" class="post__link">
+                                    <div class="post__image"
+                                         style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/bf1cffdf8159992a7ec5b36f1c96ebf8.jpg)"
+                                         data-cms-original-style="background-image: url(/images/demo/blog-02.jpg)">
+                                    </div>
+                                    <time class="post__date label--small">June 30, 2019</time>
+                                    <h5 class="post__title subtitle">Shipping container art</h5>
+                                </a>
+                            </article>
+
+                            <article class="post__card">
+                                <a href="/blog/new-amsterdam" class="post__link">
+                                    <div class="post__image"
+                                         style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/7d1570e7b854a9747d5d06853f61831c.jpg)"
+                                         data-cms-original-style="background-image: url(/images/demo/blog-01.jpg)">
+                                    </div>
+                                    <time class="post__date label--small">June 29, 2019</time>
+                                    <h5 class="post__title subtitle">New Amsterdam</h5>
+                                </a>
+                            </article>
+
+                            <article class="post__card">
+                                <a href="/blog/graffiti" class="post__link">
+                                    <div class="post__image"
+                                         style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/0158675b84a261e4638c9783f9df5786.jpg)"
+                                         data-cms-original-style="background-image: url(/images/demo/blog-03.jpg)">
+                                    </div>
+                                    <time class="post__date label--small">June 28, 2019</time>
+                                    <h5 class="post__title subtitle">Graffiti</h5>
+                                </a>
+                            </article>
+
                         </div>
 
-                        <div class="input-group">
-                            <label for="message">Tu mensaje</label>
-                            <textarea name="message" id="message" placeholder="¿Qué nos quieres decir?"
-                                      rows="4"></textarea>
-                        </div>
-
-                        <input type="hidden" name="_next" value="/thanks"/>
-                        <input type="hidden" name="_subject" value="Contact form submission"/>
-                        <input type="text" name="_gotcha" style="display: none;" class="contact-form__gotcha" val=""/>
-
-                        <div class="input-submit">
-                            <input type="submit" class="button--fill" value="Enviar"/>
-                        </div>
-                    </form>
-                </div>
+                        <a href="/blog" class="action-bottom button--text--accent --right">All Posts</a>
+                    </div>
+                </section>
             </div>
-        </section>
 
-        <div class="page-home">
-
-
-            <img src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/f6faab65951d8a814a63e2a7d9e61b66.svg"
-                 class="hero__background" draggable="false"
-                 data-cms-original-src="/images/backgrounds/background-hero.svg"/>
-
-
-            <section class="hero">
-                <div class="wrap grid">
-                    <div class="title">
-                        <p class="subtitle">Made is a Jekyll theme</p>
-                        <h1>For designers and web developers</h1>
-                    </div>
-
-                    <p class="intro subtitle--light">
-                        Show off your best work with this beautiful, minimal and customizable portfolio theme.
-                        <a href="#" class="hero__cta button--fill contact-trigger js-contact cc-active">Get In Touch</a>
-                    </p>
-                </div>
-            </section>
-
-            <section class="listing">
-                <div class="wrap">
-
-
-                    <article class="project__preview">
-                        <h3 class="project__title"><a href="/project/mobile-app" style="--accent: #4C60E6">Mobile
-                            app</a></h3>
-
-                        <div class="project__images owl-carousel" style="--accent: #4C60E6">
-
-                            <a href="/project/mobile-app"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/de3b0097fcb1638eb297c1220776c510.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-2-1.jpg"/></a>
-
-                            <a href="/project/mobile-app"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/4ebc7d937c1f5320b4cb2a73ed44c999.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-2-2.jpg"/></a>
-
-                            <a href="/project/mobile-app"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/5bced32c395cc3d84f8253eda8ffe320.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-2-3.jpg"/></a>
-
-                            <a href="/project/mobile-app"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/888b2550bd53547b559dae906f354e13.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-2-4.jpg"/></a>
-
-                        </div>
-
-                        <div class="project__content grid" style="border-color: #4C60E6">
-                            <p class="project__subtitle subtitle--light">High-fidelity mobile app designs for a super
-                                awesome social media company.</p>
-                            <p class="project__description --small">
-                                This is a demo post that shows what you can do inside portfolio and blog posts. We’ve
-                                included everything you need to create engaging posts and case studies to show off your
-                                work in a beautiful way.
-                                <a href="/project/mobile-app" class="project__link button--text --right"
-                                   style="color: #4C60E6; --color-var: #4C60E6">View Case Study</a>
-                            </p>
-                        </div>
-                    </article>
-
-
-                    <article class="project__preview">
-                        <h3 class="project__title"><a href="/project/company-website" style="--accent: #2bb8b8">Company
-                            website</a></h3>
-
-                        <div class="project__images owl-carousel" style="--accent: #2bb8b8">
-
-                            <a href="/project/company-website"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/058c22dd302acfc2671c42ef5aecbaa6.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-1-1.jpg"/></a>
-
-                            <a href="/project/company-website"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/cc6b44a135eac3e9d231a356cc2389ec.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-1-2.jpg"/></a>
-
-                            <a href="/project/company-website"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/7c900107ecc995f9bf40e41e38d987f2.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-1-3.jpg"/></a>
-
-                            <a href="/project/company-website"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/e4ff7d9b79383c1d45db7bcf71fced55.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-1-4.jpg"/></a>
-
-                        </div>
-
-                        <div class="project__content grid" style="border-color: #2bb8b8">
-                            <p class="project__subtitle subtitle--light">A lovely new website design for this household
-                                name technology company.</p>
-                            <p class="project__description --small">
-                                This is a demo post that shows what you can do inside portfolio and blog posts. We’ve
-                                included everything you need to create engaging posts and case studies to show off your
-                                work in a beautiful way.
-                                <a href="/project/company-website" class="project__link button--text --right"
-                                   style="color: #2bb8b8; --color-var: #2bb8b8">View Case Study</a>
-                            </p>
-                        </div>
-                    </article>
-
-
-                    <article class="project__preview">
-                        <h3 class="project__title"><a href="/project/landing-page-elements" style="--accent: #996FCF">Landing
-                            page kit</a></h3>
-
-                        <div class="project__images owl-carousel" style="--accent: #996FCF">
-
-                            <a href="/project/landing-page-elements"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/b4457bd5ec7635e4e5d789541ac0cb55.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-3-1.jpg"/></a>
-
-                            <a href="/project/landing-page-elements"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/63c7b887e301fc5bdb3a2b8570bd7e56.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-3-2.jpg"/></a>
-
-                            <a href="/project/landing-page-elements"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/a3e51d187c2e8909ab9c134d0d18accf.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-3-3.jpg"/></a>
-
-                            <a href="/project/landing-page-elements"><img
-                                    src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/a8ba89b5bd4d4eb129d323aa741cd4e2.jpg"
-                                    alt="" class="project__image"
-                                    data-cms-original-src="/images/projects/project-3-4.jpg"/></a>
-
-                        </div>
-
-                        <div class="project__content grid" style="border-color: #996FCF">
-                            <p class="project__subtitle subtitle--light">An amazing user interface kit for this
-                                well-known design software brand.</p>
-                            <p class="project__description --small">
-                                This is a demo post that shows what you can do inside portfolio and blog posts. We’ve
-                                included everything you need to create engaging posts and case studies to show off your
-                                work in a beautiful way.
-                                <a href="/project/landing-page-elements" class="project__link button--text --right"
-                                   style="color: #996FCF; --color-var: #996FCF">View Case Study</a>
-                            </p>
-                        </div>
-                    </article>
-
-
-                </div>
-            </section>
-
-            <section class="about">
-
-                <div class="wrap grid">
-
-                    <div class="about__image">
-                        <img src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/14f5fd9294272910cc2d607439f07189.jpg"
-                             alt="" data-cms-original-src="/images/profile.jpg"/>
-
-                        <ul class="socials">
-
-
-                            <li class="socials__item">
-                                <a href="https://www.facebook.com/jekyllthemes/" target="_blank"
-                                   class="socials__item__link" title="Facebook">
-                                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                                </a>
-                            </li>
-
-
-                            <li class="socials__item">
-                                <a href="https://twitter.com/jekyllthemesio" target="_blank" class="socials__item__link"
-                                   title="Twitter">
-                                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                                </a>
-                            </li>
-
-
-                            <li class="socials__item">
-                                <a href="http://instagram.com" target="_blank" class="socials__item__link"
-                                   title="Instagram">
-                                    <i class="fab fa-instagram" aria-hidden="true"></i>
-                                </a>
-                            </li>
-
-
-                            <li class="socials__item">
-                                <a href="https://medium.com/" target="_blank" class="socials__item__link"
-                                   title="Medium">
-                                    <i class="fab fa-medium" aria-hidden="true"></i>
-                                </a>
-                            </li>
-
-
-                            <li class="socials__item">
-                                <a href="https://github.com/" target="_blank" class="socials__item__link"
-                                   title="Github">
-                                    <i class="fab fa-github" aria-hidden="true"></i>
-                                </a>
-                            </li>
-
-
-                        </ul>
-                    </div>
-
-                    <div class="about__content">
-                        <h2 class="title">Hey, I’m Jonathan, nice to meet you!</h2>
-                        <p class="subtitle subtitle--light">I’m a designer and a developer with over 12 years of
-                            experience under my belt.
-                        </p>
-
-                        <p>My skills include product design, interactive design, aesthetic art direction, prototyping,
-                            mobile design,
-                            branding, front-end development and team leadership. I’m interested in clean aesthetics,
-                            minimalism, unusual
-                            typography, photography and simplistic UX solutions.</p>
-                        <p>I’d love to learn about your company and see how I can help, feel free to send me an
-                            email!</p>
-
-                        <a href="#" class="cta button--fill contact-trigger js-contact cc-active">Get in Touch</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="recent-posts">
-                <div class="wrap grid">
-                    <header class="recent-posts__header">
-                        <h4>Recent blog posts</h4>
-                        <a href="/blog" class="action button--text--accent --right">All Posts</a>
-                    </header>
-
-                    <div class="recent-posts__list grid">
-
-                        <article class="post__card">
-                            <a href="/blog/shipping-container-art" class="post__link">
-                                <div class="post__image"
-                                     style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/bf1cffdf8159992a7ec5b36f1c96ebf8.jpg)"
-                                     data-cms-original-style="background-image: url(/images/demo/blog-02.jpg)">
-                                </div>
-                                <time class="post__date label--small">June 30, 2019</time>
-                                <h5 class="post__title subtitle">Shipping container art</h5>
-                            </a>
-                        </article>
-
-                        <article class="post__card">
-                            <a href="/blog/new-amsterdam" class="post__link">
-                                <div class="post__image"
-                                     style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/7d1570e7b854a9747d5d06853f61831c.jpg)"
-                                     data-cms-original-style="background-image: url(/images/demo/blog-01.jpg)">
-                                </div>
-                                <time class="post__date label--small">June 29, 2019</time>
-                                <h5 class="post__title subtitle">New Amsterdam</h5>
-                            </a>
-                        </article>
-
-                        <article class="post__card">
-                            <a href="/blog/graffiti" class="post__link">
-                                <div class="post__image"
-                                     style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/0158675b84a261e4638c9783f9df5786.jpg)"
-                                     data-cms-original-style="background-image: url(/images/demo/blog-03.jpg)">
-                                </div>
-                                <time class="post__date label--small">June 28, 2019</time>
-                                <h5 class="post__title subtitle">Graffiti</h5>
-                            </a>
-                        </article>
-
-                    </div>
-
-                    <a href="/blog" class="action-bottom button--text--accent --right">All Posts</a>
-                </div>
-            </section>
         </div>
+    {% endblock %}
 
-    </div>
 </div>
 
 
@@ -411,20 +222,16 @@
 
 
         <a href="/" class="footer__title cc-active">
-            made
+            Sakya | Pentaghast
         </a>
 
 
         <div class="footer__copyright">
-
-            <p>a beautiful, minimal portfolio jekyll theme</p>
-
-            <span class="footnote">© 2019 made</span>
-            <a href="https://jekyllthemes.io" class="footnote" target="_blank">jekyll themes</a>
+            <p>Descubre la verdad</p>
+            <span class="footnote">© 2020 El Universo Maytok</span>
         </div>
 
     </div>
-
 
     <!-- javascript assets -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -12,5 +12,8 @@ class Post(BaseModel):
     excerpt = models.TextField(null=True)
     body = models.TextField(null=True)
 
+    class Meta:
+        ordering = ['-pk']
+
     def __str__(self):
         return self.title

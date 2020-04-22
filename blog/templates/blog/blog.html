@@ -1,0 +1,138 @@
+{% extends 'blog/_layouts/base.html' %}
+
+{% block content %}
+    <div class="page__content" data-page-title="Blog – El Universo Maytok">
+
+        {% include 'blog/_includes/contact.html' %}
+
+        <div class="page-blog">
+            <header class="header--single">
+                <div class="wrap">
+                    <h1 class="header__title">Blog</h1>
+                    <p class="header__subtitle subtitle--light">
+                        Lee las últimas noticias acerca de... todo
+                    </p>
+                </div>
+            </header>
+
+            <section class="all-posts">
+                <div class="wrap">
+                    <div class="posts__list grid">
+                    {% for post in posts %}
+                        <article class="post post-new">
+                            <div class="grid">
+                                <a href="/blog/shipping-container-art">
+                                    <div class="post__image post__image--new"
+                                         style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/bf1cffdf8159992a7ec5b36f1c96ebf8.jpg)"
+                                         data-cms-original-style="background-image: url(/images/demo/blog-02.jpg)">
+                                    </div>
+                                </a>
+
+                                <div class="post__content-wrap">
+                                    <div class="post__content">
+                                        <time class="post__date label--small">June 30, 2019</time>
+                                        <h2 class="post__title h4"><a href="/blog/shipping-container-art">Shipping
+                                            container art</a></h2>
+                                        <p class="post__subtitle"></p>
+                                        <p class="post__description">This is a demo post that shows what you can do
+                                            inside portfolio and blog posts. We’ve included everything you need to
+                                            create engaging posts and case studies to show off your work in a beautiful
+                                            way.</p>
+                                        <a href="/blog/shipping-container-art"
+                                           class="post__link button--text--accent --right">Keep Reading</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                        <article class="post__card">
+                            <a href="/blog/new-amsterdam" class="post__link">
+                                <div class="post__image"
+                                     style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/7d1570e7b854a9747d5d06853f61831c.jpg)"
+                                     data-cms-original-style="background-image: url(/images/demo/blog-01.jpg)">
+                                </div>
+                                <time class="post__date label--small">June 29, 2019</time>
+                                <h5 class="post__title subtitle">New Amsterdam</h5>
+                            </a>
+                        </article>
+
+
+                        <article class="post__card">
+                            <a href="/blog/graffiti" class="post__link">
+                                <div class="post__image"
+                                     style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/0158675b84a261e4638c9783f9df5786.jpg)"
+                                     data-cms-original-style="background-image: url(/images/demo/blog-03.jpg)">
+                                </div>
+                                <time class="post__date label--small">June 28, 2019</time>
+                                <h5 class="post__title subtitle">Graffiti</h5>
+                            </a>
+                        </article>
+
+
+                        <article class="post__card">
+                            <a href="/blog/skate-trip" class="post__link">
+                                <div class="post__image"
+                                     style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/914df8c531972870928a616e0061ec24.jpg)"
+                                     data-cms-original-style="background-image: url(/images/demo/blog-04.jpg)">
+                                </div>
+                                <time class="post__date label--small">June 27, 2019</time>
+                                <h5 class="post__title subtitle">Skate trip</h5>
+                            </a>
+                        </article>
+
+
+                        <article class="post__card">
+                            <a href="/blog/exploring-at-night" class="post__link">
+                                <div class="post__image"
+                                     style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/06d0af96ad9049eef6cebf4ed5feb052.jpg)"
+                                     data-cms-original-style="background-image: url(/images/demo/blog-05.jpg)">
+                                </div>
+                                <time class="post__date label--small">June 26, 2019</time>
+                                <h5 class="post__title subtitle">Exploring at night</h5>
+                            </a>
+                        </article>
+
+
+                        <article class="post__card">
+                            <a href="/blog/graffiti-underpass" class="post__link">
+                                <div class="post__image"
+                                     style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/74d64a0235fd9ae6755ed7d9f2e8ea7c.jpg)"
+                                     data-cms-original-style="background-image: url(/images/demo/blog-06.jpg)">
+                                </div>
+                                <time class="post__date label--small">June 25, 2019</time>
+                                <h5 class="post__title subtitle">Graffiti underpass</h5>
+                            </a>
+                        </article>
+
+
+                        <article class="post__card">
+                            <a href="/blog/you-are-here" class="post__link">
+                                <div class="post__image"
+                                     style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/2bc5e65ad79b272faecab64a386d2082.jpg)"
+                                     data-cms-original-style="background-image: url(/images/demo/blog-07.jpg)">
+                                </div>
+                                <time class="post__date label--small">June 24, 2019</time>
+                                <h5 class="post__title subtitle">You are here</h5>
+                            </a>
+                        </article>
+
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="pagination">
+                <div class="wrap">
+
+
+                    <a href="/blog/page-2/" class="button--text--accent --right pagination__next">Older Posts</a>
+
+                </div>
+            </section>
+
+
+        </div>
+
+    </div>
+{% endblock %}

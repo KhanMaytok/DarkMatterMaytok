@@ -1,0 +1,40 @@
+<section class="contact">
+                <button class="button--close-modal"></button>
+                <div class="wrap">
+                    <div class="contact__wrap">
+                        <header class="contact__header">
+                            <h2 class="title">Get In Touch</h2>
+                            <p class="subtitle--light">¿Prefieres algo más directo? Háblanos a <a
+                                    href="mailto: hola@maytok.com">hola@maytok.com</a>
+                            </p>
+                        </header>
+
+                        <form method="POST" action="https://formspree.io/xqkdrzoq" class="contact__form">
+                            <div class="input-group">
+                                <label for="name">Tu nombre</label>
+                                <input type="text" name="name" id="name" placeholder="¿Cómo deberíamos llamarte?"/>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="email">Tu email</label>
+                                <input type="email" name="email" id="_replyto" placeholder="¿Cuál es tu email?"/>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="message">Tu mensaje</label>
+                                <textarea name="message" id="message" placeholder="¿Qué nos quieres decir?"
+                                          rows="4"></textarea>
+                            </div>
+
+                            <input type="hidden" name="_next" value="/thanks"/>
+                            <input type="hidden" name="_subject" value="Contact form submission"/>
+                            <input type="text" name="_gotcha" style="display: none;" class="contact-form__gotcha"
+                                   val=""/>
+
+                            <div class="input-submit">
+                                <input type="submit" class="button--fill" value="Enviar"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
