@@ -8,7 +8,7 @@ from core.models import BaseModel
 
 class Book(BaseModel):
     name = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, null=True)
+    slug = models.SlugField(max_length=255, null=True, blank=True)
     cover = models.CharField(max_length=255, null=True)
 
     def save(self, *args, **kwargs):
@@ -23,6 +23,9 @@ class Chapter(BaseModel):
     book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=255)
     number = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        ordering = ['number']
 
     def __str__(self):
         return self.name
