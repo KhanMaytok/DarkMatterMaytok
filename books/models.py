@@ -8,6 +8,7 @@ from core.models import BaseModel
 
 class Book(BaseModel):
     name = models.CharField(max_length=255)
+    description = models.TextField(null=True)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     cover = models.CharField(max_length=255, null=True)
 
