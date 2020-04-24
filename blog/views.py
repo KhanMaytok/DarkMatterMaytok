@@ -18,3 +18,8 @@ def blog(request, page=1):
     page_number = page
     posts = paginator.get_page(page_number)
     return render(request, 'blog/blog.html', {'posts': posts})
+
+
+def blog_post(request, pk=None, slug=None):
+    post = get_object_or_404(Post, pk=pk, slug=slug)
+    return render(request, 'blog/post.html', {'post': post})
