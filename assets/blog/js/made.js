@@ -255,7 +255,7 @@
                     }
 
                     // When scrolling over the bottom
-                    var waypoint1 = new Waypoint({
+                    let waypoint1 = new Waypoint({
                         element: document.getElementById(thisId),
                         handler: function (direction) {
 
