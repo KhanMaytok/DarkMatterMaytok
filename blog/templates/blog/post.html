@@ -1,0 +1,29 @@
+{% extends 'blog/_layouts/base.html' %}
+
+{% block content %}
+    <div class="page__content" data-page-title="{{ post.name }} | El Universo Maytok">
+        {% include 'blog/_includes/contact.html' %}
+
+        <div class="page-post">
+            <header class="post__header header--single">
+                <div class="wrap">
+                    <h1 class="post__title">{{ post.name }}</h1>
+                    <time class="post__date label">{{ post.created_at | date:"M d, Y" }}</time>
+                </div>
+                <img src="https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/bf1cffdf8159992a7ec5b36f1c96ebf8.jpg"
+                     class="post__featured-image" data-cms-original-src="/images/demo/blog-02.jpg"/>
+            </header>
+
+            <section class="post-full">
+                <div class="wrap">
+                    <article class="post__content ">
+                        {{ post.body }}
+                    </article>
+                    <div class="post__more grid">
+                        <a class="prev-post subtitle" href="/blog/new-amsterdam">New Amsterdam</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
