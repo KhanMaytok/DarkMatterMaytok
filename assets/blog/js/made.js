@@ -246,14 +246,9 @@
                         autoplay: false,
                         autoplayTimeout: 6000,
                         autoHeight: true,
-                        animateOut: 'fadeOut',
-                        onDragged: changeSubtitle
+                        animateOut: 'fadeOut'
+
                     });
-
-                    function changeSubtitle(event) {
-                        console.log(event)
-                    }
-
                     // When scrolling over the bottom
                     let waypoint1 = new Waypoint({
                         element: document.getElementById(thisId),
@@ -326,8 +321,8 @@
         });
 
         $('.project__images').each(function () {
-            var $this = $(this);
-
+            let $this = $(this);
+            console.log('Inicializando carrouselito');
             $this.imagesLoaded(function () {
                 $this.owlCarousel({
                     items: 1,
