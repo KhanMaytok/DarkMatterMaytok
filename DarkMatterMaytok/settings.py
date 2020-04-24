@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'mptt',
     'drf_yasg',
     'corsheaders',
+    'markdownx',
 ]
 
 MIDDLEWARE = [
