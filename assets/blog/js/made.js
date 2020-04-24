@@ -329,11 +329,15 @@
                     touchDrag: true,
                     dots: true,
                     autoHeight: true,
-                    margin: 20
+                    margin: 20,
+                    onDragged: changeSubtitle
                 });
             });
-        })
+        });
 
+        function changeSubtitle(event) {
+            console.log(event);
+        }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Images
 
