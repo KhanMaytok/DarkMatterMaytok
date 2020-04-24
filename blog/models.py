@@ -10,8 +10,8 @@ class Post(BaseModel):
     name = models.CharField(max_length=255)
     slug = models.SlugField(null=True)
     image = models.CharField(max_length=255, null=True)
-    description = MarkdownxField(null=True)
-    body = models.TextField(null=True)
+    description = models.TextField(null=True)
+    body = MarkdownxField(null=True)
 
     class Meta:
         ordering = ['-pk']
