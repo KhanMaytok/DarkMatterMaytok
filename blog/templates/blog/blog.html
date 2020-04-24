@@ -19,7 +19,7 @@
                 <div class="wrap">
                     <div class="posts__list grid">
                         {% for post in posts %}
-                            {% if posts | first %}
+                            {% if forloop.first %}
                                 <article class="post post-new">
                                     <div class="grid">
                                         <a href="/blog/shipping-container-art">
@@ -43,17 +43,18 @@
                                         </div>
                                     </div>
                                 </article>
+                            {% else %}
+                                <article class="post__card">
+                                    <a href="/blog/new-amsterdam" class="post__link">
+                                        <div class="post__image"
+                                             style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/7d1570e7b854a9747d5d06853f61831c.jpg)"
+                                             data-cms-original-style="background-image: url(/images/demo/blog-01.jpg)">
+                                        </div>
+                                        <time class="post__date label--small">{{ post.created_at | date:"M d, Y" }}</time>
+                                        <h5 class="post__title subtitle">{{ post.name }}</h5>
+                                    </a>
+                                </article>
                             {% endif %}
-                            <article class="post__card">
-                                <a href="/blog/new-amsterdam" class="post__link">
-                                    <div class="post__image"
-                                         style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/7d1570e7b854a9747d5d06853f61831c.jpg)"
-                                         data-cms-original-style="background-image: url(/images/demo/blog-01.jpg)">
-                                    </div>
-                                    <time class="post__date label--small">{{ post.created_at | date:"M d, Y" }}</time>
-                                    <h5 class="post__title subtitle">{{ post.name }}</h5>
-                                </a>
-                            </article>
                         {% endfor %}
                     </div>
                 </div>
