@@ -7,15 +7,6 @@
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Plugins
 
-// @codekit-prepend "/plugins/history.js"
-// @codekit-prepend "/plugins/imagesloaded.js"
-// @codekit-prepend "/plugins/masonry.js"
-// @codekit-prepend "/plugins/debounce.js"
-// @codekit-prepend "/plugins/fluidbox.js"
-// @codekit-prepend "/plugins/owl.js"
-// @codekit-prepend "/plugins/waypoints.js"
-
-
 (function ($) {
     'use strict';
 
@@ -23,13 +14,13 @@
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Navigation
 
     // Global vars
-    var navTarget = $('body').attr('data-page-url');
-    var docTitle = document.title;
-    var History = window.History;
+    let navTarget = $('body').attr('data-page-url');
+    let docTitle = document.title;
+    let History = window.History;
 
     // State change event
     History.Adapter.bind(window, 'statechange', function () {
-        var state = History.getState();
+        let state = History.getState();
         // console.log(state);
 
         // Loading state
@@ -44,7 +35,7 @@
             }, 300);
 
             // Find transition time
-            var transitionTime = 400;
+            let transitionTime = 400;
 
             // After current content fades out
             setTimeout(function () {
@@ -252,7 +243,7 @@
                         touchDrag: true,
                         pullDrag: false,
                         dots: true,
-                        autoplay: false,
+                        autoplay: true,
                         autoplayTimeout: 6000,
                         autoHeight: true,
                         animateOut: 'fadeOut'
@@ -283,7 +274,7 @@
                     });
 
                     // When scrolling over the top
-                    var waypoint2 = new Waypoint({
+                    let waypoint2 = new Waypoint({
                         element: document.getElementById(thisId),
                         handler: function (direction) {
 
