@@ -339,12 +339,14 @@
             console.log(event);
             let t = $(event.target).find('a').first();
             let name = t.attr('data-book-name');
-            let description = t.attr('data-book-description');
             let url = t.attr('data-book-url');
+            console.log(name, url);
+            let description = t.attr('data-book-description') + `<a href="${url}"
+                                       class="project__link button--text --right"
+                                       style="color: #4C60E6; --color-var: #4C60E6">Leer</a>`;
 
             $('#book-name').html(name);
             $('#book-description').html(description);
-            $('#book-url').html(url);
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Images
