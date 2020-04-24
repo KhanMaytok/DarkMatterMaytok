@@ -6,7 +6,7 @@ from core.models import BaseModel
 class Post(BaseModel):
     name = models.CharField(max_length=255)
     image = models.CharField(max_length=255, null=True)
-    excerpt = models.TextField(null=True)
+    description = models.TextField(null=True)
     body = models.TextField(null=True)
 
     class Meta:
