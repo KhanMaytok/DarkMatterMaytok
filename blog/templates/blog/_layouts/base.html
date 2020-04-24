@@ -151,43 +151,21 @@
                         </header>
 
                         <div class="recent-posts__list grid">
-
-                            <article class="post__card">
-                                <a href="/blog/shipping-container-art" class="post__link">
-                                    <div class="post__image"
-                                         style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/bf1cffdf8159992a7ec5b36f1c96ebf8.jpg)"
-                                         data-cms-original-style="background-image: url(/images/demo/blog-02.jpg)">
-                                    </div>
-                                    <time class="post__date label--small">June 30, 2019</time>
-                                    <h5 class="post__title subtitle">Shipping container art</h5>
-                                </a>
-                            </article>
-
-                            <article class="post__card">
-                                <a href="/blog/new-amsterdam" class="post__link">
-                                    <div class="post__image"
-                                         style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/7d1570e7b854a9747d5d06853f61831c.jpg)"
-                                         data-cms-original-style="background-image: url(/images/demo/blog-01.jpg)">
-                                    </div>
-                                    <time class="post__date label--small">June 29, 2019</time>
-                                    <h5 class="post__title subtitle">New Amsterdam</h5>
-                                </a>
-                            </article>
-
-                            <article class="post__card">
-                                <a href="/blog/graffiti" class="post__link">
-                                    <div class="post__image"
-                                         style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/0158675b84a261e4638c9783f9df5786.jpg)"
-                                         data-cms-original-style="background-image: url(/images/demo/blog-03.jpg)">
-                                    </div>
-                                    <time class="post__date label--small">June 28, 2019</time>
-                                    <h5 class="post__title subtitle">Graffiti</h5>
-                                </a>
-                            </article>
-
+                            {% for post in posts %}
+                                <article class="post__card">
+                                    <a href="/blog/shipping-container-art" class="post__link">
+                                        <div class="post__image"
+                                             style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/bf1cffdf8159992a7ec5b36f1c96ebf8.jpg)"
+                                             data-cms-original-style="background-image: url(/images/demo/blog-02.jpg)">
+                                        </div>
+                                        <time class="post__date label--small">June 30, 2019</time>
+                                        <h5 class="post__title subtitle">Shipping container art</h5>
+                                    </a>
+                                </article>
+                            {% endfor %}
                         </div>
 
-                        <a href="/blog" class="action-bottom button--text--accent --right">All Posts</a>
+                        <a href="/blog" class="action-bottom button--text--accent --right">Todos los posts</a>
                     </div>
                 </section>
             </div>

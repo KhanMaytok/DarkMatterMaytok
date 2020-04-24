@@ -4,7 +4,7 @@ from core.models import BaseModel
 
 
 class Post(BaseModel):
-    title = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     excerpt = models.TextField(null=True)
     body = models.TextField(null=True)
 
@@ -12,4 +12,4 @@ class Post(BaseModel):
         ordering = ['-pk']
 
     def __str__(self):
-        return self.title
+        return self.name

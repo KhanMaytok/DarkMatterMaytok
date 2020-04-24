@@ -7,7 +7,8 @@ from books.models import Book
 
 def home(request):
     books = Book.objects.all().values('id', 'cover', 'name', 'description')
-    return render(request, 'blog/home.html', {'books': books})
+    posts = Post.objects.all()[:3]
+    return render(request, 'blog/home.html', {'books': books, 'posts': posts})
 
 
 def blog(request, page=1):
