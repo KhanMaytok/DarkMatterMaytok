@@ -337,7 +337,7 @@
 
         function changeSubtitle(event) {
             console.log(event);
-            let t = $(event.target).find('a').first();
+            let t = $(event.target).find('.owl-item.active a').first();
             let name = t.attr('data-book-name');
             let url = t.attr('data-book-url');
             console.log(name, url);
