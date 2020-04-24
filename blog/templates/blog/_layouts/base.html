@@ -153,7 +153,7 @@
                         <div class="recent-posts__list grid">
                             {% for post in posts %}
                                 <article class="post__card">
-                                    <a href="/blog/shipping-container-art" class="post__link">
+                                    <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}" class="post__link">
                                         <div class="post__image"
                                              style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/bf1cffdf8159992a7ec5b36f1c96ebf8.jpg)"
                                              data-cms-original-style="background-image: url(/images/demo/blog-02.jpg)">
@@ -164,26 +164,20 @@
                                 </article>
                             {% endfor %}
                         </div>
-
                         <a href="/blog" class="action-bottom button--text--accent --right">Todos los posts</a>
                     </div>
                 </section>
             </div>
-
         </div>
     {% endblock %}
-
 </div>
-
 
 <footer class="footer">
     <div class="wrap grid">
 
-
         <a href="/" class="footer__title cc-active">
             Sakya | Pentaghast
         </a>
-
 
         <div class="footer__copyright">
             <p>Descubre la verdad</p>
