@@ -11,7 +11,7 @@ class Post(BaseModel):
     slug = models.SlugField(null=True)
     image = models.CharField(max_length=255, null=True)
     description = models.TextField(null=True)
-    body = MarkdownxField(null=True)
+    body = models.TextField(null=True)
 
     class Meta:
         ordering = ['-pk']
