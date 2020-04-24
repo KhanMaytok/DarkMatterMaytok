@@ -337,7 +337,7 @@
 
         function changeSubtitle(event) {
             console.log(event);
-            let t = $(event.target);
+            let t = $(event.target).find('a').first();
             let name = t.attr('data-book-name');
             let description = t.attr('data-book-description');
             let url = t.attr('data-book-url');
