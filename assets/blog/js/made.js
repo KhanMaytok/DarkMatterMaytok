@@ -243,11 +243,16 @@
                         touchDrag: true,
                         pullDrag: false,
                         dots: true,
-                        autoplay: true,
+                        autoplay: false,
                         autoplayTimeout: 6000,
                         autoHeight: true,
-                        animateOut: 'fadeOut'
+                        animateOut: 'fadeOut',
+                        onDragged: changeSubtitle
                     });
+
+                    function changeSubtitle(event) {
+                        console.log(event)
+                    }
 
                     // When scrolling over the bottom
                     var waypoint1 = new Waypoint({
