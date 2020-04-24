@@ -22,7 +22,7 @@
                             {% if forloop.first %}
                                 <article class="post post-new">
                                     <div class="grid">
-                                        <a href="/blog/shipping-container-art">
+                                        <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}">
                                             <div class="post__image post__image--new"
                                                  style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/bf1cffdf8159992a7ec5b36f1c96ebf8.jpg)"
                                                  data-cms-original-style="background-image: url(/images/demo/blog-02.jpg)">
@@ -33,11 +33,11 @@
                                             <div class="post__content">
                                                 <time class="post__date label--small">{{ post.created_at | date:"M d, Y" }}</time>
                                                 <h2 class="post__title h4">
-                                                    <a href="/blog/shipping-container-art">{{ post.name }}</a>
+                                                    <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}">{{ post.name }}</a>
                                                 </h2>
                                                 <p class="post__subtitle"></p>
                                                 <p class="post__description">{{ post.description }}</p>
-                                                <a href="/blog/shipping-container-art"
+                                                <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}"
                                                    class="post__link button--text--accent --right">Leer más</a>
                                             </div>
                                         </div>
@@ -45,7 +45,7 @@
                                 </article>
                             {% else %}
                                 <article class="post__card">
-                                    <a href="/blog/new-amsterdam" class="post__link">
+                                    <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}" class="post__link">
                                         <div class="post__image"
                                              style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/7d1570e7b854a9747d5d06853f61831c.jpg)"
                                              data-cms-original-style="background-image: url(/images/demo/blog-01.jpg)">
