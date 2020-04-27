@@ -934,8 +934,8 @@ code {
     display: inline-block;
     width: 20px;
     height: 10px;
-    mask: url("../img/arrow-right-accent.svg") right center no-repeat;
-    -webkit-mask: url("../img/arrow-right-accent.svg") right center no-repeat;
+    mask: url("/static/blog/img/arrow-right-accent.svg") right center no-repeat;
+    -webkit-mask: url("/static/blog/img/arrow-right-accent.svg") right center no-repeat;
     margin-left: 4px;
     background-color: var(--color-var)
 }
@@ -954,8 +954,8 @@ code {
     display: inline-block;
     width: 20px;
     height: 10px;
-    mask: url("/static/blog/img/icons/arrow-right-accent.svg") right center no-repeat;
-    -webkit-mask: url("/static/blog/img/icons/arrow-right-accent.svg") right center no-repeat;
+    mask: url("/static/blog/img/arrow-right-accent.svg") right center no-repeat;
+    -webkit-mask: url("/static/blog/img/arrow-right-accent.svg") right center no-repeat;
     margin-right: 4px;
     background-color: var(--color-var);
     transform: rotate(180deg)
@@ -995,7 +995,7 @@ code {
 }
 
 .button--close-modal {
-    background: url("/static/blog/img/icons/arrow-cross-accent.svg") rgba(76, 96, 230, 0.08) center center no-repeat;
+    background: url("/static/blog/img/arrow-cross-accent.svg") rgba(76, 96, 230, 0.08) center center no-repeat;
     width: 40px;
     height: 40px;
     border-radius: 8px;
