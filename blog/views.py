@@ -6,12 +6,20 @@ from books.models import Book
 
 
 def home(request):
-    books = Book.objects.all().values('id', 'cover', 'name', 'description')
+    books = Book.objects.all().values('id', 'cover', 'name', 'description', 'slug')
     posts = Post.objects.all()[:3]
     return render(request, 'blog/home.html', {'books': books, 'posts': posts})
 
 
-def blog(request, page=1):
+def blog(request):
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list, 7)
+
+    posts = paginator.get_page(1)
+    return render(request, 'blog/blog.html', {'posts': posts})
+
+
+def blog_paginated(request, page=1):
     post_list = Post.objects.all()
     paginator = Paginator(post_list, 7)
 
@@ -21,5 +29,15 @@ def blog(request, page=1):
 
 
 def blog_post(request, pk=None, slug=None):
-    post = get_object_or_404(Post, pk=pk, slug=slug)
-    return render(request, 'blog/post.html', {'post': post})
+    post = get_object_or_404(Post, pk=pk)
+
+    try:
+        prev_post = Post.get_previous_by_created_at(post)
+    except Post.DoesNotExist:
+        prev_post = None
+    try:
+        next_post = Post.get_next_by_created_at(post)
+    except Post.DoesNotExist:
+        next_post = None
+
+    return render(request, 'blog/post.html', {'post': post, 'prev_post': prev_post, 'next_post': next_post})

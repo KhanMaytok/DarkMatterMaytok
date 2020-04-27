@@ -1,0 +1,75 @@
+{% extends 'blog/_layouts/base.html' %}
+
+{% block title %}
+    {{ book.name }} – El Universo Maytok
+{% endblock %}
+
+{% block content %}
+    <div class="page__content" data-page-title="{{ book.name }} – El Universo Maytok">
+
+        {% include 'blog/_includes/contact.html' %}
+
+        <div class="page-blog">
+            <header class="header--single">
+                <div class="wrap">
+                    <h1 class="header__title">{{ book.name }}</h1>
+                </div>
+            </header>
+
+            <section class="about">
+
+                <div class="wrap grid">
+
+                    <div class="about__image">
+                        <img src="{{ book.cover }}" alt="{{ book.name }} cover"/>
+                        {% comment %}
+                        <ul class="socials">
+                            <li class="socials__item">
+                                <a href="https://www.facebook.com/jekyllthemes/" target="_blank"
+                                   class="socials__item__link" title="Facebook">
+                                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="https://twitter.com/jekyllthemesio" target="_blank"
+                                   class="socials__item__link"
+                                   title="Twitter">
+                                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="http://instagram.com" target="_blank" class="socials__item__link"
+                                   title="Instagram">
+                                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="https://medium.com/" target="_blank" class="socials__item__link"
+                                   title="Medium">
+                                    <i class="fab fa-medium" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="https://github.com/" target="_blank" class="socials__item__link"
+                                   title="Github">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        {% endcomment %}
+                    </div>
+
+                    <div class="about__content">
+                        <p class="subtitle subtitle--light">Capítulos </p>
+                        <ul>
+                            {% for chapter in book.chapter_set.all %}
+                                <li>{{ chapter.name }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="#" class="cta button--fill contact-trigger js-contact cc-active">Leer</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

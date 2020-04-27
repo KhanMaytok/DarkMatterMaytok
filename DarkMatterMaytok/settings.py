@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'mptt',
     'drf_yasg',
     'corsheaders',
-    'markdownx',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -89,8 +89,12 @@ WSGI_APPLICATION = 'DarkMatterMaytok.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_NAME', default='mark2'),
+        'USER': config('DATABASE_USER', default='mark2'),
+        'PASSWORD': config('DATABASE_PASSWORD', default='mark2'),
+        'HOST': config('DATABASE_HOST', default='localhost'),
+        'PORT': config('DATABASE_PORT', default=''),
     }
 }
 
@@ -160,5 +164,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets"),
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 django_heroku.settings(locals())

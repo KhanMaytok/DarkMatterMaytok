@@ -1,6 +1,11 @@
 from django.contrib import admin
-from markdownx.admin import MarkdownxModelAdmin
+from django_summernote.admin import SummernoteModelAdmin
 
 from blog.models import Post
 
-admin.site.register(Post, MarkdownxModelAdmin)
+
+class PostAdmin(SummernoteModelAdmin):
+    summernote_fields = ('body',)
+
+
+admin.site.register(Post, PostAdmin)
