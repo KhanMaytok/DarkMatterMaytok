@@ -934,8 +934,8 @@ code {
     display: inline-block;
     width: 20px;
     height: 10px;
-    mask: url("/static/blog/img/icons/arrow-right-accent.svg") right center no-repeat;
-    -webkit-mask: url("/static/blog/img/icons/arrow-right-accent.svg") right center no-repeat;
+    mask: url("../img/arrow-right-accent.svg") right center no-repeat;
+    -webkit-mask: url("../img/arrow-right-accent.svg") right center no-repeat;
     margin-left: 4px;
     background-color: var(--color-var)
 }
