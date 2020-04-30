@@ -18,6 +18,7 @@ from django.urls import include, path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.contrib.auth import views as auth_views
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -34,6 +35,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('login/', auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),
     path('payments/', include('payments.urls')),
     path('', include('blog.urls')),
     path('', include('books.urls')),
@@ -44,4 +47,5 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('summernote/', include('django_summernote.urls')),
+    path('', include('social_django.urls', namespace='social'))
 ]

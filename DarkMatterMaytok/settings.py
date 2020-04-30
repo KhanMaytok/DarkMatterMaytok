@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     'django_summernote',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +78,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -166,5 +169,21 @@ STATICFILES_DIRS = [
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY', default='SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET', default='SOCIAL_AUTH_FACEBOOK_SECRET')
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'es_ES',
+  'fields': 'id, name, email'
+}
+SOCIAL_AUTH_FACEBOOK_API_VERSION = '5.0'
 
 django_heroku.settings(locals())
