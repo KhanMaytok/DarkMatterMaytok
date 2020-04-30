@@ -15,6 +15,13 @@
                 <li class="menu__list__item">
                     <a href="/blog/" class="menu__list__item__link button--text">Blog</a>
                 </li>
+                <li class="menu__list__item">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}" class="menu__list__item__link button--text">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="menu__list__item__link button--text">Login</a>
+                    {% endif %}
+                </li>
 
                 <li class="menu__cta">
                     <a href="#" class="menu__cta__link button--text contact-trigger js-contact cc-active">
