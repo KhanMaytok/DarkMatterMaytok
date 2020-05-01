@@ -1,3 +1,5 @@
+{% load static %}
+
 {% if user.is_authenticated %}
     <script>
         location.href = "{% url 'home' %}";
