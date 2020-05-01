@@ -17,9 +17,9 @@
                 </li>
                 <li class="menu__list__item">
                     {% if user.is_authenticated %}
-                        <a href="{% url 'logout' %}" class="menu__list__item__link button--text">Logout</a>
+                        <a href="{% url 'logout' %}" class="button--text">Logout</a>
                     {% else %}
-                        <a href="{% url 'login' %}" class="menu__list__item__link button--text">Login</a>
+                        <a href="{% url 'login' %}" class="button--text">Login</a>
                     {% endif %}
                 </li>
 
