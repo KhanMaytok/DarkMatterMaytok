@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY', default='I+1PL;2>^O*L^c@<XKi$vEQhmK.|zehc^ITSZ}_g.N;vZ-w|zMNm$S6H2~^-MCt#')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['www.maytok.com']
 
