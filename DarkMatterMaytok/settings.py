@@ -181,9 +181,11 @@ SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET', default='SOC
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-  'locale': 'es_ES',
-  'fields': 'id, name, email'
+    'locale': 'es_ES',
+    'fields': 'id, name, email'
 }
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '5.0'
+
+LOGIN_REDIRECT_URL = '/'
 
 django_heroku.settings(locals())
