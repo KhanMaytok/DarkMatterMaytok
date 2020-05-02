@@ -9,7 +9,7 @@ from core.models import BaseModel
 class Post(BaseModel):
     name = models.CharField(max_length=255)
     slug = models.SlugField(null=True)
-    image = models.CharField(max_length=255, null=True)
+    image = models.ImageField(upload_to='post_headers/', null=True, blank=True)
     description = models.TextField(null=True)
     body = models.TextField(null=True)
 
