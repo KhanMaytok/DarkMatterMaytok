@@ -153,7 +153,7 @@
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Page load
     function pageFunctions() {
-        // Set UTC to local time
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Set UTC to local time
         $('time').each(function () {
             let utc = $(this).attr('data-utc');
             let gmtDateTime = moment.utc(utc, "YYYY-MM-DD HH");
