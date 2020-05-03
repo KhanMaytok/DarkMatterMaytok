@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
 
 from blog.models import Post
 from books.models import Book
@@ -12,7 +13,7 @@ def home(request):
 
 
 def blog(request):
-    post_list = Post.objects.all()
+    post_list = Post.objects.filter(created_at__lte=timezone.now())
     paginator = Paginator(post_list, 7)
 
     posts = paginator.get_page(1)
@@ -20,7 +21,7 @@ def blog(request):
 
 
 def blog_paginated(request, page=1):
-    post_list = Post.objects.all()
+    post_list = Post.objects.filter(created_at__lte=timezone.now())
     paginator = Paginator(post_list, 7)
 
     page_number = page
