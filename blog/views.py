@@ -8,7 +8,7 @@ from books.models import Book
 
 def home(request):
     books = Book.objects.all().values('id', 'cover', 'name', 'description', 'slug')
-    posts = Post.objects.all()[:3]
+    posts = Post.objects.filter(created_at__lte=timezone.now())[:3]
     return render(request, 'blog/home.html', {'books': books, 'posts': posts})
 
 

@@ -164,7 +164,10 @@
                                              style="background-image: url({{ post.image.url }})"
                                         >
                                         </div>
-                                        <time class="post__date label--small">{{ post.created_at | date:"M d, Y" }}</time>
+                                        <time class="post__date label--small"
+                                              data-utc="{{ post.created_at | date:"Y-m-d H:i" }}">
+                                            {{ post.created_at | date:"M d, Y" }}
+                                        </time>
                                         <h5 class="post__title subtitle">{{ post.name }}</h5>
                                     </a>
                                 </article>
