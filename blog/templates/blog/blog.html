@@ -28,8 +28,8 @@
                                     <div class="grid">
                                         <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}">
                                             <div class="post__image post__image--new"
-                                                 style="background-image: url(https://d1qmdf3vop2l07.cloudfront.net/dear-deodorant.cloudvent.net/compressed/_min_/bf1cffdf8159992a7ec5b36f1c96ebf8.jpg)"
-                                                 data-cms-original-style="background-image: url(/images/demo/blog-02.jpg)">
+                                                 style="background-image: url({{ post.img.url }})"
+                                            >
                                             </div>
                                         </a>
 
