@@ -22,7 +22,6 @@ class User(AbstractUser):
     gender = models.CharField(max_length=1, choices=GENDERS, default='M', verbose_name='Género')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    commission = models.DecimalField(decimal_places=2, max_digits=3, default=0.00, verbose_name='Comisión vendedor')
     first_name = models.CharField(max_length=255, blank=True, null=True, verbose_name='Apellidos y nombres')
 
     class Meta:
