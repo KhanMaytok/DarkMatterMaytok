@@ -1,4 +1,5 @@
 {% extends 'blog/_layouts/base.html' %}
+{% load tz %}
 
 {% block title %}
     Blog – El Universo Maytok
@@ -35,7 +36,8 @@
 
                                         <div class="post__content-wrap">
                                             <div class="post__content">
-                                                <time class="post__date label--small" title="{{ post.created_at | date:"c" }} --- {{ post.created_at | date:"r" }}">{{ post.created_at | date:"M d, Y" }}</time>
+                                                <time class="post__date label--small"
+                                                      title="{{ post.created_at |localtime| date:"c" }} --- {{ post.created_at |localtime| date:"r" }}">{{ post.created_at |localtime| date:"M d, Y" }}</time>
                                                 <h2 class="post__title h4">
                                                     <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}">{{ post.name }}</a>
                                                 </h2>
