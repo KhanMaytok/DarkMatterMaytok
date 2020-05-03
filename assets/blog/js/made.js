@@ -152,7 +152,6 @@
 
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Page load
-
     function pageFunctions() {
         // Set UTC to local time
         $('time').each(function () {
@@ -161,7 +160,6 @@
             let local = gmtDateTime.local().format('MMM DD, YYYY');
             $(this).text(local);
         });
-
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Show content
 
         // Wait until first image has loaded

@@ -38,6 +38,7 @@
                                             <div class="post__content">
                                                 <time class="post__date label--small"
                                                       data-utc="{{ post.created_at | date:"Y-m-d H:i" }}">
+                                                    {{ post.created_at | date:"M d, Y" }}
                                                 </time>
                                                 <h2 class="post__title h4">
                                                     <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}">{{ post.name }}</a>

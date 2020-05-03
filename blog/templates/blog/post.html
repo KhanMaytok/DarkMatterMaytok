@@ -1,7 +1,7 @@
 {% extends 'blog/_layouts/base.html' %}
 
 {% block title %}
-{{ post.name }} | El Universo Maytok
+    {{ post.name }} | El Universo Maytok
 {% endblock %}
 {% block content %}
     <div class="page__content" data-page-title="{{ post.name }} | El Universo Maytok">
@@ -11,7 +11,10 @@
             <header class="post__header header--single">
                 <div class="wrap">
                     <h1 class="post__title">{{ post.name }}</h1>
-                    <time class="post__date label">{{ post.created_at | date:"M d, Y" }}</time>
+                    <time class="post__date label"
+                          data-utc="{{ post.created_at | date:"Y-m-d H:i" }}">
+                        {{ post.created_at | date:"M d, Y" }}
+                    </time>
                 </div>
             </header>
 
