@@ -154,12 +154,12 @@
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Page load
 
     function pageFunctions() {
-
         // Set UTC to local time
         $('time').each(function () {
             let utc = $(this).attr('data-utc');
             let gmtDateTime = moment.utc(utc, "YYYY-MM-DD HH");
-            let local = gmtDateTime.local().format('YYYY-MMM-DD h:mm A');
+            let local = gmtDateTime.local().format('MMM DD, YYYY');
+            $(this).text(local);
         });
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Show content

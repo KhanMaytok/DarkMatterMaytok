@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_summernote',
     'social_django',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -191,3 +192,6 @@ SOCIAL_AUTH_FACEBOOK_API_VERSION = '5.0'
 LOGIN_REDIRECT_URL = '/'
 SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=False, cast=bool)
 CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
+
+COMPRESS_ENABLED = not DEBUG
+COMPRESS_OFFLINE = True

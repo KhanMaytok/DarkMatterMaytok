@@ -1,4 +1,5 @@
 {% load static %}
+{% load compress %}
 <!DOCTYPE html>
 <html class="no-js" lang="es">
 <head>
@@ -192,16 +193,20 @@
     </div>
 
     <!-- javascript assets -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="{% static 'blog/js/history.js' %}"></script>
-    <script src="{% static 'blog/js/imagesloaded.js' %}"></script>
-    <script src="{% static 'blog/js/masonry.js' %}"></script>
-    <script src="{% static 'blog/js/debounce.js' %}"></script>
-    <script src="{% static 'blog/js/fluidbox.js' %}"></script>
-    <script src="{% static 'blog/js/owl.js' %}"></script>
-    <script src="{% static 'blog/js/waypoints.js' %}"></script>
-    <script src="{% static 'blog/js/moment.js' %}"></script>
-    <script src="{% static 'blog/js/made.js' %}"></script>
+
+    {% compress js %}
+        <script src="{% static 'blog/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'blog/js/history.js' %}"></script>
+        <script src="{% static 'blog/js/imagesloaded.js' %}"></script>
+        <script src="{% static 'blog/js/masonry.js' %}"></script>
+        <script src="{% static 'blog/js/debounce.js' %}"></script>
+        <script src="{% static 'blog/js/fluidbox.js' %}"></script>
+        <script src="{% static 'blog/js/owl.js' %}"></script>
+        <script src="{% static 'blog/js/waypoints.js' %}"></script>
+        <script src="{% static 'blog/js/moment.js' %}"></script>
+        <script src="{% static 'blog/js/made.js' %}"></script>
+    {% endcompress %}
+
 </footer>
 </body>
 </html>
