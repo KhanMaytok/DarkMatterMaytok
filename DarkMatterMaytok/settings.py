@@ -200,3 +200,4 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.JSMinFilter']
