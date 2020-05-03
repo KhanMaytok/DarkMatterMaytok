@@ -34,10 +34,14 @@ def blog_post(request, pk=None, slug=None):
 
     try:
         prev_post = Post.get_previous_by_created_at(post)
+        if prev_post.created_at > timezone.now():
+            prev_post = None
     except Post.DoesNotExist:
         prev_post = None
     try:
         next_post = Post.get_next_by_created_at(post)
+        if next_post.created_at > timezone.now():
+            next_post = None
     except Post.DoesNotExist:
         next_post = None
 
