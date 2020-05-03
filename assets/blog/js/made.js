@@ -155,6 +155,12 @@
 
     function pageFunctions() {
 
+        // Set UTC to local time
+        $('time').each(function () {
+            let utc = $(this).attr('data-utc');
+            let gmtDateTime = moment.utc(utc, "YYYY-MM-DD HH");
+            let local = gmtDateTime.local().format('YYYY-MMM-DD h:mm A');
+        });
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Show content
 
@@ -199,7 +205,7 @@
         Waypoint.destroyAll();
 
         // Set up count for galleries to give them unique IDs
-        var galleryCount = 0;
+        let galleryCount = 0;
 
         // If there's a gallery
         $('.gallery').each(function () {
