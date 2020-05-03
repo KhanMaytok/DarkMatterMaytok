@@ -11,14 +11,12 @@ from books.models import Book
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
-@cache_page(CACHE_TTL)
 def home(request):
     books = Book.objects.all().values('id', 'cover', 'name', 'description', 'slug')
     posts = Post.objects.filter(created_at__lte=timezone.now())[:3]
     return render(request, 'blog/home.html', {'books': books, 'posts': posts})
 
 
-@cache_page(CACHE_TTL)
 def blog(request):
     post_list = Post.objects.filter(created_at__lte=timezone.now())
     paginator = Paginator(post_list, 7)
@@ -27,7 +25,6 @@ def blog(request):
     return render(request, 'blog/blog.html', {'posts': posts})
 
 
-@cache_page(CACHE_TTL)
 def blog_paginated(request, page=1):
     post_list = Post.objects.filter(created_at__lte=timezone.now())
     paginator = Paginator(post_list, 7)
