@@ -202,3 +202,17 @@ STATICFILES_FINDERS = (
 )
 COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.JSMinFilter']
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.rCSSMinFilter']
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": config('REDIS_PASSWORD', default='REDIS_PASSWORD')
+        }
+    }
+}
+
+CACHE_TTL = 60 * 3600  # 6 hours
+
