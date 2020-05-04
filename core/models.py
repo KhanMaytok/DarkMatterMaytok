@@ -2,6 +2,8 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from DarkMatterMaytok.settings import USER_RANK
+
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Creado en')
@@ -23,6 +25,7 @@ class User(AbstractUser):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     first_name = models.CharField(max_length=255, blank=True, null=True, verbose_name='Apellidos y nombres')
+    rank = models.CharField(max_length=50, choices=USER_RANK, default='X')
 
     class Meta:
         ordering = ['pk']
