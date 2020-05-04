@@ -1,0 +1,283 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ chapter.name }} - El MaytokVerso</title>
+    <meta name="description" content="{{ chapter.description }}"/>
+    <link rel="icon" href="{% static 'icon-48x48.png' %}">
+    <link rel="shortcut icon" href="{% static 'icon-48x48.png' %}">
+    {% compress css %}
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'books/css/normalize.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'books/css/demo.css' %}"/>
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'books/css/component.css' %}"/>
+    {% endcompress %}
+    {% compress css inline %}
+        <style>
+            @-webkit-keyframes scroll-inner {
+                from {
+                    margin-top: 15%;
+                }
+                to {
+                    margin-top: 50%;
+                }
+            }
+
+            @keyframes scroll-inner {
+                from {
+                    margin-top: 15%;
+                }
+                to {
+                    margin-top: 50%;
+                }
+            }
+
+            @-webkit-keyframes scroll-mouse {
+                from {
+                    margin-top: 0;
+                }
+                to {
+                    margin-top: 15px;
+                }
+            }
+
+            @keyframes scroll-mouse {
+                from {
+                    margin-top: 0;
+                }
+                to {
+                    margin-top: 15px;
+                }
+            }
+
+            div.mouse-container {
+                position: relative;
+                display: block;
+                height: 100px;
+            }
+
+            div.mouse {
+                position: relative;
+                margin: 0 auto;
+                display: block;
+                width: 28px;
+                height: 44px;
+                border: solid 2px #fff;
+                border-radius: 25px;
+                -webkit-animation: scroll-mouse 1.5s;
+                animation: scroll-mouse 1.5s;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+            }
+
+            div.mouse span.scroll-down {
+                display: block;
+                width: 10px;
+                height: 10px;
+                background: #fff;
+                border-radius: 50%;
+                margin: 15% auto auto auto;
+                -webkit-animation: scroll-inner 1.5s;
+                animation: scroll-inner 1.5s;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                -webkit-animation-timing-function: ease;
+                animation-timing-function: ease;
+            }
+        </style>
+    {% endcompress %}
+</head>
+<body class="demo-3">
+<div id="container" class="container intro-effect-sliced">
+    <!-- Top Navigation -->
+    <div class="codrops-top clearfix">
+        <a class="codrops-icon" href=""><span>Capítulo anterior</span></a>
+
+        <span class="right"><a class="codrops-icon"
+                               href=""><span>Capítulo siguiente</span></a></span>
+    </div>
+    <header class="header">
+        <div class="bg-img"><img src="{{ chapter.image.url }}" alt="Background Image"/></div>
+        <div class="title">
+            <nav class="codrops-demos">
+
+            </nav>
+            <h1>{{ chapter.title }}</h1>
+            <!-- <p class="subline">{{ chapter.description }}</p> -->
+            <p>{{ chapter.description }}</p>
+        </div>
+        <div class="bg-img"><img src="{{ chapter.image.url }}" alt="Background Image"/></div>
+    </header>
+    <button class="trigger" data-info="Usa la rueda del ratón">
+        <div class='mouse-container'>
+            <div class='mouse'>
+                <span class='scroll-down'></span>
+            </div>
+        </div>
+    </button>
+    <article class="content">
+        <div>
+            {{ chapter.content|safe }}
+        </div>
+    </article>
+    <section class="related">
+        <p>--</p>
+        <div><a href="#"><h4>--</h4></a></div>
+        <div><a href="#"><h4>-</h4></a></div>
+    </section>
+</div><!-- /container -->
+{% compress js inline %}
+    <script src="{% static 'books/js/classie.js' %}"></script>
+    <script>
+        (function () {
+            setTimeout(function () {
+                document.getElementsByClassName('trigger')[0].click();
+            }, 4500);
+
+            // detect if IE : from http://stackoverflow.com/a/16657946
+            var ie = (function () {
+                var undef, rv = -1; // Return value assumes failure.
+                var ua = window.navigator.userAgent;
+                var msie = ua.indexOf('MSIE ');
+                var trident = ua.indexOf('Trident/');
+
+                if (msie > 0) {
+                    // IE 10 or older => return version number
+                    rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+                } else if (trident > 0) {
+                    // IE 11 (or newer) => return version number
+                    var rvNum = ua.indexOf('rv:');
+                    rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+                }
+
+                return ((rv > -1) ? rv : undef);
+            }());
+
+
+            // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
+            // left: 37, up: 38, right: 39, down: 40,
+            // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+            var keys = [32, 37, 38, 39, 40], wheelIter = 0;
+
+            function preventDefault(e) {
+                e = e || window.event;
+                if (e.preventDefault)
+                    e.preventDefault();
+                e.returnValue = false;
+            }
+
+            function keydown(e) {
+                for (var i = keys.length; i--;) {
+                    if (e.keyCode === keys[i]) {
+                        preventDefault(e);
+                        return;
+                    }
+                }
+            }
+
+            function touchmove(e) {
+                preventDefault(e);
+            }
+
+            function wheel(e) {
+                // for IE
+                //if( ie ) {
+                //preventDefault(e);
+                //}
+            }
+
+            function disable_scroll() {
+                window.onmousewheel = document.onmousewheel = wheel;
+                document.onkeydown = keydown;
+                document.body.ontouchmove = touchmove;
+            }
+
+            function enable_scroll() {
+                window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
+            }
+
+            var docElem = window.document.documentElement,
+                scrollVal,
+                isRevealed,
+                noscroll,
+                isAnimating,
+                container = document.getElementById('container'),
+                trigger = container.querySelector('button.trigger');
+
+            function scrollY() {
+                return window.pageYOffset || docElem.scrollTop;
+            }
+
+            function scrollPage() {
+                scrollVal = scrollY();
+
+                if (noscroll && !ie) {
+                    if (scrollVal < 0) return false;
+                    // keep it that way
+                    window.scrollTo(0, 0);
+                }
+
+                if (classie.has(container, 'notrans')) {
+                    classie.remove(container, 'notrans');
+                    return false;
+                }
+
+                if (isAnimating) {
+                    return false;
+                }
+
+                if (scrollVal <= 0 && isRevealed) {
+                    toggle(0);
+                } else if (scrollVal > 0 && !isRevealed) {
+                    toggle(1);
+                }
+            }
+
+            function toggle(reveal) {
+                isAnimating = true;
+
+                if (reveal) {
+                    classie.add(container, 'modify');
+                } else {
+                    noscroll = true;
+                    disable_scroll();
+                    classie.remove(container, 'modify');
+                }
+
+                // simulating the end of the transition:
+                setTimeout(function () {
+                    isRevealed = !isRevealed;
+                    isAnimating = false;
+                    if (reveal) {
+                        noscroll = false;
+                        enable_scroll();
+                    }
+                }, 600);
+            }
+
+            // refreshing the page...
+            var pageScroll = scrollY();
+            noscroll = pageScroll === 0;
+
+            disable_scroll();
+
+            if (pageScroll) {
+                isRevealed = true;
+                classie.add(container, 'notrans');
+                classie.add(container, 'modify');
+            }
+
+            window.addEventListener('scroll', scrollPage);
+            trigger.addEventListener('click', function () {
+                toggle('reveal');
+            });
+        })();
+    </script>
+{% endcompress %}
+</body>
+</html>
