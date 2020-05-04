@@ -2812,14 +2812,10 @@ code {
 }
 
 /**
-    * 7.8 Blog Comments
-    *
-    ----------------------------------------------------------------------------
-    */
-/* line 2287, ../scss/screen.scss */
-.comment-meta {
-    font-family: 'montserratregular', sans-serif;
-}
+  * 7.8 Blog Comments
+  *
+  ----------------------------------------------------------------------------
+*/
 
 /* line 2290, ../scss/screen.scss */
 #comments-wrapper {
@@ -2842,7 +2838,6 @@ code {
 
 /* line 2303, ../scss/screen.scss */
 .comments-title {
-    font-family: 'montserratbold', sans-serif;
     text-transform: uppercase;
     border-bottom: 1px solid #e3e3e3;
     color: #303030;
