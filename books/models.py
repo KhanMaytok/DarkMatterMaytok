@@ -24,6 +24,7 @@ class Chapter(BaseModel):
     book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=255)
     number = models.PositiveIntegerField(default=1)
+    game_icon = models.ImageField(upload_to='game_icons/', null=True, blank=True)
 
     class Meta:
         ordering = ['number']
