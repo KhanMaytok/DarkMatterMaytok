@@ -214,5 +214,5 @@ CACHES = {
     }
 }
 
-CACHE_TTL = 60 * 3600  # 6 hours
+CACHE_TTL = 60 * 60 * 24  # 24 hours
 
