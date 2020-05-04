@@ -11,6 +11,6 @@ def book_show(request, pk=None, slug=None):
 
 def chapter_show(request, pk=None, slug=None, chapter_number=1):
     book = get_object_or_404(Book, pk=pk)
-    chapter_number = get_object_or_404(Chapter, book=book, chapter_number=chapter_number)
+    chapter = get_object_or_404(Chapter, book=book, chapter_number=chapter_number)
 
-    return render(request, 'books/chapter.html', {'book': book, 'chapter_number': chapter_number})
+    return render(request, 'books/chapter.html', {'book': book, 'chapter': chapter})
