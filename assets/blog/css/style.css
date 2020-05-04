@@ -3059,3 +3059,29 @@ code {
 fieldset {
     border: 0;
 }
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+    margin-bottom: 0 !important;
+    margin-top: 20px !important;
+    display: block;
+    margin: auto;
+}
+
+.caption {
+    font-size: 14px;
+    font-style: italic;
+    display: block;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
