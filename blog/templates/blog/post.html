@@ -7,6 +7,18 @@
 {% block content %}
     <style>
 
+
+        /**
+    * 7.8 Blog Comments
+    *
+    ----------------------------------------------------------------------------
+    */
+        /* line 2287, ../scss/screen.scss */
+        .comment-meta {
+            font-family: 'montserratregular', sans-serif;
+        }
+
+        /* line 2290, ../scss/screen.scss */
         #comments-wrapper {
             position: relative;
             padding-left: 20px;
@@ -14,20 +26,20 @@
             padding-bottom: 30px;
         }
 
-        #comments {
-            padding-top: 26px;
-        }
-
+        /* line 2296, ../scss/screen.scss */
         .comments-header {
             padding-top: 20px;
         }
 
+        /* line 2299, ../scss/screen.scss */
         .comments-header .comments-title {
             padding-bottom: 15px;
             width: 100%;
         }
 
+        /* line 2303, ../scss/screen.scss */
         .comments-title {
+            font-family: 'montserratbold', sans-serif;
             text-transform: uppercase;
             border-bottom: 1px solid #e3e3e3;
             color: #303030;
@@ -36,6 +48,7 @@
             margin: 0;
         }
 
+        /* line 2312, ../scss/screen.scss */
         #comments-lists {
             position: relative;
             overflow: hidden;
@@ -44,6 +57,7 @@
             list-style-type: none;
         }
 
+        /* line 2319, ../scss/screen.scss */
         #comments-lists li {
             display: block;
             position: relative;
@@ -53,7 +67,29 @@
             margin-bottom: 40px;
         }
 
+        /* line 2327, ../scss/screen.scss */
+        #comments-lists .large-2 {
+            background: none;
+        }
+
+        /* line 2330, ../scss/screen.scss */
+        #comments-lists .large-3 {
+            background: none;
+        }
+
+        /* line 2333, ../scss/screen.scss */
+        #comments-lists .child-comment {
+            padding: 0 0 0 75px;
+        }
+
+        /* line 2336, ../scss/screen.scss */
+        .single-blog-timeline #comments-lists .child-comment {
+            padding: 0 0 0 70px;
+        }
+
+        /* line 2339, ../scss/screen.scss */
         #comments-lists li figure {
+            position: relative;
             width: 85px;
             height: 85px;
             background: none;
@@ -62,6 +98,7 @@
             border: 0;
         }
 
+        /* line 2347, ../scss/screen.scss */
         #comments-lists li figure img {
             color: #fff;
             border: 0;
@@ -71,12 +108,12 @@
             border-radius: 50%;
         }
 
-        @media screen and (min-width: 62.5em) {
-            .comment-body {
-                margin-left: 150px;
-            }
+        /* line 2355, ../scss/screen.scss */
+        .comment-author {
+            color: #303030;
         }
 
+        /* line 2358, ../scss/screen.scss */
         .comment-body {
             position: relative;
             color: #777;
@@ -84,42 +121,51 @@
             border: 2px solid #e3e3e3;
             border-radius: 3px;
             padding: 15px;
-            margin: 0 0 0 10%;
+            margin: 0 0 0 12%;
         }
 
+        /* line 2367, ../scss/screen.scss */
+        .comment-body p {
+            font-size: 16px;
+        }
+
+        /* line 2370, ../scss/screen.scss */
+        .comment-body:after,
+        .comment-body:before {
+            position: absolute;
+            top: 0px;
+            right: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            pointer-events: none;
+        }
+
+        /* line 2379, ../scss/screen.scss */
         .comment-body:before {
             border-color: rgba(255, 255, 255, 0);
             border-right-color: #E3E3E3;
-            border-width: 29px !important;
+            border-width: 29px;
             margin-top: -29px;
-            position: absolute;
-            top: 0px;
-            right: 100%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            pointer-events: none;
         }
 
-        .comment-body:after, .comment-body:before {
-            position: absolute;
-            top: 0px;
-            right: 100%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            pointer-events: none;
+        /* line 2385, ../scss/screen.scss */
+        .comment-body:after {
+            border-style: solid;
+            border-width: 0 26px 26px 0;
+            border-color: transparent #fff transparent transparent;
+            border-color: rgba(255, 255, 255, 0) #fff rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
         }
 
+        /* line 2391, ../scss/screen.scss */
         .comment-author {
             font-size: 22px;
             font-weight: bold;
             padding-bottom: 10px;
-            color: #303030;
         }
 
+        /* line 2396, ../scss/screen.scss */
         .reply-wrapper {
             color: #2c3e50;
             text-transform: uppercase;
@@ -129,54 +175,22 @@
             padding-top: 15px;
         }
 
-        .reply-link {
-            margin-right: 30px;
-        }
-
-        .reply-wrapper .icon-redo {
-            margin-right: 2px;
-        }
-
+        /* line 2404, ../scss/screen.scss */
+        .reply-wrapper .icon-redo,
         .reply-wrapper .icon-clock {
             font-size: 20px;
             vertical-align: middle;
             margin-right: 8px;
         }
 
-        .comment-body:after {
-            border-width: 0 26px 26px 0;
-            position: absolute;
-            top: 0px;
-            right: 100%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            pointer-events: none;
+        /* line 2410, ../scss/screen.scss */
+        .reply-wrapper .icon-redo {
+            margin-right: 2px;
         }
 
-        #comments-lists .child-comment {
-            padding: 0 0 0 75px;
-        }
-
-        .comment-body p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        #comments-list {
-            position: relative;
-            overflow: hidden;
-            padding: 0;
-            list-style-type: none;
-        }
-
-        #comments-lists li figure {
-            position: relative;
-            background: none;
-            float: left;
-            margin: 0;
-            border: 0;
+        /* line 2413, ../scss/screen.scss */
+        .reply-link {
+            margin-right: 30px;
         }
 
         .img-avatar, .img-rank {
