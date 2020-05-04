@@ -1471,7 +1471,7 @@ code {
     }
 
     .page-post .post__content, .page-project .post__content {
-        margin-bottom: 120px
+        margin-bottom: 50px
     }
 
     .page-post .post__content p img, .page-project .post__content p img, .page-post .post__content input[type="text"] img, .page-project .post__content input[type="text"] img, .page-post .post__content input[type="email"] img, .page-project .post__content input[type="email"] img, .page-post .post__content textarea img, .page-project .post__content textarea img {

@@ -1,8 +1,9 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+from hashlib import md5
 from DarkMatterMaytok.settings import USER_RANK
+from core.utils import get_user_rank_name
 
 
 class BaseModel(models.Model):
@@ -26,8 +27,20 @@ class User(AbstractUser):
     updated_at = models.DateTimeField(auto_now=True)
     first_name = models.CharField(max_length=255, blank=True, null=True, verbose_name='Apellidos y nombres')
     rank = models.CharField(max_length=50, choices=USER_RANK, default='X')
+    avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
     class Meta:
         ordering = ['pk']
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
+
+    @property
+    def rank_name(self):
+        return get_user_rank_name(self)
+
+    @property
+    def get_avatar(self):
+        try:
+            return self.avatar.url
+        except ValueError:
+            return f"https://www.gravatar.com/avatar/{md5(self.email.encode('utf-8')).hexdigest()}.jpg?d=identicon"

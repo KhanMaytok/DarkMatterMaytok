@@ -1,9 +1,256 @@
 {% extends 'blog/_layouts/base.html' %}
+{% load comments %}
 
 {% block title %}
     {{ post.name }} | El Universo Maytok
 {% endblock %}
 {% block content %}
+    <style>
+
+        #comments-wrapper {
+            position: relative;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 30px;
+        }
+
+        #comments {
+            padding-top: 26px;
+        }
+
+        .comments-header {
+            padding-top: 20px;
+        }
+
+        .comments-header .comments-title {
+            padding-bottom: 15px;
+            width: 100%;
+        }
+
+        .comments-title {
+            text-transform: uppercase;
+            border-bottom: 1px solid #e3e3e3;
+            color: #303030;
+            text-align: left;
+            display: inline-block;
+            margin: 0;
+        }
+
+        #comments-lists {
+            position: relative;
+            overflow: hidden;
+            margin: 60px auto;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #comments-lists li {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            clear: both;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        #comments-lists li figure {
+            width: 85px;
+            height: 85px;
+            background: none;
+            float: left;
+            margin: 0;
+            border: 0;
+        }
+
+        #comments-lists li figure img {
+            color: #fff;
+            border: 0;
+            width: 85px;
+            height: 85px;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        @media screen and (min-width: 62.5em) {
+            .comment-body {
+                margin-left: 150px;
+            }
+        }
+
+        .comment-body {
+            position: relative;
+            color: #777;
+            float: none;
+            border: 2px solid #e3e3e3;
+            border-radius: 3px;
+            padding: 15px;
+            margin: 0 0 0 10%;
+        }
+
+        .comment-body:before {
+            border-color: rgba(255, 255, 255, 0);
+            border-right-color: #E3E3E3;
+            border-width: 29px !important;
+            margin-top: -29px;
+            position: absolute;
+            top: 0px;
+            right: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            pointer-events: none;
+        }
+
+        .comment-body:after, .comment-body:before {
+            position: absolute;
+            top: 0px;
+            right: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            pointer-events: none;
+        }
+
+        .comment-author {
+            font-size: 22px;
+            font-weight: bold;
+            padding-bottom: 10px;
+            color: #303030;
+        }
+
+        .reply-wrapper {
+            color: #2c3e50;
+            text-transform: uppercase;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            padding-top: 15px;
+        }
+
+        .reply-link {
+            margin-right: 30px;
+        }
+
+        .reply-wrapper .icon-redo {
+            margin-right: 2px;
+        }
+
+        .reply-wrapper .icon-clock {
+            font-size: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .comment-body:after {
+            border-width: 0 26px 26px 0;
+            position: absolute;
+            top: 0px;
+            right: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            pointer-events: none;
+        }
+
+        #comments-lists .child-comment {
+            padding: 0 0 0 75px;
+        }
+
+        .comment-body p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        #comments-list {
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #comments-lists li figure {
+            position: relative;
+            background: none;
+            float: left;
+            margin: 0;
+            border: 0;
+        }
+
+        .img-avatar, .img-rank {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .img-avatar {
+            width: 70px !important;
+            height: 70px !important;
+        }
+
+        .img-rank {
+            width: 83px !important;
+            height: 83px !important;
+        }
+
+        #comments {
+            padding-top: 26px;
+        }
+
+        #form-wrapper p {
+            clear: both;
+            overflow: hidden;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        #form-wrapper label {
+            margin-right: 20px;
+            float: left;
+            font-weight: bold;
+            min-width: 100px;
+            width: 100px;
+            position: relative;
+            text-align: left;
+            padding-top: 5px;
+        }
+
+        #form-wrapper input {
+            width: 50%;
+            padding: 10px;
+            float: left;
+            display: inline-block;
+        }
+
+        @media screen and (min-width: 60em) {
+            #form-wrapper textarea, #form-wrapper .input-submit {
+                width: 80%;
+            }
+
+            input[type=submit] {
+                width: 15% !important;
+            }
+        }
+
+        #form-wrapper textarea {
+            float: left;
+            min-height: 140px;
+        }
+
+        fieldset {
+            border: 0;
+        }
+    </style>
+
+
+
     <div class="page__content" data-page-title="{{ post.name }} | El Universo Maytok">
         {% include 'blog/_includes/contact.html' %}
 
@@ -23,6 +270,44 @@
                     <article class="post__content ">
                         {{ post.body|safe }}
                     </article>
+                    <section id="comments-wrapper">
+                        <a id="comments" name="comments"></a>
+
+                        <div id="form-wrapper">
+                            {% if user.is_authenticated %}
+                                <header>Comenta</header>
+                                {% render_comment_form for post %}
+                            {% else %}
+                                <h5 class="comments-title">Debes estar registrado para comentar</h5>
+                            {% endif %}
+                        </div>
+
+
+                        {% get_comment_list for post as comment_list %}
+                        <ol id="comments-lists">
+                            {% for comment in comment_list %}
+                                <li id="c{{ comment.id }}">
+                                    <figure>
+                                        <img src="{{ comment.user.get_avatar }}" alt="author" class="img-avatar">
+                                        <img src="/static/core/img/{{ comment.user.get_rank_display }}.png" alt=""
+                                             class="img-rank">
+                                    </figure>
+                                    <div class="comment-body">
+                                        <div class="comment-meta">
+                                            <div class="comment-author">{{ comment.user.rank_name }} {{ comment.user.get_full_name }}</div>
+                                            <p>{{ comment.comment }}</p>
+                                            <div class="reply-wrapper">
+                                                <span>
+                                                    <i class="icon-clock">{% include 'includes/clock.svg' %}</i>{{ comment.submit_date | date:"M d, Y" }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </section>
+
                     <div class="post__more grid">
                         {% if prev_post != None %}
                             <a class="prev-post subtitle"

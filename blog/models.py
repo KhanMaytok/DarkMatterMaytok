@@ -1,5 +1,6 @@
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 from markdownx.models import MarkdownxField
 
@@ -15,6 +16,9 @@ class Post(BaseModel):
 
     class Meta:
         ordering = ['-pk']
+
+    def get_absolute_url(self):
+        return reverse('blog_post', kwargs={'pk': self.pk, 'slug': self.slug})
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

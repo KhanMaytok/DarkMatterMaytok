@@ -1,0 +1,35 @@
+{% load i18n %}
+{% load comments %}
+
+
+<form method="POST" action="{% comment_form_target %}">
+    {% csrf_token %}
+    <fieldset>
+        <input type="hidden" name="next" value="{% url 'comments-xtd-sent' %}"/>
+        <div class="alert alert-danger" data-comment-element="errors" hidden>
+        </div>
+
+        {% for field in form %}
+            {% if field.is_hidden %}
+                <div>{{ field }}</div>
+            {% endif %}
+        {% endfor %}
+
+        <div style="display:none">{{ form.honeypot }}</div>
+
+        {% if request.user.is_authenticated %}
+            <div class="input-group {% if 'comment' in form.errors %}has-danger{% endif %}">
+                {{ form.comment }}
+            </div>
+        {% endif %}
+
+        {% if not request.user.is_authenticated %}
+            <div class="row form-group {% if 'url' in form.errors %}has-error{% endif %}">
+                Necesitas estar registrado para comentar
+            </div>
+        {% endif %}
+    </fieldset>
+    <div class="input-submit">
+        <input type="submit" name="post" value="Enviar" class="button--fill"/>
+    </div>
+</form>
