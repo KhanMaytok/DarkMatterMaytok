@@ -224,3 +224,9 @@ USER_RANK = (
     ('K', 'KING'),
     ('E', 'EMPEROR'),
 )
+
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'width': '100%',
+    },
+}
