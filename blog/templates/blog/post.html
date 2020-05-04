@@ -24,6 +24,20 @@
                     <article class="post__content ">
                         {{ post.body|safe }}
                     </article>
+                    <div class="post__more grid">
+                        {% if prev_post != None %}
+                            <a class="prev-post subtitle"
+                               href="{% url 'blog_post' pk=prev_post.pk slug=prev_post.slug %}">
+                                {{ prev_post.name }}
+                            </a>
+                        {% endif %}
+                        {% if next_post != None %}
+                            <a class="next-post subtitle"
+                               href="{% url 'blog_post' pk=next_post.pk slug=next_post.slug %}">
+                                {{ next_post.name }}
+                            </a>
+                        {% endif %}
+                    </div>
                     <section id="comments-wrapper">
                         <a id="comments" name="comments"></a>
 
@@ -61,21 +75,6 @@
                             {% endfor %}
                         </ol>
                     </section>
-
-                    <div class="post__more grid">
-                        {% if prev_post != None %}
-                            <a class="prev-post subtitle"
-                               href="{% url 'blog_post' pk=prev_post.pk slug=prev_post.slug %}">
-                                {{ prev_post.name }}
-                            </a>
-                        {% endif %}
-                        {% if next_post != None %}
-                            <a class="next-post subtitle"
-                               href="{% url 'blog_post' pk=next_post.pk slug=next_post.slug %}">
-                                {{ next_post.name }}
-                            </a>
-                        {% endif %}
-                    </div>
                 </div>
             </section>
         </div>
