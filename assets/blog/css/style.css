@@ -1517,11 +1517,11 @@ code {
 }
 
 .post__more .prev-post::before {
-    content: "Previous Post"
+    content: "Post Anterior"
 }
 
 .post__more .next-post::before {
-    content: "Next Post"
+    content: "Post Siguiente"
 }
 
 .post__more .prev-post::after, .post__more .next-post::after {
