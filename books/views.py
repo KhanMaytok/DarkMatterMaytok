@@ -23,6 +23,6 @@ def chapter_show(request, pk=None, slug=None, chapter_number=1):
     # Check if the user has permissions
     if not user_has_min_rank(request.user, chapter.rank_required):
         return HttpResponse(
-            f"Aún no tienes el rango para leer este capítulo. Este capítulo requiere el rango de {chapter.rank_required}. Tu rango actual es {request.user.rank}")
+            f"Aún no tienes el rango para leer este capítulo. Este capítulo requiere el rango de {chapter.get_rank_required_display()}. Tu rango actual es {request.user.get_rank_display()}")
 
     return render(request, 'books/chapter.html', {'book': book, 'chapter': chapter})
