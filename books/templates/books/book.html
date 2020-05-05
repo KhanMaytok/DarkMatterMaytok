@@ -64,7 +64,8 @@
                         <ul>
                             {% for chapter in book.chapter_set.all %}
                                 <li style="margin-bottom: 10px;">
-                                    <a href="{% url 'chapter_show' pk=chapter.book.pk slug=chapter.book.slug chapter_number=chapter.chapter_number %}">
+                                    <a class="js-no-ajax"
+                                       href="{% url 'chapter_show' pk=chapter.book.pk slug=chapter.book.slug chapter_number=chapter.chapter_number %}">
                                         {{ chapter.name }} <span style="float: right;"><img
                                             src="{{ chapter.game_icon.url }}"
                                             alt="game icon" style="height: 20px; width: 20px;"></span>

@@ -1,16 +1,7 @@
-//
-//
-// Made JS
-//
-//
-
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Plugins
 
 (function ($) {
     'use strict';
-
-
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Navigation
 
     // Global vars
@@ -20,12 +11,6 @@
 
     // State change event
     History.Adapter.bind(window, 'statechange', function (e) {
-        console.log(e);
-        if (window.location.pathname === '/login/' || window.location.pathname === '/logout/') {
-            location.href = window.location.pathname;
-            return false;
-        }
-        console.log(window.location);
         let state = History.getState();
         // console.log(state);
 
