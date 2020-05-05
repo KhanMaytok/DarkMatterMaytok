@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 from django.utils.text import slugify
 
+from DarkMatterMaytok.settings import USER_RANK
 from core.models import BaseModel
 
 
@@ -28,6 +29,7 @@ class Chapter(BaseModel):
     chapter_number = models.PositiveIntegerField(default=1)
     game_icon = models.ImageField(upload_to='game_icons/', null=True, blank=True)
     content = models.TextField(null=True)
+    rank_required = models.CharField(max_length=50, choices=USER_RANK, default='X')
 
     class Meta:
         ordering = ['chapter_number']

@@ -216,14 +216,14 @@ CACHES = {
 
 CACHE_TTL = 60 * 60 * 24  # 24 hours
 
-USER_RANK = (
+USER_RANK = [
     ('X', 'COURTIER'),
     ('B', 'BARON'),
     ('C', 'COUNT'),
     ('D', 'DUKE'),
     ('K', 'KING'),
     ('E', 'EMPEROR'),
-)
+]
 
 SUMMERNOTE_CONFIG = {
     'summernote': {
