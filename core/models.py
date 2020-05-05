@@ -25,7 +25,7 @@ class User(AbstractUser):
     gender = models.CharField(max_length=1, choices=GENDERS, default='M', verbose_name='Género')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    first_name = models.CharField(max_length=255, blank=True, null=True, verbose_name='Apellidos y nombres')
+    first_name = models.CharField(max_length=255, blank=True, null=True, verbose_name='Nombre')
     rank = models.CharField(max_length=50, choices=USER_RANK, default='X')
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
