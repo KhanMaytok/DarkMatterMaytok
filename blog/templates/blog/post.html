@@ -39,17 +39,17 @@
                         {% endif %}
                     </div>
                     <section id="comments-wrapper">
-                        <a id="comments" name="comments"></a>
-
+                        <a id="comments"></a>
                         <div id="form-wrapper">
                             {% if user.is_authenticated %}
                                 <header>Comenta</header>
                                 {% render_comment_form for post %}
                             {% else %}
-                                <h5 class="comments-title">Debes estar registrado para comentar</h5>
+                                <h5 class="comments-title">
+                                    <a href="{% url 'login' %}">Inicia sesión para poder comentar</a>
+                                </h5>
                             {% endif %}
                         </div>
-
 
                         {% get_comment_list for post as comment_list %}
                         <ol id="comments-lists">
