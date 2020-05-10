@@ -36,7 +36,7 @@ class Chapter(BaseModel):
         ordering = ['chapter_number']
 
     def get_absolute_url(self):
-        return reverse('blog_post',
+        return reverse('chapter_show',
                        kwargs={'pk': self.book.pk, 'slug': self.book.slug, 'chapter_number': self.chapter_number})
 
     def __str__(self):
