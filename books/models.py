@@ -18,6 +18,9 @@ class Book(BaseModel):
         self.slug = slugify(self.name)
         super(Book, self).save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse('book_show', kwargs={'pk': self.pk, 'slug': self.slug})
+
     def __str__(self):
         return self.name
 
