@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+from django.urls import reverse
 from django.utils.text import slugify
 
 from DarkMatterMaytok.settings import USER_RANK
@@ -33,6 +34,10 @@ class Chapter(BaseModel):
 
     class Meta:
         ordering = ['chapter_number']
+
+    def get_absolute_url(self):
+        return reverse('blog_post',
+                       kwargs={'pk': self.book.pk, 'slug': self.book.slug, 'chapter_number': self.chapter_number})
 
     def __str__(self):
         return self.name
