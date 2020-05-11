@@ -21,7 +21,7 @@ def chapter_show(request, pk=None, slug=None, chapter_number=1):
     chapter = get_object_or_404(Chapter, book=book, chapter_number=chapter_number)
 
     # Check if the user has permissions
-    if not user_has_min_rank(request.user, chapter.rank_required):
+    if not request.user.is_authenticated or not user_has_min_rank(request.user, chapter.rank_required):
         return HttpResponse("Lo sentimos. Aún no tienes el rango para leer este capítulo.")
 
     return render(request, 'books/chapter.html', {'book': book, 'chapter': chapter})
