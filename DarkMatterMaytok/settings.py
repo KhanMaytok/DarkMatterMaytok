@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'social_django',
     'compressor',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -230,3 +231,34 @@ SUMMERNOTE_CONFIG = {
         'width': '100%',
     },
 }
+
+PWA_APP_NAME = 'MaytokVerso'
+PWA_APP_DESCRIPTION = "El sitio web con todo lo relacionado al Universo Maytok"
+PWA_APP_THEME_COLOR = '#4c60e6'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/icon-48x48.png',
+        'sizes': '48x48'
+    },
+    {
+        'src': '/static/icon-144x144.png',
+        'sizes': '144x144'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '/static/icon-48x48.png',
+        'sizes': '48x48'
+    },
+    {
+        'src': '/static/icon-144x144.png',
+        'sizes': '144x144'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'es-ES'
