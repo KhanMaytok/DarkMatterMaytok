@@ -67,7 +67,7 @@
             event.preventDefault();
 
             // Get the link target
-            var thisTarget = $(this).attr('href');
+            let thisTarget = $(this).attr('href');
 
             // If we don't want to use ajax, or the link is an anchor/mailto/tel
             if ($(this).hasClass('js-no-ajax') || /^#/.test(thisTarget) || thisTarget.indexOf("mailto:") >= 0 || thisTarget.indexOf("tel:") >= 0) {
@@ -317,7 +317,6 @@
 
         $('.project__images').each(function () {
             let $this = $(this);
-            console.log('Inicializando carrouselito');
             $this.imagesLoaded(function () {
                 $this.owlCarousel({
                     items: 1,
@@ -325,8 +324,12 @@
                     dots: true,
                     autoHeight: true,
                     margin: 20,
-                    onDragged: changeSubtitle
+                    autoplay: true,
+                    rewind: true
                 });
+                $this.on('changed.owl.carousel', function (event) {
+                    changeSubtitle(event);
+                })
             });
         });
 

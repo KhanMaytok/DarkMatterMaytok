@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY', default='I+1PL;2>^O*L^c@<XKi$vEQhmK.|zehc^ITSZ
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['www.maytok.com', '127.0.0.1']
+ALLOWED_HOSTS = ['www.maytok.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
