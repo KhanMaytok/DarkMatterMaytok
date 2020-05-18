@@ -356,7 +356,6 @@
             thisP.remove();
         });
 
-
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Videos
 
         // For each iframe
