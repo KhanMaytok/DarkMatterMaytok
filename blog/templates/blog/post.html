@@ -56,8 +56,10 @@
                             {% for comment in comment_list %}
                                 <li id="c{{ comment.id }}">
                                     <figure>
+                                        {% comment %}
                                         <img src="{{ comment.user.get_avatar }}" alt="author" class="img-avatar">
-                                        <img src="/static/core/img/{{ comment.user.get_rank_display }}.png" alt=""
+                                        {% endcomment %}
+                                        <img src="/static/core/img/{{ comment.user.get_rank_display }}_C.png" alt=""
                                              class="img-rank">
                                     </figure>
                                     <div class="comment-body">

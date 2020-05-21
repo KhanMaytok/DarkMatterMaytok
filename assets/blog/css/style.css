@@ -2887,7 +2887,6 @@ code {
 
 /* line 2339, ../scss/screen.scss */
 #comments-lists li figure {
-    position: relative;
     width: 85px;
     height: 85px;
     background: none;
@@ -2898,12 +2897,12 @@ code {
 
 /* line 2347, ../scss/screen.scss */
 #comments-lists li figure img {
+    background: #787878;
     color: #fff;
     border: 0;
     width: 85px;
     height: 85px;
     padding: 0;
-    border-radius: 50%;
 }
 
 /* line 2355, ../scss/screen.scss */
