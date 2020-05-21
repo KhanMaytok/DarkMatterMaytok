@@ -5,6 +5,7 @@ from blog.models import Post
 
 class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('body',)
+    exclude = ['user']
 
 
 admin.site.register(Post, PostAdmin)
