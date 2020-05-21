@@ -3083,3 +3083,82 @@ fieldset {
 .text-muted {
     color: #6c757d !important;
 }
+
+@media screen and (max-width: 43.75em) {
+    /* line 3567, ../scss/screen.scss */
+    .comment-body {
+        margin-left: 0px;
+        margin-top: 25px;
+        display: block;
+    }
+
+    /* line 3572, ../scss/screen.scss */
+    .comment-body:after,
+    .comment-body:before {
+        bottom: 100%;
+        right: auto;
+        top: auto;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    /* line 3585, ../scss/screen.scss */
+    .comment-body:after {
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: #fff;
+        border-width: 13px;
+        margin-left: 16px;
+    }
+
+    /* line 3591, ../scss/screen.scss */
+    .comment-body:before {
+        border-color: rgba(227, 227, 227, 0);
+        border-bottom-color: #e3e3e3;
+        border-width: 16px;
+        margin-left: 13px;
+    }
+
+    /* line 3597, ../scss/screen.scss */
+    #comments-lists .child-comment {
+        padding: 0;
+    }
+
+    /* line 3600, ../scss/screen.scss */
+    #comments-lists li figure {
+        float: none;
+        margin-bottom: 20px;
+    }
+}
+
+/**
+* Media max-width:767
+*
+----------------------------------------------------------------------------
+*/
+@media screen and (max-width: 47.9375em) {
+    /* line 3681, ../scss/screen.scss */
+    /* line 3880, ../scss/screen.scss */
+    #comments-lists .large-2,
+    #comments-lists .large-3,
+    #comments-lists .large-9,
+    #comments-lists .large-10 {
+        padding: 0;
+    }
+
+    /* line 3969, ../scss/screen.scss */
+    #comments-lists .large-2 figure,
+    #comments-lists .large-3 figure {
+        float: left;
+        margin: 0 0 15px;
+    }
+
+    /* line 3974, ../scss/screen.scss */
+    .comments-title .dot,
+    #comments-lists li .dot {
+        display: none;
+    }
+}
