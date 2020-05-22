@@ -5,7 +5,7 @@ from blog.models import Post
 
 class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('body',)
-    exclude = ['user']
+    exclude = ['user', 'slug']
 
     def get_form(self, request, *args, **kwargs):
         form = super(PostAdmin, self).get_form(request, *args, **kwargs)
