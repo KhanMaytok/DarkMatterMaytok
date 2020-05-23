@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'django_summernote',
     'social_django',
     'compressor',
-    'dbbackup'
+    'dbbackup',
+    'minio_storage',
 ]
 
 MIDDLEWARE = [
@@ -259,3 +260,13 @@ DBBACKUP_STORAGE_OPTIONS = {
     'oauth2_access_token': config('DROPBOX_TOKEN', default='DROPBOX_TOKEN'),
 }
 DBBACKUP_TMP_DIR = BASE_DIR
+MINIO_STORAGE_ENDPOINT = 's3.maytok.com'
+MINIO_STORAGE_ACCESS_KEY = config('MINIO_STORAGE_ACCESS_KEY', default='MINIO_STORAGE_ACCESS_KEY')
+MINIO_STORAGE_SECRET_KEY = config('MINIO_STORAGE_SECRET_KEY', default='MINIO_STORAGE_SECRET_KEY')
+MINIO_STORAGE_USE_HTTPS = True
+MINIO_STORAGE_MEDIA_BUCKET_NAME = config('MINIO_STORAGE_MEDIA_BUCKET_NAME', default='MINIO_STORAGE_MEDIA_BUCKET')
+MINIO_STORAGE_STATIC_BUCKET_NAME = config('MINIO_STORAGE_STATIC_BUCKET_NAME', default='MINIO_STORAGE_STATIC_BUCKET')
+MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = True
+
+DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
+STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
