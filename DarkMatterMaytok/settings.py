@@ -269,4 +269,4 @@ MINIO_STORAGE_STATIC_BUCKET_NAME = config('MINIO_STORAGE_STATIC_BUCKET_NAME', de
 MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = True
 
 DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
-STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
+# STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
