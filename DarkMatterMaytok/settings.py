@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'social_django',
     'compressor',
-    'pwa',
+    'dbbackup'
 ]
 
 MIDDLEWARE = [
@@ -253,3 +253,9 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
 )
+
+DBBACKUP_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DBBACKUP_STORAGE_OPTIONS = {
+    'oauth2_access_token': config('DROPBOX_TOKEN', default='DROPBOX_TOKEN'),
+}
+DBBACKUP_TMP_DIR = BASE_DIR

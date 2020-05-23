@@ -21,3 +21,6 @@ django-summernote==0.8.11.6
 social-auth-app-django==3.1.0
 django_compressor==2.4
 django-redis==4.11.0
+django-dbbackup==3.3.0
+dropbox==10.1.2
+django-storages==1.9.1
