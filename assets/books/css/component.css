@@ -1120,7 +1120,7 @@ article.content p {
     }
 }
 
-@media screen and (max-width: 551.98px) {
+@media screen and (max-width: 552px) {
     article.content p {
         line-height: 28px;
         margin-top: 1.56em;
