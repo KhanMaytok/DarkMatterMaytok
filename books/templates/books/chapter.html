@@ -113,12 +113,8 @@
         </div>
         <div class="bg-img"><img src="{{ chapter.image.url }}" alt="Background Image"/></div>
     </header>
-    <button class="trigger" data-info="Usa la rueda del ratón">
-        <div class='mouse-container'>
-            <div class='mouse'>
-                <span class='scroll-down'></span>
-            </div>
-        </div>
+    <button class="trigger ">
+        <p class="animate__animated animate__tada">Tocar para abrir</p>
     </button>
     <article class="content">
         <div>
@@ -211,6 +207,11 @@
                 toggle(0);
             } else if (scrollVal > 0 && !isRevealed) {
                 toggle(1);
+                if ('entrance' in sounds) {
+                    let player = document.getElementById('mediaPlayer');
+                    player.src = sounds['entrance'];
+                    player.play();
+                }
             }
         }
 

@@ -260,7 +260,7 @@ MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = True
 
 DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
 # STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
-
+"""
 import logging
 LOGGING = {
     'version': 1,
@@ -277,3 +277,4 @@ LOGGING = {
         },
     },
 }
+"""
