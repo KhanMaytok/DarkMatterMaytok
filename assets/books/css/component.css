@@ -1120,7 +1120,7 @@ article.content p {
     }
 }
 
-@media screen and (max-width: 552px) {
+@media screen and (max-width: 551.98px) {
     article.content p {
         line-height: 28px;
         margin-top: 1.56em;
@@ -1132,7 +1132,7 @@ article.content p {
     }
 }
 
-@media screen and (max-width: 904px) and (min-width: 728px) {
+@media screen and (max-width: 903.98px) and (min-width: 728px) {
     article.content p {
         margin-top: 0.86em;
         line-height: 32px;
@@ -1140,7 +1140,7 @@ article.content p {
     }
 }
 
-@media screen and (max-width: 1080px) and (min-width: 904px) {
+@media screen and (max-width: 1079.98px) and (min-width: 904px) {
     article.content p {
         margin-top: 0.86em;
         line-height: 32px;
