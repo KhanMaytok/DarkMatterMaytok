@@ -1138,5 +1138,13 @@ article.content p {
         line-height: 32px;
         font-size: 21px;
     }
-
 }
+
+@media screen and (max-width: 1080px) and (min-width: 904px) {
+    article.content p {
+        margin-top: 0.86em;
+        line-height: 32px;
+        font-size: 21px;
+    }
+}
+
