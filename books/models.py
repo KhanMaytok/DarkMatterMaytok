@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 # Create your models here.
@@ -34,6 +35,7 @@ class Chapter(BaseModel):
     game_icon = models.ImageField(upload_to='game_icons/', null=True, blank=True)
     content = models.TextField(null=True)
     rank_required = models.CharField(max_length=50, choices=USER_RANK, default='X')
+    sounds = JSONField(default=dict)
 
     class Meta:
         ordering = ['chapter_number']

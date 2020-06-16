@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'compressor',
     'dbbackup',
     'minio_storage',
+    'django_json_widget',
 ]
 
 MIDDLEWARE = [
