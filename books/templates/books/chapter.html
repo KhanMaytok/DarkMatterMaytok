@@ -5,17 +5,14 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ chapter.name}} | El MaytokVerso</title>
-    <meta name="description" content="{{ chapter.description}}"/>
+    <title>{{ chapter.name }} | El MaytokVerso</title>
+    <meta name="description" content="{{ chapter.description }}"/>
     <meta name="author" content="Giancarlo Ventura"/>
     <link rel="shortcut icon" href="{% static 'icon-48x48.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'books/css/normalize.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'books/css/demo.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'books/css/component.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'books/css/custom.css' %}"/>
-    <!--[if IE]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 </head>
 <body class="demo-3">
 <div id="container" class="container intro-effect-sliced">
@@ -26,7 +23,8 @@
         <span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19119"><span>Back to the Codrops Article</span></a></span>
     </div>
     <header class="header">
-        <div class="bg-img"><img src="https://tympanus.net/Development/ArticleIntroEffects/img/3.jpg" alt="Background Image"/></div>
+        <div class="bg-img"><img src="https://tympanus.net/Development/ArticleIntroEffects/img/3.jpg"
+                                 alt="Background Image"/></div>
         <div class="title">
             <nav class="codrops-demos">
                 <a href="index.html">Push</a>
@@ -39,10 +37,10 @@
             </nav>
             <h1>{{ chapter.name }}</h1>
             <p class="subline">{{ chapter.description }}</p>
-            <p>by <strong>Eric Heathway</strong> &#8212; Posted in <strong>Ethics</strong> on <strong>May 18,
-                2014</strong></p>
+            <p><strong>{{ chapter.book.name }}</strong></p>
         </div>
-        <div class="bg-img"><img src="https://tympanus.net/Development/ArticleIntroEffects/img/3.jpg" alt="Background Image"/></div>
+        <div class="bg-img"><img src="https://tympanus.net/Development/ArticleIntroEffects/img/3.jpg"
+                                 alt="Background Image"/></div>
     </header>
     <button class="trigger" data-info="Click para leer"><span>Trigger</span></button>
     <article class="content">
@@ -60,6 +58,7 @@
 <script src="{% static 'books/js/classie.js' %}"></script>
 <script>
     (function () {
+        let sounds = {{ chapter.sounds|safe }};
 
         // detect if IE : from http://stackoverflow.com/a/16657946
         var ie = (function () {
@@ -196,6 +195,10 @@
 
         window.addEventListener('scroll', scrollPage);
         trigger.addEventListener('click', function () {
+            if ('entrance' in sounds) {
+                let audio = new Audio(sounds['entrance']);
+                audio.play();
+            }
             toggle('reveal');
         });
     })();
