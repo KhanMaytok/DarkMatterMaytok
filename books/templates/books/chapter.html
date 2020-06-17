@@ -1,148 +1,90 @@
 {% load static %}
-{% load compress %}
 <!DOCTYPE html>
 <html lang="es" class="no-js">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ chapter.name }} - El MaytokVerso</title>
-    <meta name="description" content="{{ chapter.description }}"/>
-    <link rel="icon" href="{% static 'icon-48x48.png' %}">
+    <title>{{ chapter.name}} | El MaytokVerso</title>
+    <meta name="description" content="{{ chapter.description}}"/>
+    <meta name="author" content="Giancarlo Ventura"/>
     <link rel="shortcut icon" href="{% static 'icon-48x48.png' %}">
-    {% compress css %}
-        <link rel="stylesheet" type="text/css"
-              href="{% static 'books/css/normalize.css' %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static 'books/css/demo.css' %}"/>
-        <link rel="stylesheet" type="text/css"
-              href="{% static 'books/css/component.css' %}"/>
-    {% endcompress %}
-    {% compress css inline %}
-        <style>
-            @-webkit-keyframes scroll-inner {
-                from {
-                    margin-top: 15%;
-                }
-                to {
-                    margin-top: 50%;
-                }
-            }
-
-            @keyframes scroll-inner {
-                from {
-                    margin-top: 15%;
-                }
-                to {
-                    margin-top: 50%;
-                }
-            }
-
-            @-webkit-keyframes scroll-mouse {
-                from {
-                    margin-top: 0;
-                }
-                to {
-                    margin-top: 15px;
-                }
-            }
-
-            @keyframes scroll-mouse {
-                from {
-                    margin-top: 0;
-                }
-                to {
-                    margin-top: 15px;
-                }
-            }
-
-            div.mouse-container {
-                position: relative;
-                display: block;
-                height: 100px;
-            }
-
-            div.mouse {
-                position: relative;
-                margin: 0 auto;
-                display: block;
-                width: 28px;
-                height: 44px;
-                border: solid 2px #fff;
-                border-radius: 25px;
-                -webkit-animation: scroll-mouse 1.5s;
-                animation: scroll-mouse 1.5s;
-                -webkit-animation-iteration-count: infinite;
-                animation-iteration-count: infinite;
-            }
-
-            div.mouse span.scroll-down {
-                display: block;
-                width: 10px;
-                height: 10px;
-                background: #fff;
-                border-radius: 50%;
-                margin: 15% auto auto auto;
-                -webkit-animation: scroll-inner 1.5s;
-                animation: scroll-inner 1.5s;
-                -webkit-animation-iteration-count: infinite;
-                animation-iteration-count: infinite;
-                -webkit-animation-timing-function: ease;
-                animation-timing-function: ease;
-            }
-        </style>
-    {% endcompress %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books/css/normalize.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'books/css/demo.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'books/css/component.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'books/css/custom.css' %}"/>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 <body class="demo-3">
 <div id="container" class="container intro-effect-sliced">
     <!-- Top Navigation -->
     <div class="codrops-top clearfix">
-        <a class="codrops-icon" href=""><span>Capítulo anterior</span></a>
-
-        <span class="right"><a class="codrops-icon"
-                               href=""><span>Capítulo siguiente</span></a></span>
+        <a class="codrops-icon codrops-icon-prev"
+           href="http://tympanus.net/Tutorials/SamsungGrid/"><span>Previous Demo</span></a>
+        <span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19119"><span>Back to the Codrops Article</span></a></span>
     </div>
     <header class="header">
-        <div class="bg-img"><img src="{{ chapter.image.url }}" alt="Background Image"/></div>
+        <div class="bg-img"><img src="https://tympanus.net/Development/ArticleIntroEffects/img/3.jpg" alt="Background Image"/></div>
         <div class="title">
             <nav class="codrops-demos">
-
+                <a href="index.html">Push</a>
+                <a href="index2.html">Fade Out</a>
+                <a class="current-demo" href="index3.html">Sliced</a>
+                <a href="index4.html">Side</a>
+                <a href="index5.html">Fixed Side</a>
+                <a href="index6.html">Grid</a>
+                <a href="index7.html">Jam 3</a>
             </nav>
             <h1>{{ chapter.name }}</h1>
-            <!-- <p class="subline">{{ chapter.description }}</p> -->
-            <p>{{ chapter.description }}</p>
+            <p class="subline">{{ chapter.description }}</p>
+            <p>by <strong>Eric Heathway</strong> &#8212; Posted in <strong>Ethics</strong> on <strong>May 18,
+                2014</strong></p>
         </div>
-        <div class="bg-img"><img src="{{ chapter.image.url }}" alt="Background Image"/></div>
+        <div class="bg-img"><img src="https://tympanus.net/Development/ArticleIntroEffects/img/3.jpg" alt="Background Image"/></div>
     </header>
-    <button class="trigger ">
-        <p class="animate__animated animate__tada">Tocar para abrir</p>
-    </button>
+    <button class="trigger" data-info="Click para leer"><span>Trigger</span></button>
     <article class="content">
         <div>
             {{ chapter.content|safe }}
         </div>
     </article>
     <section class="related">
-        <p>--</p>
-        <div><a href="#"><h4>--</h4></a></div>
-        <div><a href="#"><h4>-</h4></a></div>
+        <p>If you enjoyed these effects you might also like:</p>
+        <div><a href="http://tympanus.net/Development/HeaderEffects/"><h4>On Scroll Header Effects</h4></a></div>
+        <div><a href="http://tympanus.net/Tutorials/MediumStylePageTransition/"><h4>Medium-Style Page Transitions</h4>
+        </a></div>
     </section>
-    <audio id="mediaPlayer">
-        <source src="" type="audio/mpeg">
-    </audio>
 </div><!-- /container -->
-
 <script src="{% static 'books/js/classie.js' %}"></script>
 <script>
-    let sounds = {{ chapter.sounds|safe }};
     (function () {
-        //setTimeout(function () {
-        //    document.getElementsByClassName('trigger')[0].click();
-        //}, 4500);
+
+        // detect if IE : from http://stackoverflow.com/a/16657946
+        var ie = (function () {
+            var undef, rv = -1; // Return value assumes failure.
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf('MSIE ');
+            var trident = ua.indexOf('Trident/');
+
+            if (msie > 0) {
+                // IE 10 or older => return version number
+                rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+            } else if (trident > 0) {
+                // IE 11 (or newer) => return version number
+                var rvNum = ua.indexOf('rv:');
+                rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+            }
+
+            return ((rv > -1) ? rv : undef);
+        }());
+
 
         // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
         // left: 37, up: 38, right: 39, down: 40,
         // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-        let keys = [32, 37, 38, 39, 40], wheelIter = 0;
+        var keys = [32, 37, 38, 39, 40], wheelIter = 0;
 
         function preventDefault(e) {
             e = e || window.event;
@@ -152,7 +94,7 @@
         }
 
         function keydown(e) {
-            for (let i = keys.length; i--;) {
+            for (var i = keys.length; i--;) {
                 if (e.keyCode === keys[i]) {
                     preventDefault(e);
                     return;
@@ -164,7 +106,15 @@
             preventDefault(e);
         }
 
+        function wheel(e) {
+            // for IE
+            //if( ie ) {
+            //preventDefault(e);
+            //}
+        }
+
         function disable_scroll() {
+            window.onmousewheel = document.onmousewheel = wheel;
             document.onkeydown = keydown;
             document.body.ontouchmove = touchmove;
         }
@@ -173,7 +123,7 @@
             window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
         }
 
-        let docElem = window.document.documentElement,
+        var docElem = window.document.documentElement,
             scrollVal,
             isRevealed,
             noscroll,
@@ -188,7 +138,7 @@
         function scrollPage() {
             scrollVal = scrollY();
 
-            if (noscroll) {
+            if (noscroll && !ie) {
                 if (scrollVal < 0) return false;
                 // keep it that way
                 window.scrollTo(0, 0);
@@ -207,11 +157,6 @@
                 toggle(0);
             } else if (scrollVal > 0 && !isRevealed) {
                 toggle(1);
-                if ('entrance' in sounds) {
-                    let player = document.getElementById('mediaPlayer');
-                    player.src = sounds['entrance'];
-                    player.play();
-                }
             }
         }
 
@@ -220,12 +165,6 @@
 
             if (reveal) {
                 classie.add(container, 'modify');
-                if ('entrance' in sounds) {
-                    let player = document.getElementById('mediaPlayer');
-                    player.src = sounds['entrance'];
-                    player.play();
-                }
-
             } else {
                 noscroll = true;
                 disable_scroll();
@@ -244,7 +183,7 @@
         }
 
         // refreshing the page...
-        let pageScroll = scrollY();
+        var pageScroll = scrollY();
         noscroll = pageScroll === 0;
 
         disable_scroll();
