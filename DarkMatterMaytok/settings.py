@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'dbbackup',
     'minio_storage',
     'django_json_widget',
-    'ogame.apps.OgameConfig',
+    'fleet.apps.FleetConfig',
 ]
 
 MIDDLEWARE = [

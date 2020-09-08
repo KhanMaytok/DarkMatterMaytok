@@ -26,3 +26,4 @@ dropbox==10.1.2
 django-storages==1.9.1
 django-minio-storage==0.3.7
 django-json-widget==1.0.1
+ogame
