@@ -60,13 +60,15 @@
                             </div>
 
                             <div class="project__content grid" style="border-color: #4C60E6">
-                                <p class="project__subtitle subtitle--light" id="book-name">{{ books.0.name }}</p>
-                                <p class="project__description --small" id="book-description">
-                                    {{ books.0.description }}
-                                    <a href="{% url 'book_show' pk=books.0.id slug=books.0.slug %}"
-                                       class="project__link button--text --right"
-                                       style="color: #4C60E6; --color-var: #4C60E6">Leer</a>
-                                </p>
+                                {% if books|length > 0 %}
+                                    <p class="project__subtitle subtitle--light" id="book-name">{{ books.0.name }}</p>
+                                    <p class="project__description --small" id="book-description">
+                                        {{ books.0.description }}
+                                        <a href="{% url 'book_show' pk=books.0.id slug=books.0.slug %}"
+                                           class="project__link button--text --right"
+                                           style="color: #4C60E6; --color-var: #4C60E6">Leer</a>
+                                    </p>
+                                {% endif %}
                             </div>
                         </article>
                     </div>
