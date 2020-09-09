@@ -55,6 +55,7 @@
                                        data-book-url="{% url 'book_show' pk=book.id slug=book.slug %}">
                                         <img src="{{ book.cover }}" alt="" class="project__image"/>
                                     </a>
+                                {% empty %}
                                 {% endfor %}
                             </div>
 
@@ -172,6 +173,7 @@
                                         <h5 class="post__title subtitle">{{ post.name }}</h5>
                                     </a>
                                 </article>
+                            {% empty %}
                             {% endfor %}
                         </div>
                         <a href="/blog" class="action-bottom button--text--accent --right">Todos los posts</a>
