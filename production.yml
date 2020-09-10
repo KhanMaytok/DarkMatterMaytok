@@ -3,8 +3,8 @@ version: '3.8'
 services:
   web:
     restart: always
-    # build: ./
-    image: darkmattermaytok:latest
+    build: ./
+    #image: darkmattermaytok:latest
     expose:
       - "8000"
     links:
