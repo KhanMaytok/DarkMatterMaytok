@@ -1,6 +1,7 @@
 from decimal import Decimal
 
 from django.db import models
+from django.utils import timezone
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
@@ -67,3 +68,12 @@ class Transfer(BaseModel):
 
     def __str__(self):
         return f"{self.from_account.name} -> {self.to_account.name}  ({self.amount})"
+
+
+class Debts(BaseModel):
+    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
+    name = models.CharField(max_length=255)
+    due_date = models.DateField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.name}"
