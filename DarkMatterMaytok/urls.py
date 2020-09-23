@@ -47,7 +47,7 @@ urlpatterns = [
     path('logout/', logout, name='logout'),
     path('payments/', include('payments.urls')),
     path('', include('blog.urls')),
-    path('', include('wallet.urls')),
+    path('wallet/', include('wallet.urls')),
     path('', include('books.urls')),
     path('comments/', include('django_comments_xtd.urls')),
 
