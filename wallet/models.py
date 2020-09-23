@@ -77,4 +77,4 @@ class Debt(BaseModel):
     amount = models.DecimalField(default=0.00, max_digits=14, decimal_places=2)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name} - {self.amount}"
