@@ -74,6 +74,7 @@ class Debt(BaseModel):
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=255)
     due_date = models.DateField(default=timezone.now)
+    amount = models.DecimalField(default=0.00, max_digits=14, decimal_places=2)
 
     def __str__(self):
         return f"{self.name}"
