@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'blog.apps.BlogConfig',
     'books.apps.BooksConfig',
+    'wallet.apps.WalletConfig',
     'rest_framework',
     'mptt',
     'drf_yasg',

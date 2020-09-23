@@ -17,6 +17,16 @@ services:
       DEBUG: 'true'
     command: /usr/local/bin/gunicorn DarkMatterMaytok.wsgi:application -w 2 -b :8000
 
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+    volumes:
+      - web-static:/www/static
+    links:
+      - web:web
+
   postgres:
     restart: always
     image: postgres:latest
