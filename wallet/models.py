@@ -1,6 +1,8 @@
 from decimal import Decimal
 
 from django.db import models
+from mptt.fields import TreeForeignKey
+from mptt.models import MPTTModel
 
 from core.models import BaseModel
 
@@ -8,6 +10,14 @@ MOVEMENT_CHOICES = (
     ('INC', 'Income'),
     ('EXP', 'Expense'),
 )
+
+
+class Category(MPTTModel):
+    name = models.CharField(max_length=50, unique=True)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+
+    class MPTTMeta:
+        order_insertion_by = ['name']
 
 
 class Account(BaseModel):
@@ -19,6 +29,7 @@ class Account(BaseModel):
 
 
 class Movement(BaseModel):
+    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
     amount = models.DecimalField(default=0.00, max_digits=14, decimal_places=2)
     account = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
     movement_type = models.CharField(choices=MOVEMENT_CHOICES, max_length=4, default='INC')
