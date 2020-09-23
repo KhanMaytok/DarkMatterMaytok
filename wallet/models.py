@@ -70,7 +70,7 @@ class Transfer(BaseModel):
         return f"{self.from_account.name} -> {self.to_account.name}  ({self.amount})"
 
 
-class Debts(BaseModel):
+class Debt(BaseModel):
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=255)
     due_date = models.DateField(default=timezone.now)
