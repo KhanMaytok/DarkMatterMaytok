@@ -282,7 +282,7 @@ LOGGING = {
 """
 
 WEBPUSH_SETTINGS = {
-    "VAPID_PUBLIC_KEY": "BKjE0EzcCFiarEdp5pq42JGkny98MNKgBSzUlapcSBQ9ZlomX0HdfyEutw1Fr9Bllg4yzlV0zn__MIGIyvXpehw",
-    "VAPID_PRIVATE_KEY": "-2HiDy83cxedKC4_AXkJdOCVV68ugH6G_YVfX93hxdo",
-    "VAPID_ADMIN_EMAIL": "khan.maytok@gmail.com"
+    "VAPID_PUBLIC_KEY": config('VAPID_PUBLIC_KEY', default=True, cast=bool),
+    "VAPID_PRIVATE_KEY": config('VAPID_PRIVATE_KEY', default=True, cast=bool),
+    "VAPID_ADMIN_EMAIL": config('VAPID_ADMIN_EMAIL', default=True, cast=bool)
 }
