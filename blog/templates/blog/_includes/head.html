@@ -1,3 +1,4 @@
+{% load webpush_notifications %}
 {% load static %}
 {% load compress %}
 
@@ -44,3 +45,9 @@
 <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/fontawesome.js"
         integrity="sha384-NY6PHjYLP2f+gL3uaVfqUZImmw71ArL9+Roi9o+I4+RBqArA2CfW1sJ1wkABFfPe"
         crossorigin="anonymous"></script>
+
+<script id="webpush-js" type="text/javascript" src="/static/webpush/webpush.js"></script>
+
+<meta name="service-worker-js" content="/webpush/service-worker.js">
+<meta name="django-webpush-vapid-key"
+      content="BKjE0EzcCFiarEdp5pq42JGkny98MNKgBSzUlapcSBQ9ZlomX0HdfyEutw1Fr9Bllg4yzlV0zn__MIGIyvXpehw">

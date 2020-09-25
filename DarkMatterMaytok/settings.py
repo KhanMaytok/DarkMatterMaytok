@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY', default='I+1PL;2>^O*L^c@<XKi$vEQhmK.|zehc^ITSZ
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['www.maytok.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'minio_storage',
     'django_json_widget',
     'fleet.apps.FleetConfig',
+    'webpush',
 ]
 
 MIDDLEWARE = [
@@ -279,3 +280,9 @@ LOGGING = {
     },
 }
 """
+
+WEBPUSH_SETTINGS = {
+    "VAPID_PUBLIC_KEY": "BKjE0EzcCFiarEdp5pq42JGkny98MNKgBSzUlapcSBQ9ZlomX0HdfyEutw1Fr9Bllg4yzlV0zn__MIGIyvXpehw",
+    "VAPID_PRIVATE_KEY": "-2HiDy83cxedKC4_AXkJdOCVV68ugH6G_YVfX93hxdo",
+    "VAPID_ADMIN_EMAIL": "khan.maytok@gmail.com"
+}

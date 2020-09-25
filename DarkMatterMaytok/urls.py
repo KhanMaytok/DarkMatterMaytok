@@ -57,6 +57,7 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('summernote/', include('django_summernote.urls')),
     path('', include('social_django.urls', namespace='social')),
+    path('webpush/', include('webpush.urls')),
 ]
 
 if settings.DEBUG is True:

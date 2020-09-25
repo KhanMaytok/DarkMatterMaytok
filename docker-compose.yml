@@ -10,12 +10,13 @@ services:
       - postgres:postgres
       - redis:redis
     volumes:
-      - web-django:/usr/src/app
+      - ./:/usr/src/app/
       - web-static:/usr/src/app/static
     env_file: .env
     environment:
       DEBUG: 'true'
-    command: /usr/local/bin/gunicorn DarkMatterMaytok.wsgi:application -w 2 -b :8000
+    command: python manage.py runserver 0.0.0.0:8000
+    entrypoint: ["sh", "/usr/src/app/entrypoint.sh"]
 
   nginx:
     restart: always
