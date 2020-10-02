@@ -26,7 +26,7 @@ class User(AbstractUser):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     first_name = models.CharField(max_length=255, blank=True, null=True, verbose_name='Nombre')
-    rank = models.CharField(max_length=50, choices=USER_RANK, default='X')
+    rank = models.CharField(max_length=50, choices=USER_RANK, default='0')
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
     class Meta:

@@ -59,11 +59,11 @@
                                         {% comment %}
                                         <img src="{{ comment.user.get_avatar }}" alt="author" class="img-avatar">
                                         {% endcomment %}
-                                        <img src="/static/core/img/{{ comment.user.get_rank_display }}_C.png" alt="">
+                                        <img src="/static/core/img/{{ comment.user.get_rank_display }}.png" alt="">
                                     </figure>
                                     <div class="comment-body">
                                         <div class="comment-meta">
-                                            <div class="comment-author">{{ comment.user.rank_name }} {{ comment.user.get_full_name }}</div>
+                                            <div class="comment-author">{{ comment.user.get_full_name }}</div>
                                             <p>{{ comment.comment }}</p>
                                             <div class="reply-wrapper">
                                                 <span>

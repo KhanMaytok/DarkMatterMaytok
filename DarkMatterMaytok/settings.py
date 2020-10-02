@@ -221,12 +221,15 @@ COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'com
 CACHE_TTL = 60 * 60 * 24  # 24 hours
 
 USER_RANK = [
-    ('X', 'COURTIER'),
-    ('B', 'BARON'),
-    ('C', 'COUNT'),
-    ('D', 'DUKE'),
-    ('K', 'KING'),
-    ('E', 'EMPEROR'),
+    ('0', 'IRON'),
+    ('1', 'BRONZE'),
+    ('2', 'SILVER'),
+    ('3', 'GOLD'),
+    ('4', 'PLATINUM'),
+    ('5', 'DIAMOND'),
+    ('6', 'MASTER'),
+    ('7', 'GRANDMASTER'),
+    ('8', 'CHALLENGER'),
 ]
 
 SUMMERNOTE_CONFIG = {
