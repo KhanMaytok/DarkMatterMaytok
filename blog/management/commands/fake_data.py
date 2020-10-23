@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.utils.text import slugify
 
 from blog.models import Post
 from faker import Faker
@@ -16,10 +17,12 @@ class Command(BaseCommand):
                    f'<span class="caption text-muted">La lista se irá expandiendo</span>' \
                    f"<p>{fake.paragraph(nb_sentences=10)}</p>" \
                    f"<p>{fake.paragraph(nb_sentences=10)}</p>"
+            name = fake.paragraph(nb_sentences=1),
             post = Post(
-                name=fake.paragraph(nb_sentences=1),
+                name=name,
                 description=fake.paragraph(nb_sentences=3),
-                body=body
+                body=body,
+                slug=slugify(name)
             )
             arr.append(post)
 
