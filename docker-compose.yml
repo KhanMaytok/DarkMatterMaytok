@@ -5,28 +5,23 @@ services:
     restart: always
     build: ./
     expose:
-      - "8000"
+      - "8666"
     links:
       - postgres:postgres
       - redis:redis
     volumes:
       - ./:/usr/src/app/
-      - web-static:/usr/src/app/static
     env_file: .env
-    environment:
-      DEBUG: 'true'
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn DarkMatterMaytok.wsgi:application --workers 9 --bind 0.0.0.0:8666
     entrypoint: ["sh", "/usr/src/app/entrypoint.sh"]
 
-  nginx:
-    restart: always
-    build: ./nginx/
-    ports:
-      - "80:80"
+  minio:
+    image: minio/minio:RELEASE.2020-10-18T21-54-12Z
     volumes:
-      - web-static:/www/static
-    links:
-      - web:web
+      - maytok_minio:/data
+    expose:
+      - "9000"
+    env_file: .env
 
   postgres:
     restart: always
@@ -34,7 +29,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data/
+      - maytok_postgres:/var/lib/postgresql/data/
 
   redis:
     restart: always
@@ -42,10 +37,9 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - redisdata:/data
+      - maytok_redis:/data
 
 volumes:
-  web-django:
-  web-static:
-  pgdata:
-  redisdata:
+  maytok_minio:
+  maytok_postgres:
+  maytok_redis:
