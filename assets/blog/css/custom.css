@@ -10,4 +10,8 @@ article.post__content p {
     color: rgb(48, 58, 62);
 }
 
-
+@media (max-width: 500px){
+    article.post__content p {
+        margin-bottom: 1.28em;
+    }
+}
