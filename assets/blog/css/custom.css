@@ -1,0 +1,13 @@
+article.post__content p {
+    margin: 0 0 1.5em !important;
+    min-width: 100% !important;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 32px;
+    vertical-align: baseline;
+    color: rgb(48, 58, 62);
+}
+
+

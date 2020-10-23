@@ -36,7 +36,9 @@
                         <p class="intro subtitle--light">
                             ¿Quién teje las cuerdas que forman el Universo? Descubre quién manipula los hilos de la
                             historia e influye en ella.
-                            <button id="webpush-subscribe-button" data-group="homelander" data-url="/webpush/save_information" class="header__cta button--fill cc-active">PUSH</button>
+                            <button id="webpush-subscribe-button" data-group="homelander"
+                                    data-url="/webpush/save_information" class="header__cta button--fill cc-active">PUSH
+                            </button>
                             <a href="#" class="hero__cta button--fill contact-trigger js-contact cc-active">¿Dudas?
                                 Envía un cuervo</a>
                         </p>
@@ -167,8 +169,7 @@
                                 <article class="post__card">
                                     <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}" class="post__link">
                                         <div class="post__image"
-                                             style="background-image: url({{ post.image.url }})"
-                                        >
+                                             style="background-image: url({{ post.image_url|default_if_none:'https://via.placeholder.com/686x386' }})">
                                         </div>
                                         <time class="post__date label--small"
                                               data-utc="{{ post.created_at | date:"Y-m-d H:i" }}">

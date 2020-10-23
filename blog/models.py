@@ -2,7 +2,6 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-from markdownx.models import MarkdownxField
 
 from core.models import BaseModel
 
@@ -16,6 +15,11 @@ class Post(BaseModel):
 
     class Meta:
         ordering = ['-pk']
+
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
 
     def get_absolute_url(self):
         return reverse('blog_post', kwargs={'pk': self.pk, 'slug': self.slug})
