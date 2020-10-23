@@ -15,3 +15,7 @@ article.post__content p {
         margin-bottom: 1.28em;
     }
 }
+
+article.post__content p a{
+    color: #4C60E6;
+}

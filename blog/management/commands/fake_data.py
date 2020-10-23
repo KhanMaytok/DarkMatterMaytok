@@ -17,12 +17,12 @@ class Command(BaseCommand):
                    f'<span class="caption text-muted">La lista se irá expandiendo</span>' \
                    f"<p>{fake.paragraph(nb_sentences=10)}</p>" \
                    f"<p>{fake.paragraph(nb_sentences=10)}</p>"
-            name = fake.paragraph(nb_sentences=1),
+            name = fake.paragraph(nb_sentences=1)
             post = Post(
                 name=name,
                 description=fake.paragraph(nb_sentences=3),
                 body=body,
-                slug=slugify(name)
+                slug=slugify(name)[:15]
             )
             arr.append(post)
 
