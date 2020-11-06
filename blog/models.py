@@ -12,6 +12,7 @@ class Post(BaseModel):
     image = models.ImageField(upload_to='post_headers/', null=True, blank=True)
     description = models.TextField(null=True)
     body = models.TextField(null=True)
+    is_draft = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['-pk']
