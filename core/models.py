@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from hashlib import md5
 from DarkMatterMaytok.settings import USER_RANK
-from core.utils import get_user_rank_name
 
 
 class BaseModel(models.Model):
@@ -28,15 +27,12 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=255, blank=True, null=True, verbose_name='Nombre')
     rank = models.CharField(max_length=50, choices=USER_RANK, default='0')
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+    email = models.EmailField(max_length=100, blank=True, unique=True, verbose_name='Email')
 
     class Meta:
         ordering = ['pk']
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
-
-    @property
-    def rank_name(self):
-        return get_user_rank_name(self)
 
     @property
     def get_avatar(self):
