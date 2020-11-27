@@ -63,7 +63,7 @@ var KTLogin = function () {
                     t.preventDefault(), o.validate().then((function (t) {
                         if (t == "Valid") {
                             console.log("Registrando...")
-                            $('#kt_login_signin_form').submit();
+                            $('#kt_login_signup_form').submit();
                         } else {
                             alert("Hay errores. corrígelos por favor");
                         }
