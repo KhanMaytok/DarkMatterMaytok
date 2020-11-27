@@ -24,7 +24,7 @@
                     <article class="post__content ">
                         {{ post.body|safe }}
                         {% if post.user.id == user.id %}
-                            <p><a href="{{ post.admin_url }}">Editar</a></p>
+                            <p><a href="{{ post.admin_url }}" class="js-no-ajax">Editar</a></p>
                         {% endif %}
                     </article>
                     <div class="post__more grid">
