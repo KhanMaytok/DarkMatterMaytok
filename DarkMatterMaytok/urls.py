@@ -23,7 +23,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.contrib.auth import views as auth_views
 
-from core.views import logout
+from core.views import logout, signup
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -43,7 +43,8 @@ urlpatterns = [
     path('the-forge/', admin.site.urls),
     # path('accounts/', include('django.contrib.auth.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),
-    path('privacidad/', TemplateView.as_view(template_name='core/privacy.html')),
+    path('register/', signup, name='register'),
+    path('privacidad/', TemplateView.as_view(template_name='core/privacy.html'), name="terms"),
     path('logout/', logout, name='logout'),
     path('payments/', include('payments.urls')),
     path('', include('blog.urls')),
