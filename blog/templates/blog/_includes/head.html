@@ -7,7 +7,7 @@
 <!-- Page Info -->
 <link rel="shortcut icon" href="{% static 'icon-48x48.png' %}"/>
 <meta name="generator" content="Django"/>
-<meta property="og:title" content="{% if title %}{{ title }}{% else %}Relatos AAR y posts sobre muchas cosas. Entra, lee y disfruta. #QuédateEnCasa{% endif %}"/>
+<meta property="og:title" content="{% if title %}{{ title }}{% else %}El Universo Maytok{% endif %}"/>
 <meta name="author" content="Giancarlo Ventura"/>
 <meta property="og:locale" content="es_PE"/>
 <meta name="description" content="{% if description %}{{ description }}{% else %}Relatos AAR y posts sobre muchas cosas. Entra, lee y disfruta. #QuédateEnCasa{% endif %}"/>
@@ -25,7 +25,7 @@
 <meta property="article:publisher" content="KhanMaytok"/>
 <meta property="fb:app_id" content="173218936763703"/>
 <script type="application/ld+json">
-{"description":"Relatos AAR y posts sobre muchas cosas. Entra, lee y disfruta. #QuédateEnCasa","@type":"WebSite","headline":"El Universo Maytok","image":"https://www.maytok.com/assets/img/Warframe.jpg","url":"https://www.maytok.com/","name":"El Universo Maytok","author":{"@type":"Person","name":"Giancarlo Ventura"},"@context":"https://schema.org"}
+{"description":"{% if description %}{{ description }}{% else %}Relatos AAR y posts sobre muchas cosas. Entra, lee y disfruta. #QuédateEnCasa{% endif %}","@type":"WebSite","headline":"El Universo Maytok","image":"{% if image %}{{ image }}{% else %}https://www.maytok.com/assets/img/Warframe.jpg{% endif %}","url":"{{ canonical_path }}","name":"{% if title %}{{ title }}{% else %}El Universo Maytok{% endif %}","author":{"@type":"Person","name":"Giancarlo Ventura"},"@context":"https://schema.org"}
 </script>
 
 <!-- Font Embed Code -->
