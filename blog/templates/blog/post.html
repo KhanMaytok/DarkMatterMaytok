@@ -53,7 +53,7 @@
                                 {% render_comment_form for post %}
                             {% else %}
                                 <h5 class="comments-title">
-                                    <a href="{% url 'login' %}">Inicia sesión para poder comentar</a>
+                                    <a href="{% url 'login' %}" class="js-no-ajax">Inicia sesión para poder comentar</a>
                                 </h5>
                             {% endif %}
                         </div>
