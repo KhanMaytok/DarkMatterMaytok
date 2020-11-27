@@ -2,7 +2,7 @@
 {% load comments %}
 
 {% block head %}
-    {% include 'blog/_includes/head.html' with image=post.image_url description=post.description %}
+    {% include 'blog/_includes/head.html' with image=post.image_url description=post.description title=post.name %}
 {% endblock %}
 
 {% block title %}
