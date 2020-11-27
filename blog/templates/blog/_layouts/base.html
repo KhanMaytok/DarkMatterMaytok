@@ -6,7 +6,9 @@
 
 <head>
     <title>{% block title %}El Universo Maytok{% endblock %}</title>
-    {% include 'blog/_includes/head.html' %}
+    {% block head %}
+        {% include 'blog/_includes/head.html' %}
+    {% endblock %}
 </head>
 
 <body class="loading ajax-loading" data-site-url="https://www.maytok.com" data-page-url="{{ request.path }}">

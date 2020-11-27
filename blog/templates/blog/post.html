@@ -1,6 +1,10 @@
 {% extends 'blog/_layouts/base.html' %}
 {% load comments %}
 
+{% block head %}
+    {% include 'blog/_includes/head.html' with image=post.image_url %}
+{% endblock %}
+
 {% block title %}
     {{ post.name }} | El Universo Maytok
 {% endblock %}
