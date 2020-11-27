@@ -23,6 +23,9 @@
                 <div class="wrap">
                     <article class="post__content ">
                         {{ post.body|safe }}
+                        {% if post.user.id == user.id %}
+                            <p><a href="{{ post.admin_url }}">Editar</a></p>
+                        {% endif %}
                     </article>
                     <div class="post__more grid">
                         {% if prev_post != None %}

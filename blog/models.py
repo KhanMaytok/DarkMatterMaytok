@@ -22,6 +22,11 @@ class Post(BaseModel):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
 
+    @property
+    def admin_url(self):
+        content_type = ContentType.objects.get_for_model(self.__class__)
+        return reverse("admin:%s_%s_change" % (content_type.app_label, content_type.model), args=(self.id,))
+
     def get_absolute_url(self):
         return reverse('blog_post', kwargs={'pk': self.pk, 'slug': self.slug})
 
