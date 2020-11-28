@@ -27,7 +27,9 @@ var KTLogin = function () {
                         alert("Hay errores. corrígelos por favor");
                     }
                 }))
-            })), $("#kt_login_forgot").on("click", (function (t) {
+            })), $("#google_login").on("click", (function (t) {
+                location.href = google_login_url;
+            }))  , $("#kt_login_forgot").on("click", (function (t) {
                 t.preventDefault(), i("forgot")
             })), $("#kt_login_signup").on("click", (function (t) {
                 t.preventDefault(), i("signup")

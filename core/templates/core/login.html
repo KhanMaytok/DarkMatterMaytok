@@ -145,7 +145,9 @@
         }
     },
     "font-family": "Poppins"
-};</script>
+};
+let google_login_url = "{% url "social:begin" "google-oauth2" %}";
+</script>
 <!--end::Global Config-->
 <!--begin::Global Theme Bundle(used by all pages)-->
 <script src="{% static 'auth/login/plugins.bundle.js' %}"></script>
