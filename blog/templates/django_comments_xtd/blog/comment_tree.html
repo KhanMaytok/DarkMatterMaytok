@@ -1,0 +1,36 @@
+{% load l10n %}
+{% load i18n %}
+{% load comments %}
+{% load comments_xtd %}
+
+{% for item in comments %}
+    <li id="c{{ item.comment.id }}" {% if item.comment.level > 0 %}class="child-comment"{% endif %}>
+        <figure>
+            {% comment %}
+                                        <img src="{{ item.comment.user.get_avatar }}" alt="author" class="img-avatar">
+                                        {% endcomment %}
+            <img src="/static/core/img/{{ item.comment.user.get_rank_display }}.png" alt="">
+        </figure>
+        <div class="comment-body">
+            <div class="comment-meta">
+                <div class="comment-author">{{ item.comment.user.username }}</div>
+                <p>{{ item.comment.comment }}</p>
+                <div class="reply-wrapper">
+                    <span>
+                            {% if item.comment.level == 0 %}
+                                <span class="reply-link" data-url="{{ item.comment.get_reply_url }}"
+                                      title="Reply">
+                                    <i class="icon-redo">{% include 'includes/corner-up-right.svg' %}</i>Reply
+                                </span>
+                            {% endif %}
+                        <i class="icon-clock">{% include 'includes/clock.svg' %}</i>{{ item.comment.submit_date | date:"M d, Y" }}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-comment"></div>
+    </li>
+    {% if not item.comment.is_removed and item.children %}
+        {% render_xtdcomment_tree with comments=item.children %}
+    {% endif %}
+{% endfor %}
