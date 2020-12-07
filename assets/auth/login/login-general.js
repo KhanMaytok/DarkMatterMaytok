@@ -29,7 +29,9 @@ var KTLogin = function () {
                 }))
             })), $("#google_login").on("click", (function (t) {
                 location.href = google_login_url;
-            }))  , $("#kt_login_forgot").on("click", (function (t) {
+            })), $("#facebook_login").on("click", (function (t) {
+                location.href = facebook_login_url;
+            })), $("#kt_login_forgot").on("click", (function (t) {
                 t.preventDefault(), i("forgot")
             })), $("#kt_login_signup").on("click", (function (t) {
                 t.preventDefault(), i("signup")
