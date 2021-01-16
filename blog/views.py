@@ -6,7 +6,7 @@ from books.models import Book
 
 
 def home(request):
-    books = Book.objects.all().values('id', 'cover', 'name', 'description', 'slug')
+    books = Book.objects.all()
     posts = Post.objects.filter(created_at__lte=timezone.now(), is_draft=False)[:3]
     webpush = {"group": 'homelander'}
     return render(request, 'blog/home.html', {'books': books, 'posts': posts, "webpush": webpush})
