@@ -56,7 +56,7 @@
                                        data-book-name="{{ book.name }}"
                                        data-book-description="{{ book.description }}"
                                        data-book-url="{% url 'book_show' pk=book.id slug=book.slug %}">
-                                        <img src="{{ book.cover_url|default_if_none:'https://via.placeholder.com/1400x740' }}" alt="" class="project__image"/>
+                                        <img src="{{ book.cover.url }}" alt="" class="project__image"/>
                                     </a>
                                 {% empty %}
                                 {% endfor %}
