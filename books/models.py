@@ -14,6 +14,11 @@ class Book(BaseModel):
     slug = models.SlugField(max_length=255, null=True, blank=True)
     cover = models.ImageField(upload_to='book_covers/', null=True, blank=True)
 
+    @property
+    def cover_url(self):
+        if self.cover and hasattr(self.cover, 'url'):
+            return self.cover.url
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Book, self).save(*args, **kwargs)
