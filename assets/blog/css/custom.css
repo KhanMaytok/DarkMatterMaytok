@@ -19,3 +19,7 @@ article.post__content p {
 article.post__content p a{
     color: #4C60E6;
 }
+
+div.input-submit{
+    margin-top: 10px;
+}
