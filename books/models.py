@@ -13,6 +13,7 @@ class Book(BaseModel):
     description = models.TextField(null=True)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     cover = models.ImageField(upload_to='book_covers/', null=True, blank=True)
+    big_cover = models.ImageField(upload_to='book_big_covers/', null=True, blank=True)
 
     @property
     def cover_url(self):
