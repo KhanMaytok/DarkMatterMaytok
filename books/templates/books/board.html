@@ -1,0 +1,72 @@
+{% extends 'blog/_layouts/base.html' %}
+{% load comments %}
+{% load comments_xtd %}
+
+{% block content %}
+    <div class="page__content" data-page-title="{{ post.name }} | El Universo Maytok">
+        {% include 'blog/_includes/contact.html' %}
+
+        <div class="page-post">
+            <section class="post-full">
+                <div class="wrap">
+                    <article class="post__content ">
+                        {{ post.post|safe }}
+                        {% if post.user.id == user.id %}
+                            <p><a href="{{ post.admin_url }}" class="js-no-ajax">Editar</a></p>
+                        {% endif %}
+                    </article>
+                    <div class="post__more grid">
+                        {% if prev_post != None %}
+                            <a class="prev-post subtitle"
+                               href="{% url 'blog_post' pk=prev_post.pk slug=prev_post.slug %}">
+                                {{ prev_post.name }}
+                            </a>
+                        {% endif %}
+                        {% if next_post != None %}
+                            <a class="next-post subtitle"
+                               href="{% url 'blog_post' pk=next_post.pk slug=next_post.slug %}">
+                                {{ next_post.name }}
+                            </a>
+                        {% endif %}
+                    </div>
+                    <section id="comments-wrapper">
+                        <a id="comments"></a>
+                        <div id="form-wrapper">
+                            {% if user.is_authenticated %}
+                                <header>Comenta</header>
+                                {% render_comment_form for post %}
+                            {% else %}
+                                <h5 class="comments-title">
+                                    <a href="{% url 'login' %}" class="js-no-ajax">Inicia sesión para poder comentar</a>
+                                </h5>
+                            {% endif %}
+                        </div>
+
+                        {% get_comment_list for post as comment_list %}
+                        <ol id="comments-lists">
+                            {% render_xtdcomment_tree for post %}
+                        </ol>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block additional-js %}
+    <script>
+        $(document).on('click', '.reply-link', function () {
+            let url = $(this).attr("data-url");
+            let el = $(this);
+            $.get(url, function (res) {
+                console.log(el.parent().parent().parent().parent());
+                el.parent().parent().parent().parent().append(res);
+            })
+        })
+    </script>
+    <style>
+        .reply-link {
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}

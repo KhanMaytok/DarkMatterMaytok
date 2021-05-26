@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from blog.utils import user_has_min_rank
-from books.models import Book, Chapter
+from books.models import Book, Chapter, Board
 
 
 def book_show(request, pk=None, slug=None):
@@ -23,3 +23,9 @@ def chapter_show(request, pk=None, slug=None, chapter_number=1):
         return HttpResponse("Lo sentimos. Aún no tienes el rango para leer este capítulo.")
 
     return render(request, 'books/chapter.html', {'book': book, 'chapter': chapter})
+
+
+def board_show(request, pk=None):
+    board = get_object_or_404(Board, pk=pk)
+
+    return render(request, 'books/board.html', {'post': board, 'prev_post': None, 'next_post': None})

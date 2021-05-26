@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 from django.urls import reverse
 from django.utils.text import slugify
 
@@ -51,3 +50,13 @@ class Chapter(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+class Board(BaseModel):
+    post = models.TextField(null=True)
+
+    def get_absolute_url(self):
+        return reverse('board_show', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return self.post[:30]
