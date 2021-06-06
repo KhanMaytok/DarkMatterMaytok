@@ -60,3 +60,10 @@ class Board(BaseModel):
 
     def __str__(self):
         return self.post[:30]
+
+
+class Gladiator(BaseModel):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
