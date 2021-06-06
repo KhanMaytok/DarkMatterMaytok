@@ -6,7 +6,7 @@ from books.views import book_show, chapter_show, board_show
 
 router = routers.DefaultRouter()
 
-router.register(r'gladiator', api.Gladiator)
+router.register(r'gladiator', api.GladiatorViewSet)
 
 urlpatterns = [
     path('<int:pk>-<slug:slug>/', book_show, name='book_show'),
