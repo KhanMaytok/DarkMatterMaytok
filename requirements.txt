@@ -1,5 +1,5 @@
 dj-config-url
-Django==3.1.8
+Django==3.1.12
 sqlparse==0.4.1
 djangorestframework==3.12.4
 markdown==3.3.4
