@@ -1,10 +1,15 @@
-from django.db import models
-
+import psycopg2
+from django.db import models, IntegrityError
 from django.urls import reverse
 from django.utils.text import slugify
+from nanoid import generate
 
 from DarkMatterMaytok.settings import USER_RANK
 from core.models import BaseModel
+
+
+def id_generator():
+    return generate(size=2)
 
 
 class Book(BaseModel):
@@ -64,6 +69,25 @@ class Board(BaseModel):
 
 class Gladiator(BaseModel):
     name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='gladiators/', null=True, blank=True)
+    health = models.DecimalField(decimal_places=3, max_digits=10, default=1.100)
+    meditation = models.DecimalField(decimal_places=3, max_digits=10, default=1.100)
 
     def __str__(self):
         return self.name
+
+
+class Test(BaseModel):
+    id = models.CharField(unique=True, default=id_generator, primary_key=True, max_length=13)
+    name = models.CharField(default=id_generator, max_length=13)
+
+    def save(self, *args, **kwargs):
+        self.id = id_generator()
+        try:
+            super(Test, self).save(*args, **kwargs)
+        except IntegrityError as e:
+            print('Integrity error, retrying 1111')
+            self.save()
+        except psycopg2.errors.UniqueViolation as e:
+            print('Integrity error, retrying 22222222')
+            self.save()

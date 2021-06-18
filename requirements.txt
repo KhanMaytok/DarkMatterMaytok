@@ -1,5 +1,5 @@
 dj-config-url
-Django==3.1.8
+Django==3.2.4
 sqlparse==0.4.1
 djangorestframework==3.12.4
 markdown==3.3.4
@@ -27,3 +27,4 @@ django-json-widget==1.1.1
 ogame
 django-webpush
 Faker==8.2.1
+nanoid==2.0.0
