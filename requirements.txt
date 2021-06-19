@@ -26,5 +26,5 @@ django-minio-storage==0.3.10
 django-json-widget==1.1.1
 ogame
 django-webpush
-Faker==8.2.1
+Faker==8.8.1
 nanoid==2.0.0

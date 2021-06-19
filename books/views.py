@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from blog.utils import user_has_min_rank
-from books.models import Book, Chapter, Board
+from books.models import Book, Chapter, Board, Gladiator
 
 
 def book_show(request, pk=None, slug=None):
@@ -29,3 +29,9 @@ def board_show(request, pk=None):
     board = get_object_or_404(Board, pk=pk)
 
     return render(request, 'books/board.html', {'post': board, 'prev_post': None, 'next_post': None})
+
+
+def gladiators(request):
+    g = Gladiator.objects.all()
+
+    return render(request, 'books/gladiators.html', {'gladiators': g})

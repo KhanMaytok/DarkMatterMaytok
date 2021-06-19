@@ -1,0 +1,97 @@
+{% extends 'blog/_layouts/base.html' %}
+{% load comments %}
+{% load comments_xtd %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'books/fonts/orange_kid_wip/stylesheet.css' %}" type="text/css">
+    <style>
+        .post__content {
+            background-image: url({% static 'books/img/window_bg.png' %});
+            background-size: cover;
+            padding: 5px;
+            font-family: 'orange_kid', Arial, sans-serif;
+        }
+
+        .gladiator__item {
+            height: 98px;
+            border: #0c0e18 solid 4px;
+            margin: 2px;
+            background-color: rgba(52, 35, 23, 50);
+            color: blanchedalmond;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .col-md-4 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 33.33333%;
+                flex: 0 0 33.33333%;
+                max-width: 33.33333%
+            }
+
+            .col-md-8 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 66.66667%;
+                flex: 0 0 66.66667%;
+                max-width: 66.66667%
+            }
+        }
+
+        .gladiator__image{
+            float: right;
+            height: 78px;
+        }
+    </style>
+
+    <div class="page__content" data-page-title="{{ post.name }} | El Universo Maytok">
+        {% include 'blog/_includes/contact.html' %}
+
+        <div class="page-post">
+            <section class="post-full">
+                <div class="wrap">
+                    <article class="post__content">
+                        {% for gladiator in gladiators %}
+                            <div class="gladiator__item">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        {{ gladiator }} <br>
+                                        Armas: ajolotes <br>
+                                        Escudos: ajolotes
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="{% static 'books/img/gladiator.jpg' %}" alt="gladiator image" class="gladiator__image">
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </article>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block additional-js %}
+    <script>
+        $(document).on('click', '.reply-link', function () {
+            let url = $(this).attr("data-url");
+            let el = $(this);
+            $.get(url, function (res) {
+                console.log(el.parent().parent().parent().parent());
+                el.parent().parent().parent().parent().append(res);
+            })
+        })
+    </script>
+    <style>
+        .reply-link {
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}

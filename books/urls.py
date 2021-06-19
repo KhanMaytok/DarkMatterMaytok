@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from books import api
-from books.views import book_show, chapter_show, board_show
+from books.views import book_show, chapter_show, board_show, gladiators
 
 router = routers.DefaultRouter()
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('<int:pk>-<slug:slug>/<int:chapter_number>/', chapter_show, name='chapter_show'),
     path('board/<int:pk>/', board_show, name='board_show'),
     path('board/<int:pk>/', board_show, name='board_list'),
+    path('gladiators/', gladiators, name='gladiators'),
 
     # API
     path('api/', include(router.urls)),
