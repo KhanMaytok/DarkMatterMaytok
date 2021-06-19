@@ -6,14 +6,14 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'books/fonts/orange_kid_wip/stylesheet.css' %}" type="text/css">
     <style>
-        .post__content {
+        #ludus.post__content {
             background-image: url({% static 'books/img/window_bg.png' %});
             background-size: cover;
             padding: 5px;
             font-family: 'orange_kid', Arial, sans-serif;
         }
 
-        .gladiator__item {
+        #ludus .gladiator__item {
             height: 98px;
             border: #0c0e18 solid 4px;
             margin: 2px;
@@ -24,7 +24,7 @@
             cursor: pointer;
         }
 
-        .row {
+        #ludus .row {
             display: flex;
             flex-wrap: wrap;
         }
@@ -61,7 +61,7 @@
             }
         }
 
-        .gladiator__image {
+        #ludus .gladiator__image {
             float: right;
             height: 78px;
         }
@@ -73,7 +73,7 @@
         <div class="page-post">
             <section class="post-full">
                 <div class="wrap">
-                    <article class="post__content">
+                    <article class="post__content" id="ludus">
                         {% for gladiator in gladiators %}
                             <div class="gladiator__item">
                                 <div class="row">
