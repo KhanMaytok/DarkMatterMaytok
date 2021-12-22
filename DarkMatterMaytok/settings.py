@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'django_json_widget',
     'fleet.apps.FleetConfig',
     'webpush',
-    'sap.apps.SapConfig',
 ]
 
 MIDDLEWARE = [
