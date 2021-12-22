@@ -5,9 +5,11 @@
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Navigation
 
     // Global vars
-    let navTarget = $('body').attr('data-page-url');
+    let body = $('body');
+    let navTarget = body.attr('data-page-url');
     let docTitle = document.title;
     let History = window.History;
+
 
     // State change event
     History.Adapter.bind(window, 'statechange', function (e) {
@@ -59,10 +61,8 @@
 
     // On clicking a link
 
-    if ($('body').hasClass('ajax-loading')) {
-
+    if (body.hasClass('ajax-loading')) {
         $(document).on('click', 'a', function (event) {
-
             // Don't follow link
             event.preventDefault();
 
@@ -167,10 +167,10 @@
             });
 
             // Show the content
-            $('body').removeClass('loading');
+            body.removeClass('loading');
 
             // Hide the menu
-            $('body').removeClass('menu--open');
+            body.removeClass('menu--open');
         });
 
 
@@ -335,7 +335,8 @@
 
         function changeSubtitle(event) {
             console.log(event);
-            let t = $(event.target).find('.owl-item.active a').first();
+            let slide = $(document).find('.owl-item.active a').first();
+            let t = slide.find('a');
             let name = t.attr('data-book-name');
             let url = t.attr('data-book-url');
             console.log(name, url);
