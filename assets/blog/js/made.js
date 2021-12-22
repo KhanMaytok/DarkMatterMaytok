@@ -327,9 +327,24 @@
                     autoplay: true,
                     rewind: true
                 });
-                $this.on('next.owl.carousel', function (event) {
-                    changeSubtitle(event);
-                })
+                $this.on('translated.owl.carousel', function (event) {
+                    //changeSubtitle(event);
+                    let t = $(event.target).find('.owl-item.active a').first();
+                    let name = t.attr('data-book-name');
+                    console.log(name);
+                });
+                $this.on('change.owl.carousel', function (event) {
+                    //changeSubtitle(event);
+                    let t = $(event.target).find('.owl-item.active a').first();
+                    let name = t.attr('data-book-name');
+                    console.log(name);
+                });
+                $this.on('changed.owl.carousel', function (event) {
+                    //changeSubtitle(event);
+                    let t = $(event.target).find('.owl-item.active a').first();
+                    let name = t.attr('data-book-name');
+                    console.log(name);
+                });
             });
         });
 
