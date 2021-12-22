@@ -331,18 +331,21 @@
                     //changeSubtitle(event);
                     let t = $(event.target).find('.owl-item.active a').first();
                     let name = t.attr('data-book-name');
+                    console.log('translated');
                     console.log(name);
                 });
                 $this.on('change.owl.carousel', function (event) {
                     //changeSubtitle(event);
                     let t = $(event.target).find('.owl-item.active a').first();
                     let name = t.attr('data-book-name');
+                    console.log('change');
                     console.log(name);
                 });
                 $this.on('changed.owl.carousel', function (event) {
                     //changeSubtitle(event);
                     let t = $(event.target).find('.owl-item.active a').first();
                     let name = t.attr('data-book-name');
+                    console.log('changed');
                     console.log(name);
                 });
             });
