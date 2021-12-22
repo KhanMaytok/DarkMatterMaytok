@@ -17,7 +17,7 @@
         // console.log(state);
 
         // Loading state
-        $('body').addClass('loading');
+        body.addClass('loading');
 
         // Load the page
         $('.page-loader').load(state.hash + ' .page__content', function () {
@@ -40,10 +40,10 @@
                 $('.page-loader .page__content').appendTo('.page');
 
                 // Set page URL
-                $('body').attr('data-page-url', window.location.pathname);
+                body.attr('data-page-url', window.location.pathname);
 
                 // Update navTarget
-                navTarget = $('body').attr('data-page-url');
+                navTarget = body.attr('data-page-url');
 
                 // Set page title
                 docTitle = $('.page__content').attr('data-page-title');
@@ -114,18 +114,18 @@
     // Modals
     function lockPage() {
         $('.page').addClass('locked');
-        $('body').addClass('locked');
+        body.addClass('locked');
     }
 
     function unlockPage() {
         $('.page').removeClass('locked');
-        $('body').removeClass('locked');
+        body.removeClass('locked');
     }
 
     $(document).on('click', '.js-contact', function (event) {
         event.preventDefault();
 
-        $('body').removeClass('menu--open');
+        body.removeClass('menu--open');
         $('.contact').addClass('visible');
         lockPage();
 
@@ -335,7 +335,7 @@
 
         function changeSubtitle(event) {
             console.log(event);
-            let t = $(document).find('.owl-item.active a').first();
+            let t = $(event.currentTarget).find('.owl-item.active a').first();
             let name = t.attr('data-book-name');
             let url = t.attr('data-book-url');
             console.log(name, url);
@@ -386,13 +386,13 @@
     $(document).on('click', '.js-menu-toggle', function () {
 
         // If already open
-        if ($('body').hasClass('menu--open')) {
-            $('body').removeClass('menu--open');
+        if (body.hasClass('menu--open')) {
+            body.removeClass('menu--open');
         }
 
         // If not open
         else {
-            $('body').addClass('menu--open');
+            body.addClass('menu--open');
         }
     });
 
@@ -412,7 +412,7 @@
 
         var targetPost = $(this).find('.post__title a').attr('href');
 
-        if ($('body').hasClass('ajax-loading')) {
+        if (body.hasClass('ajax-loading')) {
 
             // Change navTarget
             navTarget = targetPost;
