@@ -327,7 +327,7 @@
                     autoplay: true,
                     rewind: true
                 });
-                $this.on('changed.owl.carousel', function (event) {
+                $this.on('next.owl.carousel', function (event) {
                     changeSubtitle(event);
                 })
             });
