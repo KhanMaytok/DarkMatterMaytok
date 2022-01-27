@@ -8,10 +8,10 @@ class AccountAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     exclude = ('user',)
 
-    def get_form(self, request, **kwargs):
-        form = super(AccountAdmin, self).get_form(request, **kwargs)
-        form.user = request.user
-        return form
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'user', None) is None:
+            obj.user = request.user
+        obj.save()
 
 
 admin.site.register(Account, AccountAdmin)
