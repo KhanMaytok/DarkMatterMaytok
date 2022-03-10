@@ -223,6 +223,13 @@ COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'com
 
 CACHE_TTL = 60 * 60 * 24  # 24 hours
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
 USER_RANK = [
     ('0', 'IRON'),
     ('1', 'BRONZE'),

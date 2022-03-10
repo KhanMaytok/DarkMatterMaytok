@@ -1,6 +1,6 @@
 dj-config-url
 sqlparse==0.4.2
-Django==3.2.10
+Django==3.2.12
 djangorestframework==3.13.1
 markdown==3.3.6
 django-filter==2.4.0
@@ -15,13 +15,13 @@ drf-yasg==1.20.0
 django-cors-headers==3.7.0
 readtime==1.1.1
 django-markdownx==3.0.1
-django-summernote==0.8.11.6
+django-summernote==0.8.20.0
 social-auth-app-django==4.0.0
 django_compressor==2.4.1
 django-redis==4.12.1
 django-dbbackup==3.3.0
-dropbox==11.9.0
-django-storages==1.11.1
+dropbox==11.28.0
+django-storages==1.12.3
 django-minio-storage==0.3.10
 django-json-widget==1.1.1
 ogame

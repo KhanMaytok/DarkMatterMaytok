@@ -1,6 +1,8 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
+from django.views.decorators.cache import cache_page
+
 from blog.models import Post
 from books.models import Book
 
@@ -29,6 +31,7 @@ def blog_paginated(request, page=1):
     return render(request, 'blog/blog.html', {'posts': posts})
 
 
+@cache_page(60 * 15)
 def blog_post(request, pk=None, slug=None):
     post = get_object_or_404(Post, pk=pk)
 
