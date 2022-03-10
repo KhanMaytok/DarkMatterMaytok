@@ -301,3 +301,25 @@ WEBPUSH_SETTINGS = {
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SHOW_QUERIES = config('SHOW_QUERIES', cast=bool, default=True)
+if SHOW_QUERIES is True:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+            },
+        },
+        'root': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+        },
+        'loggers': {
+            'django.db': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+            }
+        },
+    }
