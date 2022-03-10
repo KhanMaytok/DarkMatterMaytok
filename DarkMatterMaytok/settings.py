@@ -302,7 +302,7 @@ WEBPUSH_SETTINGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SHOW_QUERIES = config('SHOW_QUERIES', cast=bool, default=True)
+SHOW_QUERIES = config('SHOW_QUERIES', cast=bool, default=False)
 if SHOW_QUERIES is True:
     LOGGING = {
         'version': 1,

@@ -31,7 +31,6 @@ def blog_paginated(request, page=1):
     return render(request, 'blog/blog.html', {'posts': posts})
 
 
-@cache_page(60 * 15)
 def blog_post(request, pk=None, slug=None):
     post = get_object_or_404(Post, pk=pk)
 
