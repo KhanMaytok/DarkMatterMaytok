@@ -1,22 +1,22 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from django.views.decorators.cache import cache_page
-
+from DarkMatterMaytok.settings import PAGE_SIZE
 from blog.models import Post
 from books.models import Book
+
+page_size = PAGE_SIZE
 
 
 def home(request):
     books = Book.objects.all()
     posts = Post.objects.filter(created_at__lte=timezone.now(), is_draft=False)[:3]
-    webpush = {"group": 'homelander'}
-    return render(request, 'blog/home.html', {'books': books, 'posts': posts, "webpush": webpush})
+    return render(request, 'blog/home.html', {'books': books, 'posts': posts})
 
 
 def blog(request):
     post_list = Post.objects.filter(created_at__lte=timezone.now(), is_draft=False)
-    paginator = Paginator(post_list, 7)
+    paginator = Paginator(post_list, page_size)
 
     posts = paginator.get_page(1)
     return render(request, 'blog/blog.html', {'posts': posts})
@@ -24,7 +24,7 @@ def blog(request):
 
 def blog_paginated(request, page=1):
     post_list = Post.objects.filter(created_at__lte=timezone.now(), is_draft=False)
-    paginator = Paginator(post_list, 7)
+    paginator = Paginator(post_list, page_size)
 
     page_number = page
     posts = paginator.get_page(page_number)

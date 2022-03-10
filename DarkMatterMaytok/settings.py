@@ -323,3 +323,5 @@ if SHOW_QUERIES is True:
             }
         },
     }
+
+PAGE_SIZE = 7
