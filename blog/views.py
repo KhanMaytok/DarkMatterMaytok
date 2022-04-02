@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import user_passes_test
 from django.core.paginator import Paginator
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
@@ -33,7 +32,7 @@ def blog_paginated(request, page=1):
 
 def blog_post(request, pk=None, *args, **kwargs):
     post = get_object_or_404(Post, pk=pk)
-    if post.is_draft or (post.is_founder and not request.user.groups.filter(name='founder').exists()):
+    if post.is_draft or (post.is_founder and not user_is_founder(request.user)):
         raise Http404
 
     try:
@@ -53,7 +52,7 @@ def blog_post(request, pk=None, *args, **kwargs):
 
 
 def get_post_list(request):
-    if request.user.groups.filter(name='founder').exists():
+    if user_is_founder(request.user):
         return Post.objects.filter(created_at__lte=timezone.now(), is_draft=False)
     return Post.objects.filter(created_at__lte=timezone.now(), is_draft=False, is_founder=False)
 
