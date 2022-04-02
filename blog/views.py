@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import user_passes_test
 from django.core.paginator import Paginator
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
@@ -55,3 +56,7 @@ def get_post_list(request):
     if request.user.groups.filter(name='founder').exists():
         return Post.objects.filter(created_at__lte=timezone.now(), is_draft=False)
     return Post.objects.filter(created_at__lte=timezone.now(), is_draft=False, is_founder=False)
+
+
+def user_is_founder(user):
+    return user.groups.filter(name='founder').exists() or user.is_superuser
