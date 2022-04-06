@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.signals import user_logged_out
 
 from core.forms import SignUpForm
+from core.models import User
 
 
 def logout(request):
@@ -31,3 +32,24 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'core/login.html', {'jaja': form})
+
+
+def send_mail():
+    from django.core.mail import EmailMessage
+    from django.template.loader import get_template
+    a = User.objects.all()
+
+    message = get_template("core/email/founder.html").render({
+        'order': 'asd'
+    })
+
+    for i in a:
+        mail = EmailMessage(
+            subject="Order confirmation",
+            body=message,
+            from_email='khan.maytok@gmail.com',
+            to=[i.email],
+            reply_to=['khan.maytok@gmail.com'],
+        )
+        mail.content_subtype = "html"
+        mail.send()

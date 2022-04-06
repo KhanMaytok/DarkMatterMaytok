@@ -41,24 +41,25 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', RedirectView.as_view(url='https://www.youtube.com/watch?v=bR-s4ReIxJo', permanent=False)),
     path('the-forge/', admin.site.urls),
-    # path('accounts/', include('django.contrib.auth.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),
     path('register/', signup, name='register'),
     path('privacidad/', TemplateView.as_view(template_name='core/privacy.html'), name="terms"),
     path('logout/', logout, name='logout'),
     path('payments/', include('payments.urls')),
-    path('', include('blog.urls')),
-    path('wallet/', include('wallet.urls')),
-    path('', include('books.urls')),
     path('comments/', include('django_comments_xtd.urls')),
+    path('wallet/', include('wallet.urls')),
+    path('founder/', TemplateView.as_view(template_name='core/email/founder.html'), name="founder"),
+
+    path('', include('books.urls')),
+    path('', include('blog.urls')),
+    path('', include('social_django.urls', namespace='social')),
 
     path('swagger.json', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger.yaml', schema_view.without_ui(cache_timeout=0), name='schema-yaml'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('summernote/', include('django_summernote.urls')),
-    path('', include('social_django.urls', namespace='social')),
-    path('webpush/', include('webpush.urls')),
+
 ]
 
 if settings.DEBUG is True:

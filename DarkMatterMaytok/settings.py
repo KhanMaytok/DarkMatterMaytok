@@ -294,12 +294,6 @@ LOGGING = {
 }
 """
 
-WEBPUSH_SETTINGS = {
-    "VAPID_PUBLIC_KEY": config('VAPID_PUBLIC_KEY', default='VAPID_PUBLIC_KEY'),
-    "VAPID_PRIVATE_KEY": config('VAPID_PRIVATE_KEY', default='VAPID_PRIVATE_KEY'),
-    "VAPID_ADMIN_EMAIL": config('VAPID_ADMIN_EMAIL', default='VAPID_ADMIN_EMAIL')
-}
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SHOW_QUERIES = config('SHOW_QUERIES', cast=bool, default=False)

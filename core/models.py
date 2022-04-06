@@ -28,6 +28,8 @@ class User(AbstractUser):
     rank = models.CharField(max_length=50, choices=USER_RANK, default='0')
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
     email = models.EmailField(max_length=100, blank=True, unique=True, verbose_name='Email')
+    is_founder = models.BooleanField(default=False)
+    is_founder_emailed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['pk']
