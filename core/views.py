@@ -47,9 +47,9 @@ def send_mail():
         mail = EmailMessage(
             subject="Order confirmation",
             body=message,
-            from_email='khan.maytok@gmail.com',
+            from_email='no-reply@maytok.com',
             to=[i.email],
-            reply_to=['khan.maytok@gmail.com'],
+            reply_to=['no-reply@maytok.com'],
         )
         mail.content_subtype = "html"
         mail.send()
