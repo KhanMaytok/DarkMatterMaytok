@@ -1,3 +1,5 @@
+import uuid
+
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
@@ -30,6 +32,7 @@ class User(AbstractUser):
     email = models.EmailField(max_length=100, blank=True, unique=True, verbose_name='Email')
     is_founder = models.BooleanField(default=False)
     is_founder_emailed = models.BooleanField(default=False)
+    founder_uuid = models.UUIDField(null=True, blank=True, default=uuid.uuid4)
 
     class Meta:
         ordering = ['pk']
