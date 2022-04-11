@@ -41,7 +41,7 @@ def send_mail(founder_email):
     message = get_template("core/email/founder.html").render()
 
     mail = EmailMessage(
-        subject="Order confirmation",
+        subject="Descubre el Universo Maytok",
         body=message,
         from_email='no-reply@maytok.com',
         to=[founder_email],
