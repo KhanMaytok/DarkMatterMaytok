@@ -34,25 +34,21 @@ def signup(request):
     return render(request, 'core/login.html', {'jaja': form})
 
 
-def send_mail():
+def send_mail(founder_email):
     from django.core.mail import EmailMessage
     from django.template.loader import get_template
-    a = User.objects.all()
 
-    message = get_template("core/email/founder.html").render({
-        'order': 'asd'
-    })
+    message = get_template("core/email/founder.html").render()
 
-    for i in a:
-        mail = EmailMessage(
-            subject="Order confirmation",
-            body=message,
-            from_email='no-reply@maytok.com',
-            to=[i.email],
-            reply_to=['no-reply@maytok.com'],
-        )
-        mail.content_subtype = "html"
-        mail.send()
+    mail = EmailMessage(
+        subject="Order confirmation",
+        body=message,
+        from_email='no-reply@maytok.com',
+        to=[founder_email],
+        reply_to=['no-reply@maytok.com'],
+    )
+    mail.content_subtype = "html"
+    mail.send()
 
 
 def create_founder(request):
