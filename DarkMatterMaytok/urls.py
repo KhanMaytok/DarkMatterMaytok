@@ -49,7 +49,6 @@ urlpatterns = [
     path('comments/', include('django_comments_xtd.urls')),
     path('wallet/', include('wallet.urls')),
     path('founder/', TemplateView.as_view(template_name='core/email/founder.html'), name="founder"),
-    path('welcome-founder/', TemplateView.as_view(template_name='core/welcome_founder.html'), name="welcome_founder"),
 
     path('', include('books.urls')),
     path('', include('blog.urls')),
