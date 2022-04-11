@@ -31,9 +31,7 @@ def blog_paginated(request, page=1):
 
 
 def blog_post(request, pk=None, *args, **kwargs):
-    post = get_object_or_404(Post, pk=pk)
-    if post.is_draft:
-        raise Http404
+    post = get_object_or_404(Post, pk=pk, is_draft=False)
 
     try:
         prev_post = Post.get_previous_by_created_at(post)
