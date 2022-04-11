@@ -13,7 +13,6 @@ class Post(BaseModel):
     description = models.TextField(null=True)
     body = models.TextField(null=True)
     is_draft = models.BooleanField(default=True)
-    is_founder = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-pk']

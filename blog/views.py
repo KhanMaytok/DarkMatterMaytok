@@ -32,7 +32,7 @@ def blog_paginated(request, page=1):
 
 def blog_post(request, pk=None, *args, **kwargs):
     post = get_object_or_404(Post, pk=pk)
-    if post.is_draft or (post.is_founder and not user_is_founder(request.user)):
+    if post.is_draft:
         raise Http404
 
     try:
@@ -52,10 +52,8 @@ def blog_post(request, pk=None, *args, **kwargs):
 
 
 def get_post_list(request):
-    if user_is_founder(request.user):
-        return Post.objects.filter(created_at__lte=timezone.now(), is_draft=False)
-    return Post.objects.filter(created_at__lte=timezone.now(), is_draft=False, is_founder=False)
+    return Post.objects.filter(created_at__lte=timezone.now(), is_draft=False)
 
 
 def user_is_founder(user):
-    return user.groups.filter(name='founder').exists() or user.is_superuser
+    return user.is_founder is True or user.is_superuser
