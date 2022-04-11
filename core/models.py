@@ -32,7 +32,7 @@ class User(AbstractUser):
     email = models.EmailField(max_length=100, blank=True, unique=True, verbose_name='Email')
     is_founder = models.BooleanField(default=False)
     is_founder_emailed = models.BooleanField(default=False)
-    guid = models.UUIDField(null=True, blank=True, default=uuid.uuid4, unique=True)
+    guid = models.UUIDField(null=True, blank=True, default=uuid.uuid4)
 
     class Meta:
         ordering = ['pk']
