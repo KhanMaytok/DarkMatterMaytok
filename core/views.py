@@ -53,3 +53,16 @@ def send_mail():
         )
         mail.content_subtype = "html"
         mail.send()
+
+
+def create_founder(request):
+    guid = request.GET.get('guid')
+    user = User.objects.get(guid=guid)
+    username = request.GET.get('username', None)
+    password = request.GET.get('password', None)
+
+    user.username = username
+    user.set_password(password)
+    user.save()
+
+    return redirect('home')
