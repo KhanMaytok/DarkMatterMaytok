@@ -31,7 +31,10 @@ def blog_paginated(request, page=1):
 
 
 def blog_post(request, pk=None, *args, **kwargs):
-    post = get_object_or_404(Post, pk=pk, is_draft=False)
+    if request.user.is_superuser is True:
+        post = get_object_or_404(Post, pk=pk, is_draft=False)
+    else:
+        post = get_object_or_404(Post, pk=pk)
 
     try:
         prev_post = Post.get_previous_by_created_at(post)
