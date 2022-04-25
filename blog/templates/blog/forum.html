@@ -1,0 +1,75 @@
+{% extends 'blog/_layouts/base.html' %}
+{% load tz %}
+
+{% block title %}
+    Blog – El Universo Maytok
+{% endblock %}
+
+{% block content %}
+    <div class="page__content" data-page-title="Blog – El Universo Maytok">
+
+        {% include 'blog/_includes/contact.html' %}
+
+        <div class="page-project" style="--accent: #996FCF;">
+            <section class="post-full">
+                <div class="wrap">
+                    <div class="posts__list grid">
+                        {% for post in posts %}
+                            {% if forloop.first %}
+                                <article class="post post-new">
+                                    <div class="grid">
+                                        <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}">
+                                            <div class="post__image post__image--new"
+                                                 style="background-image: url({{ post.image_url|default_if_none:'https://via.placeholder.com/686x386' }})"
+                                            >
+                                            </div>
+                                        </a>
+
+                                        <div class="post__content-wrap">
+                                            <div class="post__content">
+                                                <time class="post__date label--small"
+                                                      data-utc="{{ post.created_at | date:"Y-m-d H:i" }}">
+                                                    {{ post.created_at | date:"M d, Y" }}
+                                                </time>
+                                                <h2 class="post__title h4">
+                                                    <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}">{{ post.name }}</a>
+                                                </h2>
+                                                <p class="post__subtitle"></p>
+                                                <p class="post__description">{{ post.description }}</p>
+                                                <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}"
+                                                   class="post__link button--text--accent --right">Leer más</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            {% else %}
+                                <article class="post__card">
+                                    <a href="{% url 'blog_post' pk=post.pk slug=post.slug %}" class="post__link">
+                                        <div class="post__image"
+                                             style="background-image: url({{ post.image_url|default_if_none:'https://via.placeholder.com/686x386' }})"
+                                        >
+                                        </div>
+                                        <time class="post__date label--small"
+                                              data-utc="{{ post.created_at | date:"Y-m-d H:i" }}">
+                                            {{ post.created_at | date:"M d, Y" }}
+                                        </time>
+                                        <h5 class="post__title subtitle">{{ post.name }}</h5>
+                                    </a>
+                                </article>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            <section class="pagination">
+                <div class="wrap">
+                    {% if posts.has_next %}
+                        <a href="{% url 'blog_paginated' page=posts.next_page_number %}"
+                           class="button--text--accent --right pagination__next">Cargar más...</a>
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
