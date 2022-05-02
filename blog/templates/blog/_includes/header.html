@@ -96,6 +96,7 @@
                 <li class="menu__list__item">
                     <a href="/blog/" class="menu__list__item__link button--text">Blog</a>
                 </li>
+
                 <li class="menu__list__item">
                     {% if user.is_authenticated %}
                         <a href="{% url 'logout' %}" class="menu__list__item__link button--text js-no-ajax">Logout</a>
@@ -104,12 +105,19 @@
                     {% endif %}
                 </li>
 
+                {% if user.is_authenticated %}
+                    <li class="menu__list__item">
+                    <a href="/blog/" class="menu__list__item__link button--text">{{ user.username }}</a>
+                {% endif %}
+                </li>
+
                 <li class="menu__list__item">
                     <div class="rz95fb-1 cfBxiI">
                         <div>
                             <button title="Tus fondos" data-qa-id="button-global-currency-picker"
                                     class="sc-1kx6hcr-0 eFEgkr"><span class="sc-1q0bpva-0 fAPnqP"></span><span
-                                    class="sc-1bafwtq-1 dUQeWc">{{ request.user.balance|stringformat:"i"|format_maytok_currency }}</span></button>
+                                    class="sc-1bafwtq-1 dUQeWc">{{ user.balance|format_maytok_currency }}</span>
+                            </button>
                         </div>
                     </div>
                 </li>
