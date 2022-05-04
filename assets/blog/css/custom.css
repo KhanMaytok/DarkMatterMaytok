@@ -1,4 +1,4 @@
-article.post__content p {
+article.post__content p, article.post__content ul, article.post__content li {
     margin: 0 0 1.5em !important;
     min-width: 100% !important;
     font-family: Georgia, serif;
