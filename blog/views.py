@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Sum
 from django.http import Http404, JsonResponse
@@ -6,6 +7,7 @@ from django.utils import timezone
 from DarkMatterMaytok.settings import PAGE_SIZE
 from blog.models import Post, Project, ProjectUser
 from books.models import Book
+from core.models import User
 
 
 def home(request):
@@ -61,7 +63,9 @@ def user_is_founder(user):
     return user.is_founder is True or user.is_superuser
 
 
+@login_required
 def fund_project(request, project_id, amount):
+    user: User = request.user
     try:
         project = Project.objects.get(pk=project_id)
     except Project.DoesNotExist:
@@ -73,8 +77,11 @@ def fund_project(request, project_id, amount):
         return JsonResponse({'total': 0, 'error': True})
 
     project_user, _ = ProjectUser.objects.get_or_create(project=project, user=request.user)
-    project_user.amount += int(amount)
+    project_user.amount += amount
     project_user.save()
+
+    user.balance -= amount
+    user.save()
 
     all_funds = ProjectUser.objects.filter(project=project).aggregate(Sum('amount'))['amount__sum']
     project.amount = all_funds
