@@ -48,6 +48,9 @@ class Project(BaseModel):
         self.slug = slugify(self.name)
         super(Project, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return self.name
+
 
 class ProjectUser(BaseModel):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
