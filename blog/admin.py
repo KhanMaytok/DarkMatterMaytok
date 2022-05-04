@@ -7,10 +7,10 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('body',)
     exclude = ['user', 'slug']
 
-    def get_form(self, request, *args, **kwargs):
-        form = super(PostAdmin, self).get_form(request, *args, **kwargs)
-        form.user = request.user
-        return form
+    def get_form(self, request, obj=None, change=False, **kwargs):
+        if obj.user is None:
+            obj.user = request.user
+        return super().get_form(request, obj, **kwargs)
 
 
 admin.site.register(Post, PostAdmin)
