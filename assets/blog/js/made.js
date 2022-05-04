@@ -370,6 +370,7 @@
 
             if (isNaN(fund_amount) || fund_amount <= 0) {
                 alert("Solo aceptamos Solaris. ¿Comunicamos su transgresión al sindicato?")
+                el.prop('disabled', false);
                 return;
             }
 
