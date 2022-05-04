@@ -1,9 +1,10 @@
 from django.core.paginator import Paginator
-from django.http import Http404
+from django.db.models import Sum
+from django.http import Http404, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from DarkMatterMaytok.settings import PAGE_SIZE
-from blog.models import Post
+from blog.models import Post, Project, ProjectUser
 from books.models import Book
 
 
@@ -58,3 +59,25 @@ def get_post_list(request):
 
 def user_is_founder(user):
     return user.is_founder is True or user.is_superuser
+
+
+def fund_project(request, project_id, amount):
+    try:
+        project = Project.objects.get(pk=project_id)
+    except Project.DoesNotExist:
+        return JsonResponse({'total': 0, 'error': True})
+
+    try:
+        amount = int(amount)
+    except ValueError:
+        return JsonResponse({'total': 0, 'error': True})
+
+    project_user, _ = ProjectUser.objects.get_or_create(project=project, user=request.user)
+    project_user.amount += int(amount)
+    project_user.save()
+
+    all_funds = ProjectUser.objects.filter(project=project).aggregate(Sum('amount'))['amount__sum']
+    project.amount = all_funds
+    project.save()
+
+    return JsonResponse({'total': all_funds, 'error': False})

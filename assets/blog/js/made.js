@@ -348,6 +348,64 @@
             $('#book-description').html(description);
         }
 
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Format bytes for string units
+        function formatBytes(bytes) {
+            const units = ['S', 'KS', 'MS', 'GS', 'TS', 'PS', 'ES', 'ZS', 'YS'];
+            bytes = Math.max(bytes, 0);
+            let pow = Math.floor((bytes ? Math.log(bytes) : 0) / Math.log(1024));
+            pow = Math.min(pow, units.length - 1);
+            bytes /= Math.pow(1024, pow);
+
+            return Math.round(bytes * 100) / 100 + units[pow];
+        }
+
+        $(document).on('click', '#fund', function () {
+            const el = $(this);
+            el.prop('disabled', true);
+            let project_solaris = parseInt(el.attr('data-projectamount'));
+
+            let formated_solaris = formatBytes(project_solaris);
+            let project_id = el.attr('data-projectid');
+            let fund_amount = parseInt($('#fund__amount').val());
+
+            if (isNaN(fund_amount) || fund_amount <= 0) {
+                alert("Solo aceptamos Solaris. ¿Comunicamos su transgresión al sindicato?")
+                return;
+            }
+
+            let total = project_solaris + fund_amount;
+            let formated_total = formatBytes(total);
+
+            const dom__solaris__per_project = $('#solaris__per__project');
+            dom__solaris__per_project.html(formated_total);
+            dom__solaris__per_project.parent().addClass('animate__pulse');
+            setTimeout(function () {
+                dom__solaris__per_project.parent().removeClass('animate__pulse');
+            }, 1000);
+
+            el.attr('data-projectamount', total);
+
+            $.get(`/blog/project/${project_id}/fund/${fund_amount}`, function(res){
+                console.log(res);
+                if (res.error === true){
+                    alert("Ha ocurrido un error")
+                    dom__solaris__per_project.html(formated_solaris);
+                } else{
+                    dom__solaris__per_project.html(formatBytes(res.total));
+                    $('#fund').attr('data-projectamount', res.total);
+                }
+                el.prop('disabled', false);
+            }).catch(function(err){
+                console.log(err);
+                alert("Ha ocurrido un error")
+                dom__solaris__per_project.html(formated_solaris);
+                el.prop('disabled', false);
+            });
+
+            console.log('project_solaris: ' + project_solaris);
+            console.log('total: ' + total);
+        })
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Images
 
         $('.post__content p > img').each(function () {

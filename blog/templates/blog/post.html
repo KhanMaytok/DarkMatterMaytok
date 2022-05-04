@@ -1,6 +1,7 @@
 {% extends 'blog/_layouts/base.html' %}
 {% load comments %}
 {% load comments_xtd %}
+{% load core_filters %}
 
 {% block head %}
     {% include 'blog/_includes/head.html' with image=post.image_url description=post.description title=post.name|add:" | El Universo Maytok" %}
@@ -45,6 +46,16 @@
                                 {{ next_post.name }}
                             </a>
                         {% endif %}
+                    </div>
+                    <div class="project__wrapper">
+                        <div class="sts animate__animated" data-amt="3514">
+                            <span class="solaris__per__project "
+                                  id="solaris__per__project">{{ post.project.amount|format_maytok_currency }}</span>
+                        </div>
+                        <input type="text" class="input" placeholder="50" id="fund__amount"/>
+                        <button type="button" class="btn add" id="fund" data-projectid="{{ post.project.id }}"
+                                data-projectamount="{{ post.project.amount }}">Patrocinar
+                            projecto {{ post.project.name }}</button>
                     </div>
                     <section id="comments-wrapper">
                         <a id="comments"></a>

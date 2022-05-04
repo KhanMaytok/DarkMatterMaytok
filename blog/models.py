@@ -13,6 +13,7 @@ class Post(BaseModel):
     description = models.TextField(null=True)
     body = models.TextField(null=True)
     is_draft = models.BooleanField(default=True)
+    project = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         ordering = ['-pk']
@@ -42,6 +43,10 @@ class Project(BaseModel):
     name = models.CharField(max_length=255)
     slug = models.SlugField(null=True, default=slugify(name))
     amount = models.BigIntegerField(null=True, default=0)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Project, self).save(*args, **kwargs)
 
 
 class ProjectUser(BaseModel):
