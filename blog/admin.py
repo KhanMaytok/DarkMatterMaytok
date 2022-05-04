@@ -8,7 +8,7 @@ class PostAdmin(SummernoteModelAdmin):
     exclude = ['user', 'slug']
 
     def get_form(self, request, obj=None, change=False, **kwargs):
-        if obj is not None and obj.user is None:
+        if obj is not None:
             obj.user = request.user
         return super().get_form(request, obj, **kwargs)
 
