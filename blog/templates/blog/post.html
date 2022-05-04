@@ -47,16 +47,19 @@
                             </a>
                         {% endif %}
                     </div>
-                    <div class="project__wrapper">
-                        <div class="sts animate__animated" data-amt="3514">
+                    {% if post.project != None %}
+                        <div class="project__wrapper">
+                            <div class="sts animate__animated" data-amt="3514">
                             <span class="solaris__per__project "
                                   id="solaris__per__project">{{ post.project.amount|format_maytok_currency }}</span>
+                            </div>
+                            <input type="text" class="input" placeholder="50" id="fund__amount"/>
+                            <button type="button" class="btn add" id="fund" data-projectid="{{ post.project.id }}"
+                                    data-projectamount="{{ post.project.amount }}">Patrocinar
+                                projecto {{ post.project.name }}</button>
                         </div>
-                        <input type="text" class="input" placeholder="50" id="fund__amount"/>
-                        <button type="button" class="btn add" id="fund" data-projectid="{{ post.project.id }}"
-                                data-projectamount="{{ post.project.amount }}">Patrocinar
-                            projecto {{ post.project.name }}</button>
-                    </div>
+                    {% endif %}
+
                     <section id="comments-wrapper">
                         <a id="comments"></a>
                         <div id="form-wrapper">
