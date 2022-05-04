@@ -360,6 +360,7 @@
         }
 
         $(document).on('click', '#fund', function () {
+            console.log('Llamado al boton #fund');
             const el = $(this);
             el.prop('disabled', true);
             let project_solaris = parseInt(el.attr('data-projectamount'));
@@ -386,7 +387,7 @@
 
             el.attr('data-projectamount', total);
 
-            $.get(`/blog/project/${project_id}/fund/${fund_amount}`, function(res){
+            $.get(`/blog/project/${project_id}/fund/${fund_amount}/`, function(res){
                 console.log(res);
                 if (res.error === true){
                     alert("Ha ocurrido un error")
