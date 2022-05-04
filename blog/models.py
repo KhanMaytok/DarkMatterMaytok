@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 
-from core.models import BaseModel
+from core.models import BaseModel, User
 
 
 class Post(BaseModel):
@@ -36,3 +36,22 @@ class Post(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+class Project(BaseModel):
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(null=True, default=slugify(name))
+    amount = models.BigIntegerField(null=True, default=0)
+
+
+class ProjectUser(BaseModel):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.BigIntegerField(null=True, default=0)
+    is_owner = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ('project', 'user')
+
+    def __str__(self):
+        return f'{self.user} - {self.project}'
