@@ -23,7 +23,7 @@ def format_maytok_currency(currency: str) -> str:
     return the currency formatted in base 1024
     """
     currency = 0 if currency == "" or currency is None else int(currency)
-    units = ['B', 'KB', 'MB', 'GB', 'TB']
+    units = ['S', 'KS', 'MS', 'GS', 'TS', 'PS', 'ES', 'ZS', 'YS']
     currency = max([currency, 0])
     _pow = math.floor((math.log(currency) if currency else 0) / math.log(1024))
     _pow = min([_pow, len(units) - 1])
