@@ -25,8 +25,8 @@ def format_maytok_currency(currency: str) -> str:
     currency = 0 if currency == "" or currency is None else int(currency)
     units = ['S', 'KS', 'MS', 'GS', 'TS', 'PS', 'ES', 'ZS', 'YS']
     currency = max([currency, 0])
-    _pow = math.floor((math.log(currency) if currency else 0) / math.log(1024))
+    _pow = math.floor((math.log(currency) if currency else 0) / math.log(1000))
     _pow = min([_pow, len(units) - 1])
-    currency = currency / pow(1024, _pow)
+    currency = currency / pow(1000, _pow)
 
     return f"{round(currency * 100) / 100}{units[_pow]}"
