@@ -33,7 +33,7 @@ class User(AbstractUser):
     is_founder = models.BooleanField(default=False)
     is_founder_emailed = models.BooleanField(default=False)
     guid = models.UUIDField(null=True, blank=True, default=uuid.uuid4)
-    balance = models.BigIntegerField(default=0)
+    balance = models.BigIntegerField(default=65000000000)
 
     class Meta:
         ordering = ['pk']
