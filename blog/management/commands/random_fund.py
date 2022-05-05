@@ -9,21 +9,22 @@ class Command(BaseCommand):
     help = 'Init user'
 
     def handle(self, *args, **kwargs):
-        count = User.objects.filter(is_founder=True).count()
-        random_index = randint(0, count - 1)
-        user = User.objects.filter(is_founder=True)[random_index]
+        for i in range(1, 10):
+            count = User.objects.filter(is_founder=True).count()
+            random_index = randint(0, count - 1)
+            user = User.objects.filter(is_founder=True)[random_index]
 
-        amount = randint(0, int(user.balance / 10000))
+            amount = randint(0, int(user.balance / 10000))
 
-        project = Project.objects.get(pk=1)
+            project = Project.objects.get(pk=1)
 
-        project_user, _ = ProjectUser.objects.get_or_create(project=project, user=user)
-        project_user.amount += amount
-        project_user.save()
+            project_user, _ = ProjectUser.objects.get_or_create(project=project, user=user)
+            project_user.amount += amount
+            project_user.save()
 
-        user.balance -= amount
-        user.save()
+            user.balance -= amount
+            user.save()
 
-        all_funds = ProjectUser.objects.filter(project=project).aggregate(Sum('amount'))['amount__sum']
-        project.amount = all_funds
-        project.save()
+            all_funds = ProjectUser.objects.filter(project=project).aggregate(Sum('amount'))['amount__sum']
+            project.amount = all_funds
+            project.save()
