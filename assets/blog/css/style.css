@@ -1647,7 +1647,7 @@ code {
     }
 
     .header--main .wrap {
-        grid-template-columns: 1fr 1fr 1fr
+        grid-template-columns: 1fr 1fr
     }
 
     .header--main .header__menu {
