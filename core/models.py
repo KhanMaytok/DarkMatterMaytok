@@ -41,7 +41,7 @@ class User(AbstractUser):
         verbose_name_plural = 'Usuarios'
 
     def __str__(self):
-        return self.get_full_name()
+        return self.username
 
     @property
     def get_avatar(self):
