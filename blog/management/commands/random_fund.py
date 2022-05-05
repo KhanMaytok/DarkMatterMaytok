@@ -13,7 +13,7 @@ class Command(BaseCommand):
         random_index = randint(0, count - 1)
         user = User.objects.filter(is_founder=True)[random_index]
 
-        amount = randint(0, user.balance / 10000)
+        amount = randint(0, int(user.balance / 10000))
 
         project = Project.objects.get(pk=1)
 
