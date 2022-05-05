@@ -52,7 +52,15 @@ def blog_post(request, pk=None, *args, **kwargs):
     except Post.DoesNotExist:
         next_post = None
 
-    return render(request, 'blog/post.html', {'post': post, 'prev_post': prev_post, 'next_post': next_post})
+    project_users = None
+    if post.project is not None:
+        project_users = ProjectUser.objects.filter(project=post.project).order_by('-amount')
+        count = project_users.count()
+        if count > 5:
+            project_users = project_users[:5]
+
+    return render(request, 'blog/post.html',
+                  {'post': post, 'prev_post': prev_post, 'next_post': next_post, 'project_users': project_users})
 
 
 def get_post_list(request):
