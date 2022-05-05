@@ -12,7 +12,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         username = kwargs['username']
-        user = User.objects.create_user(username=username, password=uuid.uuid4(),
+        user = User.objects.create_user(username=username, password=uuid.uuid4().__str__(),
                                         email=f'{username}@{username}.{username}')
         user.is_founder = True
         user.save()
