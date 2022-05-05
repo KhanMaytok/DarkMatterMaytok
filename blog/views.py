@@ -76,6 +76,9 @@ def fund_project(request, project_id, amount):
     except ValueError:
         return JsonResponse({'total': 0, 'error': True})
 
+    if user.balance < amount:
+        return JsonResponse({'total': 0, 'error': True})
+
     project_user, _ = ProjectUser.objects.get_or_create(project=project, user=request.user)
     project_user.amount += amount
     project_user.save()
