@@ -26,15 +26,16 @@ div.input-submit {
 
 .project__wrapper {
     padding: 1em;
-    background-color: #346b83;
+    background-color: #0037b3;
     display: flex;
+    margin-bottom: 20px;
 }
 
 .project__wrapper .sts {
     display: inline-block;
     padding: 4px 15px;
     line-height: 42px;
-    background-color: #548397;
+    background-color: #4c60e6;
     font-size: 26px;
     color: #fff;
     border-radius: 8px;
@@ -55,10 +56,12 @@ div.input-submit {
 .project__wrapper .btn {
     padding: 8px 15px;
     border: 0;
-    background-color: #b0babf;
-    font-size: 12px;
+    background-color: #4c60e6;
+    color: #fff;
+    font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
+    font-family: Rubik, sans-serif;
 }
 
 /*
@@ -113,4 +116,52 @@ div.input-submit {
     animation-name: pulse;
     -webkit-animation-timing-function: ease-in-out;
     animation-timing-function: ease-in-out;
+}
+
+
+/* TABLES FOR CONTRIBUTORS */
+
+.top__contributors {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.top__contributors table:not(.rouge-table) {
+    margin: 32px 0 40px;
+    border: 2px solid #202224;
+    width: 100%;
+}
+
+.top__contributors table:not(.rouge-table) thead {
+    background: #4C60E6;
+    color: #fff;
+    text-align: left;
+    font-weight: 700
+}
+
+.top__contributors table:not(.rouge-table) thead th {
+    font-weight: 700
+}
+
+.top__contributors table:not(.rouge-table) th, .top__contributors table:not(.rouge-table) td {
+    padding: 10px;
+    font-size: 17px;
+    font-weight: 400
+}
+
+@media only screen and (min-width: 768px) {
+    .top__contributors table:not(.rouge-table) th, .top__contributors table:not(.rouge-table) th, .top__contributors table:not(.rouge-table) td, .top__contributors table:not(.rouge-table) td {
+        padding: 15px
+    }
+}
+
+@media only screen and (min-width: 1220px) {
+    .top__contributors table:not(.rouge-table) th, .top__contributors table:not(.rouge-table) th, .top__contributors table:not(.rouge-table) td, .top__contributors table:not(.rouge-table) td {
+        padding: 20px
+    }
+}
+
+.top__contributors table:not(.rouge-table) tr:nth-child(2n), .top__contributors table:not(.rouge-table) tr:nth-child(2n) {
+    background: #f4f5f6
 }

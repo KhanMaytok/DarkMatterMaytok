@@ -16,7 +16,7 @@ django-cors-headers==3.7.0
 readtime==1.1.1
 django-markdownx==3.0.1
 django-summernote==0.8.20.0
-social-auth-app-django==4.0.0
+social-auth-app-django==5.0.0
 django_compressor==2.4.1
 django-redis==4.12.1
 django-dbbackup==3.3.0

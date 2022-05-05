@@ -1,5 +1,3 @@
-import json
-
 from django.contrib import admin
 
 from django_json_widget.widgets import JSONEditorWidget

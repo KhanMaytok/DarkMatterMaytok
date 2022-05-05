@@ -47,9 +47,10 @@
                             </a>
                         {% endif %}
                     </div>
+
                     {% if post.project != None %}
                         <div class="project__wrapper">
-                            <div class="sts animate__animated" data-amt="3514">
+                            <div class="sts animate__animated">
                             <span class="solaris__per__project "
                                   id="solaris__per__project">{{ post.project.amount|format_maytok_currency }}</span>
                             </div>
@@ -57,9 +58,29 @@
                             <button type="button" class="btn add" id="fund" data-projectid="{{ post.project.id }}"
                                     data-projectamount="{{ post.project.amount }}">Patrocinar
                                 projecto {{ post.project.name }}</button>
+
+                        </div>
+                        <div class="top__contributors">
+                        <h5>Top patrocinadores para {{ post.project.name }}</h5>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Patrocinador</th>
+                                    <th>Cantidad</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for contributor in post.project.projectuser_set.all|dictsort:"amount" %}
+                                    <tr>
+                                    <td>{{ contributor.user.username }}</td>
+                                    <td>{{ contributor.amount|format_maytok_currency }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
                         </div>
                     {% endif %}
 
+                    {% comment %}
                     <section id="comments-wrapper">
                         <a id="comments"></a>
                         <div id="form-wrapper">
@@ -78,6 +99,8 @@
                             {% render_xtdcomment_tree for post %}
                         </ol>
                     </section>
+                    {% endcomment %}
+
                 </div>
             </section>
         </div>

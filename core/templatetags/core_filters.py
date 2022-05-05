@@ -18,7 +18,7 @@ def make_list_from_dots(value: str) -> List[str]:
 
 @register.filter(is_safe=True)
 @stringfilter
-def format_maytok_currency(currency: str) -> str:
+def format_maytok_currency(currency) -> str:
     """
     return the currency formatted in base 1024
     """
