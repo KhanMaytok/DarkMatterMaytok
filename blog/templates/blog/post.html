@@ -61,7 +61,7 @@
 
                         </div>
                         <div class="top__contributors">
-                        <h5>Top patrocinadores para {{ post.project.name }}</h5>
+                        <h5>Top 5 patrocinadores para {{ post.project.name }}</h5>
                             <table>
                                 <thead>
                                 <tr>
@@ -70,7 +70,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for contributor in post.project.projectuser_set.all|dictsortreversed:"amount" %}
+                                {% for contributor in post.project.projectuser_set.all|slice:":5"|dictsortreversed:"amount" %}
                                     <tr>
                                     <td>{{ contributor.user.username }}</td>
                                     <td>{{ contributor.amount|format_maytok_currency }}</td>
