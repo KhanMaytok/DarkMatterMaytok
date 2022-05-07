@@ -42,6 +42,7 @@ class Post(BaseModel):
 class Project(BaseModel):
     name = models.CharField(max_length=255)
     slug = models.SlugField(null=True, default=slugify(name))
+    log = models.TextField(null=True)
     amount = models.BigIntegerField(null=True, default=0)
 
     def save(self, *args, **kwargs):
