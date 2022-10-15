@@ -170,6 +170,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets"),
+    os.path.join(BASE_DIR, "build_books"),
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
