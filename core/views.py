@@ -35,6 +35,11 @@ def signup(request):
 
 
 def send_mail(founder_email):
+    """
+    static email
+    :param founder_email:
+    :return:
+    """
     from django.core.mail import EmailMessage
     from django.template.loader import get_template
 
