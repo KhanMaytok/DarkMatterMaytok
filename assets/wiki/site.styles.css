@@ -1,4 +1,3 @@
-@import url(/load.php?debug=false&&allinone=0&lang=en&mode=articles&articles=MediaWiki:Mainpage.css&only=styles);
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;800;900&display=swap);
 
 .plainlinks a.external::after {
