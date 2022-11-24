@@ -14,6 +14,7 @@ class Infobox(BaseModel):
 class Article(BaseModel):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
+    quote = models.TextField(null=True)
     content = models.TextField()
     infobox = models.ForeignKey(Infobox, on_delete=models.SET_NULL, null=True)
     infobox_content = models.JSONField(default=dict)
