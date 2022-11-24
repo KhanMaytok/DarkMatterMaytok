@@ -1,0 +1,395 @@
+@import url(/load.php?debug=false&&allinone=0&lang=en&mode=articles&articles=MediaWiki:Mainpage.css&only=styles);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;800;900&display=swap);
+
+.plainlinks a.external::after {
+    display: none
+}
+
+#eraicons {
+    display: block
+}
+
+#eraicons a::after, #appearanceicons a::after {
+    display: none
+}
+
+.MainPageTable {
+    width: 100%;
+    height: 59px;
+    background: lightgray;
+    text-align: center;
+    border-radius: 0 0 5px 5px;
+    border-spacing: 0;
+    margin: 0 auto 15px
+}
+
+.MainPageTable td {
+    position: relative;
+    color: black;
+    padding-bottom: 6px
+}
+
+.MainPageTable td div span {
+    width: 30px;
+    height: 30px
+}
+
+.MainPageTable td[class^="mp-"] div span {
+    content: "";
+    display: block;
+    -webkit-mask-size: 30px 30px;
+    mask-size: 30px 30px;
+    margin: 0 auto
+}
+
+.MainPageTable td[class^="mp-"]:hover div span {
+    background-color: #FFFFFF
+}
+
+.MainPageTable td > a.image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4
+}
+
+.MainPageTable td a.image img {
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%
+}
+
+.MainPageTable td[class^="mp-"] > div {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    left: 0;
+    z-index: 2
+}
+
+.MainPageTable td[class^="mp-"]:before, .MainPageTable td[class^="mp-"]:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 1px;
+    bottom: 59px;
+    left: 1px;
+    z-index: 1;
+    background-color: #919191
+}
+
+.MainPageTable td[class^="mp-"]:after {
+    top: auto;
+    bottom: 0;
+    height: 5px
+}
+
+.MainPageTable td[class^="mp-"]:first-child:before, .MainPageTable td[class^="mp-"]:first-child:after {
+    left: 0;
+    border-radius: 0 0 0 5px
+}
+
+.MainPageTable td[class^="mp-"]:last-child:before, .MainPageTable td[class^="mp-"]:last-child:after {
+    right: 0;
+    border-radius: 0 0 5px 0
+}
+
+.MainPageTable td[class^="mp-"]:before {
+    animation-name: shutter-reverse;
+    animation-duration: 0.15s;
+    animation-timing-function: linear
+}
+
+.MainPageTable td[class^="mp-"]:hover:before {
+    animation-name: shutter;
+    bottom: 0
+}
+
+@keyframes shutter {
+    0% {
+        bottom: auto
+    }
+    10% {
+        bottom: calc(9 / 10 * 59px)
+    }
+    20% {
+        bottom: calc(8 / 10 * 59px)
+    }
+    30% {
+        bottom: calc(7 / 10 * 59px)
+    }
+    40% {
+        bottom: calc(6 / 10 * 59px)
+    }
+    50% {
+        bottom: calc(5 / 10 * 59px)
+    }
+    60% {
+        bottom: calc(4 / 10 * 59px)
+    }
+    70% {
+        bottom: calc(3 / 10 * 59px)
+    }
+    80% {
+        bottom: calc(2 / 10 * 59px)
+    }
+    90% {
+        bottom: calc(1 / 10 * 59px)
+    }
+    100% {
+        bottom: 0
+    }
+}
+
+@keyframes shutter-reverse {
+    0% {
+        bottom: 0
+    }
+    10% {
+        bottom: calc(1 / 10 * 59px)
+    }
+    20% {
+        bottom: calc(2 / 10 * 59px)
+    }
+    30% {
+        bottom: calc(3 / 10 * 59px)
+    }
+    40% {
+        bottom: calc(4 / 10 * 59px)
+    }
+    50% {
+        bottom: calc(5 / 10 * 59px)
+    }
+    60% {
+        bottom: calc(6 / 10 * 59px)
+    }
+    70% {
+        bottom: calc(7 / 10 * 59px)
+    }
+    80% {
+        bottom: calc(8 / 10 * 59px)
+    }
+    90% {
+        bottom: calc(9 / 10 * 59px)
+    }
+    100% {
+        bottom: auto
+    }
+}
+
+.MainPageTable .mp-gray div .mp-home, .MainPageTable .mp-gray div .mp-dlcs, .MainPageTable .mp-gray div .mp-comics, .MainPageTable td.mp-gray:before, .MainPageTable td.mp-gray:after {
+    background-color: #919191
+}
+
+.MainPageElement.mp-gray .mp-banner {
+    background-color: #6B6B6B
+}
+
+.MainPageElement.mp-gray .caption .embeddable-discussions-threads {
+    border-color: #6B6B6B
+}
+
+.MainPageElement.mp-gray:hover .mp-banner {
+    background-color: #313131
+}
+
+.MainPageElement.mp-gray .mp-banner a {
+    color: #E6BC2F
+}
+
+.MainPageTable .mp-blue div .mp-games, .MainPageTable .mp-blue div .mp-novels, .MainPageTable .mp-blue div .mp-films, .MainPageElement.mp-blue .mp-banner, .MainPageTable td.mp-blue:before, .MainPageTable td.mp-blue:after {
+    background-color: #1B53BA
+}
+
+.MainPageTable td div .mp-home {
+    -webkit-mask-image: url(https://vignette.wikia.nocookie.net/ursuul/images/9/9a/Home.png);
+    mask-image: url(https://vignette.wikia.nocookie.net/ursuul/images/9/9a/Home.png)
+}
+
+.MainPageTable td div .mp-games {
+    -webkit-mask-image: url(https://vignette.wikia.nocookie.net/343theguiltyprophet/images/d/d4/Xbox.png/revision/latest);
+    mask-image: url(https://vignette.wikia.nocookie.net/343theguiltyprophet/images/d/d4/Xbox.png/revision/latest)
+}
+
+.MainPageTable td div .mp-dlcs {
+    -webkit-mask-image: url(https://vignette.wikia.nocookie.net/halo/images/3/3a/Mythic_map_pack_logo.png/revision/latest);
+    mask-image: url(https://vignette.wikia.nocookie.net/ursuul/images/4/45/TCG.png)
+}
+
+.MainPageTable td div .mp-novels {
+    -webkit-mask-image: url(https://vignette.wikia.nocookie.net/halo/images/2/29/HN_Icon_Navigation-Novels.png/revision/latest);
+    mask-image: url(https://vignette.wikia.nocookie.net/halo/images/2/29/HN_Icon_Navigation-Novels.png/revision/latest)
+}
+
+.MainPageTable td div .mp-comics {
+    -webkit-mask-image: url(https://vignette.wikia.nocookie.net/halo/images/5/53/HN_Icon_Navigation-Comics.png/revision/latest);
+    mask-image: url(https://vignette.wikia.nocookie.net/halo/images/5/53/HN_Icon_Navigation-Comics.png/revision/latest)
+}
+
+.MainPageTable td div .mp-films {
+    -webkit-mask-image: url(https://vignette.wikia.nocookie.net/343theguiltyprophet/images/0/0a/Films.png/revision/latest);
+    mask-image: url(https://vignette.wikia.nocookie.net/343theguiltyprophet/images/0/0a/Films.png/revision/latest)
+}
+
+.MainPageElement {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    -webkit-perspective: 1000;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 15px
+}
+
+.WikiaArticle .MainPageElement .mp-banner {
+    margin-right: 0;
+    margin-left: 0
+}
+
+.MainPageElement .mp-banner {
+    order: 1;
+    background-color: #D3D3D3;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+    transition: background-color 0.1s linear
+}
+
+.MainPageElement:hover .mp-banner {
+    background-color: #BABABA
+}
+
+.MainPageElement .mp-banner h2 {
+    font-weight: bold;
+    font-size: 22px;
+    font-family: Rubik, Arial, sans-serif;
+    line-height: 27px;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 0
+}
+
+.MainPageElement .mp-banner .caption {
+    margin-bottom: 0
+}
+
+.MainPageElement .mp-banner .caption, .MainPageElement .mp-banner h2 {
+    color: black
+}
+
+.MainPageElement.items .mp-banner .caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly
+}
+
+.MainPageElement .mp-images {
+    border-radius: 5px
+}
+
+.MainPageElement .mp-banner + .mp-images {
+    border-radius: 5px 5px 0 0
+}
+
+.MainPageElement .mp-images > img {
+    width: 100%;
+    height: auto
+}
+
+.MainPageElement .mp-link a {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0
+}
+
+.MainPageElement .mp-link a img {
+    width: 100%;
+    height: 100%
+}
+
+.MainPageElement-container {
+    display: flex;
+    align-items: flex-start
+}
+
+.MainPageElement-container .MainPageElement .mp-images > img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    max-height: 190px;
+    margin-bottom: -1px
+}
+
+.MainPageElement-container .MainPageElement:not(:first-child) {
+    margin-left: 15px
+}
+
+.mainpage #mw-content-text {
+    padding-top: 5px
+}
+
+.MainPageElement:hover {
+    animation-name: hop;
+    animation-duration: 0.2s;
+    animation-timing-function: linear
+}
+
+@keyframes hop {
+    50% {
+        margin-top: -5px;
+        margin-bottom: 20px
+    }
+}
+
+.MainPageElement.mp-gray .mp-banner {
+    background-color: #6B6B6B
+}
+
+.MainPageElement.mp-gray .caption .embeddable-discussions-threads {
+    border-color: #6B6B6B
+}
+
+.MainPageElement.mp-gray:hover .mp-banner {
+    background-color: #313131
+}
+
+.MainPageElement.mp-gray .mp-banner a {
+    color: #1B53BA
+}
+
+.MainPageElement-3-tables {
+    width: 100%;
+    font-size: 95%;
+    text-align: justify
+}
+
+.MainPageElement-3-tables td {
+    vertical-align: top;
+    padding: 0 13px 5px;
+    width: 33%
+}
+
+.MainPageElement-3-tables .title {
+    font-weight: bold;
+    border-bottom: 1px solid #313131
+}
+
+.MainPage-Justify .mp-banner .caption ul {
+    text-align: justify;
+    position: relative;
+    left: 10px
+}
+
+.MainPage-Justify .mp-banner .caption {
+    text-align: left
+}
