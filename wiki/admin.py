@@ -10,6 +10,7 @@ class ArticleAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminMartorWidget},
     }
+    exclude = ['slug', 'user']
 
 
 admin.site.register(Article, ArticleAdmin)
