@@ -53,6 +53,7 @@ urlpatterns = [
     path('', include('books.urls')),
     path('', include('blog.urls')),
     path('', include('social_django.urls', namespace='social')),
+    path('wiki/', include('wiki.urls')),
 
     path('swagger.json', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger.yaml', schema_view.without_ui(cache_timeout=0), name='schema-yaml'),
