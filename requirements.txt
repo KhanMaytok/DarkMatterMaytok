@@ -2,7 +2,6 @@ dj-config-url
 sqlparse==0.4.2
 Django==3.2.16
 djangorestframework==3.14.0
-markdown==3.4.1
 django-filter==22.1
 django-heroku==0.3.1
 gunicorn==20.1.0
