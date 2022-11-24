@@ -314,7 +314,6 @@ PAGE_SIZE = 7
 LOG_TO_FILE = config('LOG_TO_FILE', cast=bool, default=False)
 
 if LOG_TO_FILE is True:
-    logfile_path = BASE_DIR / "django.log"
     LOGGING = {
         "version": 1,
         "disable_existing_loggers": False,
@@ -323,7 +322,7 @@ if LOG_TO_FILE is True:
             "file": {
                 "level": "INFO",
                 "class": "logging.FileHandler",
-                "filename": logfile_path,
+                "filename": "/var/log/django.log",
                 "formatter": "app",
             },
         },
