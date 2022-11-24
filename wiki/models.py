@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from martor.models import MartorField
 
 from core.models import BaseModel
 
@@ -14,8 +15,7 @@ class Infobox(BaseModel):
 class Article(BaseModel):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
-    quote = models.TextField(null=True)
-    content = models.TextField()
+    content = MartorField()
     infobox = models.ForeignKey(Infobox, on_delete=models.SET_NULL, null=True)
     infobox_content = models.JSONField(default=dict)
     is_draft = models.BooleanField(default=True)
