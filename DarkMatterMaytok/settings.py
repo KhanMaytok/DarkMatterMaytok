@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'books.apps.BooksConfig',
     'wallet.apps.WalletConfig',
+    'wiki.apps.WikiConfig',
     'rest_framework',
     'mptt',
     'drf_yasg',
