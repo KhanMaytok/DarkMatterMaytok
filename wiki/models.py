@@ -16,8 +16,8 @@ class Article(BaseModel):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     content = MartorField()
-    infobox = models.ForeignKey(Infobox, on_delete=models.SET_NULL, null=True)
-    infobox_content = models.JSONField(default=dict)
+    infobox = models.ForeignKey(Infobox, on_delete=models.SET_NULL, null=True, blank=True)
+    infobox_content = models.JSONField(default=dict, blank=True)
     is_draft = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
