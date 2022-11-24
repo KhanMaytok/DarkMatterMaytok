@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'dbbackup',
     'minio_storage',
     'django_json_widget',
-    'webpush',
+    'martor',
 ]
 
 MIDDLEWARE = [
