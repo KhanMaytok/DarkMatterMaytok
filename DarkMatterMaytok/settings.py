@@ -212,8 +212,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
-COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.JSMinFilter']
-COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.rCSSMinFilter']
 
 CACHE_TTL = 60 * 60 * 24  # 24 hours
 
